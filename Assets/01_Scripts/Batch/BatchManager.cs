@@ -2,19 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EnumList;
-
-[System.Serializable]
-public struct PuzzleData
-{
-    public Puzzle puzzleType;
-    public GameObject puzzleObj;
-}
+using StructList;
 
 public class BatchManager : MonoBehaviour
 {
     public static BatchManager Instance;//모노싱글톤에 리소스 비어있어서 일단은...
 
-    [SerializeField] private List<PuzzleData> puzzleList = new List<PuzzleData>();
+    [SerializeField] private List<PuzzleType> puzzleList = new List<PuzzleType>();
 
     private Dictionary<Puzzle, GameObject> puzzleDictionary = new Dictionary<Puzzle, GameObject>();
     private GameObject dragPuzzle;
@@ -23,7 +17,7 @@ public class BatchManager : MonoBehaviour
     {
         Instance = this;
 
-        foreach (PuzzleData puzzleData in puzzleList)
+        foreach (PuzzleType puzzleData in puzzleList)
         {
             puzzleDictionary.Add(puzzleData.puzzleType, puzzleData.puzzleObj);
         }
