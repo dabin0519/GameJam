@@ -23,6 +23,8 @@ public class BatchUI : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointe
 
     public void OnPointerDown(PointerEventData eventData) //Ã¢ Å¬¸¯
     {
+        if (StageSystem.Instance.IsPlay) return;
+
         if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<PuzzleImage>(out PuzzleImage puzzleImage))
         {
             if (puzzleImage.Cnt <= 0)
