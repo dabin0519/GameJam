@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6183159374935666220}
   - component: {fileID: 3635793845537128474}
   m_Layer: 0
-  m_Name: JumpEffect
+  m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
