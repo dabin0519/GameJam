@@ -12,6 +12,7 @@ public class BatchManager : MonoBehaviour
 
     private Dictionary<Puzzle, GameObject> puzzleDictionary = new Dictionary<Puzzle, GameObject>();
     private GameObject dragPuzzle;
+    private PuzzleImage dragImage;
 
     private void Awake()
     {
@@ -23,9 +24,10 @@ public class BatchManager : MonoBehaviour
         }
     }
 
-    public void PuzzleCreate(Vector2 batchPos, Puzzle puzzleEnum)
+    public void PuzzleCreate(Vector2 batchPos, Puzzle puzzleEnum, PuzzleImage puzzleImage)
     {
         dragPuzzle = Instantiate(puzzleDictionary[puzzleEnum]);
+        dragImage = puzzleImage;
         PuzzleMove(batchPos);
     }
 
@@ -42,8 +44,13 @@ public class BatchManager : MonoBehaviour
 
         if (BatchCheck.batchble)
         {
-            dragPuzzle.GetComponent<BatchCheck>().enabled = false;
-            dragPuzzle.GetComponent<Collider2D>().enabled = true;
+            BatchCheck batchCheck = dragPuzzle.GetComponent<BatchCheck>();
+            batchCheck.BatchClear();
+
+            dragImage.Cnt--;
+
+            dragPuzzle = null;
+            dragImage = null;
 
             //¿Ã∆—∆Æ √≥∏Æ
         }

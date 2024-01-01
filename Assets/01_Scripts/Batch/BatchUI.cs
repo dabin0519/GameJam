@@ -25,16 +25,21 @@ public class BatchUI : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointe
     {
         if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<PuzzleImage>(out PuzzleImage puzzleImage))
         {
+            if (puzzleImage.Cnt <= 0)
+            {
+                Debug.Log("Not enough puzzle");
+                return;
+            }
             puzzle = puzzleImage.puzzle;
         }
         else
         {
-            Debug.Log("Not PuzzleImage");
+            Debug.Log($"{eventData.pointerCurrentRaycast.gameObject.name} Is not puzzleImage");
             return;
         }
 
         Vector2 mousePos = mainCam.ScreenToWorldPoint(eventData.position);
-        BatchManager.Instance.PuzzleCreate(mousePos, puzzle);
+        BatchManager.Instance.PuzzleCreate(mousePos, puzzle, puzzleImage);
     }
 
     public void OnPointerUp(PointerEventData eventData) //드래그 놓을때

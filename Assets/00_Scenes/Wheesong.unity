@@ -310,9 +310,9 @@ MonoBehaviour:
   - puzzleType: 1
     puzzleObj: {fileID: 4507697116647147531, guid: 3fb6a88dafb570b4db685e4005d59d4c, type: 3}
   - puzzleType: 2
-    puzzleObj: {fileID: 6153219956768644412, guid: 05b076d7ac612954db4da6e9311d786c, type: 3}
+    puzzleObj: {fileID: 2584193002586921774, guid: 8a36e472754f1ab46bf7c98a0525641b, type: 3}
   - puzzleType: 3
-    puzzleObj: {fileID: 2600514059417417488, guid: 60ce8eec8a00cd242b291d92e29b389d, type: 3}
+    puzzleObj: {fileID: 4507697116647147531, guid: b87b15170502c904ba59dc75ba80838f, type: 3}
 --- !u!4 &508786444
 Transform:
   m_ObjectHideFlags: 0
@@ -740,10 +740,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleImages:
-  - {fileID: 546925844497240694, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-  - {fileID: 838933191754514738, guid: 7304ee0ca180821429afcc92b7203788, type: 3}
-  - {fileID: 852820357182718626, guid: 05b076d7ac612954db4da6e9311d786c, type: 3}
-  - {fileID: -1598433887143666013, guid: 60ce8eec8a00cd242b291d92e29b389d, type: 3}
+  - {fileID: 7814999463026265675, guid: 04b79afec5c92b74995c945490772e4e, type: 3}
+  - {fileID: 7814999463026265675, guid: 9fc62d1e02d4fbb4cb9e015b038f01b5, type: 3}
+  - {fileID: 7814999463026265675, guid: 173af87d6f3929e45bcb08e9b0475208, type: 3}
+  - {fileID: 7814999463026265675, guid: 27f9d3004b8c9f6409fec296747a3a5c, type: 3}
   stageData:
   - map: {fileID: 176033042228144606, guid: cbe7d1fc513e11840b705509b22d59be, type: 3}
     puzzleDatas:

@@ -19,9 +19,9 @@ public class StageSystem : MonoBehaviour
 
         foreach (PuzzleData puzzleData in stageData[currentStage].puzzleDatas) //ÆÛÁñ »ý¼º
         {
-            PuzzleImage settingPuzzle = puzzleImages.Find(p => p.puzzle == puzzleData.puzzleType);
-            settingPuzzle.cnt = puzzleData.puzzleCnt;
-            Instantiate(settingPuzzle, settingPanel.transform);
+            //PuzzleImage settingPuzzle = puzzleImages.Find(p => p.puzzle == puzzleData.puzzleType);
+            PuzzleImage settingPuzzle = Instantiate(puzzleImages.Find(p => p.puzzle == puzzleData.puzzleType), settingPanel.transform);
+            settingPuzzle.Cnt = puzzleData.puzzleCnt;
         }
     }
 }
