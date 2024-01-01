@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerHP : MonoBehaviour
 {
     [SerializeField] private int _maxHP;
+    [SerializeField] private GameObject _shield;
 
     private PlayerController _playerController;
-    private int _hp;
-    private bool _shield = false;
 
-    public bool Shield { get { return _shield; } set { _shield = value; } }
+    private int _hp;
+    private bool _isShield = false;
+
     public int HP { get { return _hp; } set { _hp = value; } }
 
     private void Awake()
@@ -30,7 +32,15 @@ public class PlayerHP : MonoBehaviour
 
     public void Damage(int damage = 1)
     {
-        if(!_shield)
+        if (!_isShield)
             _hp -= damage;
+        else
+            Shield(false);
+    }
+
+    public void Shield(bool value)
+    {
+        _isShield = value;
+        _shield.SetActive(value);
     }
 }
