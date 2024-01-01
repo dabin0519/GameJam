@@ -16,27 +16,45 @@ public class PlayerController : MonoBehaviour
     [Header("--Anim info--")]
     [SerializeField] private float _increaseScaleY;
     [SerializeField] private float _increaseDuration;
+    [SerializeField] private float _deathJumpForce;
 
     public UnityEvent JumpEvent;
+    public bool Active;
 
-    [SerializeField] private Vector3 _moveDir;
-
+    private Vector3 _moveDir;
     private Rigidbody2D _rigidbody2D;
     private float _defultScaleY;
+    private Animator _animator;
 
     public Vector3 MoveDir { get { return _moveDir; } set { _moveDir = value; } }
 
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = transform.Find("Visual").GetComponent<Animator>();  
+
         _defultScaleY = transform.localScale.y;
+        _moveDir = new Vector3(1, 0, 0);
+
         StartCoroutine(DefualtJump());
     }
 
+    private bool _isOneCall;
+
     private void Update()
     {
-        Movement();
-        Flip();
+        if(Active)
+        {
+            Movement();
+            Flip();
+        }
+        else if(!_isOneCall)
+        {
+            _animator.SetTrigger("Die");
+            Jump(_deathJumpForce);
+            StopAllCoroutines();
+            _isOneCall = true;
+        }
     }
 
     private void Movement()
@@ -80,10 +98,12 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGroundDected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
 
+#if UNITY_EDITOR
     protected virtual void OnDrawGizmos()
     {
         if (_groundChecker != null)
             Gizmos.DrawLine(_groundChecker.position,
                 _groundChecker.position + new Vector3(0, -_groundCheckDistance, 0));
     }
+#endif
 }
