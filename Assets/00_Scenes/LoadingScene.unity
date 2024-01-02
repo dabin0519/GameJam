@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tipText: {fileID: 1286530833}
   _tipSO: {fileID: 11400000, guid: c2735257ccfc96d4ead504548d770a63, type: 2}
-  _minLoadingTime: 2
+  _minLoadingDuration: 2
 --- !u!1 &1286530831
 GameObject:
   m_ObjectHideFlags: 0
