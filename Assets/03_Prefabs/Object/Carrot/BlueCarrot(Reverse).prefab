@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3327983362807807249}
   - component: {fileID: 7266428747233190447}
   - component: {fileID: 2019585968664562968}
-  - component: {fileID: 7592555660366109615}
   m_Layer: 0
   m_Name: BlueCarrot(Reverse)
   m_TagString: Untagged
@@ -170,17 +169,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06963fce1e15c3146ba898f63dd73536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7592555660366109615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2366238225732124411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d8588220b51c4640a9bbfeb5c0d28fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

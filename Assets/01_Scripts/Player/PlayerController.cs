@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _deathJumpForce;
 
     public UnityEvent JumpEvent;
-    public bool Active { get; set; } = false;
+    public bool Active { get; set; } = true;
 
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
         _moveDir = new Vector3(1, 0, 0);
         _circleColiderRadius = _circleCollider2D.radius;
 
+        Debug.LogWarning("임시코드임");
         StartCoroutine(DefualtJump());
     }
 
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             SlopeCheck();
             Flip();
+            //transform.position += _moveDir.normalized * 3f * Time.deltaTime;
         }
         else if(!_isOneCall && _isDie)
         {
@@ -72,6 +74,19 @@ public class PlayerController : MonoBehaviour
         
         if(!Active)
             StopAllCoroutines();
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Movement(9);
+        }
+    }
+
+    public void OnStart()
+    {
+        StartCoroutine(DefualtJump());
+
+        Movement(9);
+        Active = true;
     }
     
     #region Slope
