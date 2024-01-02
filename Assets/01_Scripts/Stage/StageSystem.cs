@@ -23,17 +23,16 @@ public class StageSystem : MonoBehaviour, ISaveManager
     [SerializeField] private List<StageData> stageData;
 
     [Header("寇何曼炼")]
-    [SerializeField] private Button playBtn;
     [SerializeField] private Transform settingPanel;
-    [SerializeField] private Transform clearPanel;
+    [SerializeField] private TextMeshProUGUI timeText;
 
     [Header("橇府普")]
     [SerializeField] private Image starImage;
 
-    private TextMeshProUGUI timeText;
-    private RectTransform starPanel;
-    private Button stageBtn;
-    private Button nextBtn;
+    //private TextMeshProUGUI timeText;
+    //private RectTransform starPanel;
+    //private Button stageBtn;
+    //private Button nextBtn;
 
     private GameData gameData;
 
@@ -51,18 +50,22 @@ public class StageSystem : MonoBehaviour, ISaveManager
         if (!IsPlay)
         {
             currentPlayTime -= Time.deltaTime;
+            timeText.text = currentPlayTime.ToString("##");
         }
 
         if (currentPlayTime <= 0)
         {
             IsPlay = true;
             currentPlayTime = 999;
+            timeText.gameObject.SetActive(false);
             OnStartEvt?.Invoke();
         }
     }
 
     private void LoadStage()
     {
+        currentPlayTime = stageData[currentStage].playTime;
+
         Instantiate(stageData[currentStage].map); //甘 积己
 
         foreach (PuzzleData puzzleData in stageData[currentStage].puzzleDatas) //欺榴 积己
