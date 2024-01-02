@@ -8,6 +8,7 @@ public class JumpCarrot : Carrot
 
     protected override void CarrotAbility()
     {
+        base.CarrotAbility();
         _player.Jump(_jumpForce);
     }
 }

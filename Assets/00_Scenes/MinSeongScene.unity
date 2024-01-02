@@ -535,7 +535,8 @@ MonoBehaviour:
   - {fileID: 7814999463026265675, guid: 173af87d6f3929e45bcb08e9b0475208, type: 3}
   - {fileID: 7814999463026265675, guid: 27f9d3004b8c9f6409fec296747a3a5c, type: 3}
   stageData:
-  - map: {fileID: 176033042228144606, guid: cbe7d1fc513e11840b705509b22d59be, type: 3}
+  - playTime: 0
+    map: {fileID: 176033042228144606, guid: cbe7d1fc513e11840b705509b22d59be, type: 3}
     puzzleDatas:
     - puzzleType: 0
       puzzleCnt: 4
@@ -545,9 +546,8 @@ MonoBehaviour:
       puzzleCnt: 2
     - puzzleType: 3
       puzzleCnt: 1
-  playBtn: {fileID: 245061445}
   settingPanel: {fileID: 1135968735}
-  clearPanel: {fileID: 0}
+  timeText: {fileID: 0}
   starImage: {fileID: 4517159478896047358, guid: 5e50577feb60e0b41a531177ba5ad48d, type: 3}
 --- !u!4 &492303421
 Transform:
