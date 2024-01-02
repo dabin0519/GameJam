@@ -10,10 +10,10 @@ public class StarViewer : MonoBehaviour, ISaveManager
 
     public void LoadData(GameData data)
     {
-        for (int i = 0; i < data.star[stageIdx]; i++)
-        {
-            Instantiate(starImage, transform);
-        }
+        //for (int i = 0; i < data.star[stageIdx]; i++)
+        //{
+        //    Instantiate(starImage, transform);
+        //}
     }
 
     public void SaveData(ref GameData data)
