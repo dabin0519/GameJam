@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
-using System;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,7 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _deathJumpForce;
 
     public UnityEvent JumpEvent;
-    public bool Active;
+    public bool Active { get; set; } = false;
 
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
@@ -63,7 +61,6 @@ public class PlayerController : MonoBehaviour
         if(Active)
         {
             SlopeCheck();
-            //Movement();
             Flip();
         }
         else if(!_isOneCall && _isDie)
@@ -172,6 +169,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Movement(int r)
+    {
+        StartCoroutine(MovementCoroutine(r));
+    }
+
+    private IEnumerator MovementCoroutine(int r)
+    {
+        for (int i = 0; i < r; i++)
+        {
+            float startPos = transform.position.x;
+            float value = _moveDir.x >= 0 ? 1 : -1;
+            float endPos = startPos + value;
+
+            transform.DOMoveX(endPos, _moveDuration);
+            yield return new WaitForSeconds(_moveDuration);
+        }
+    }
+
     #region Coroutine
     private IEnumerator DefualtJump()
     {
@@ -192,15 +207,6 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region public
-    public void Movement(int moveValue = 3)
-    {
-        //transform.position += _moveDir.normalized * _moveSpeed * Time.deltaTime;
-        float startPosX = transform.position.x;
-        float value = _moveDir.x >= 0 ? moveValue : -moveValue;
-        float endPosX = startPosX + value;
-
-        transform.DOMoveX(endPosX, _moveDuration).SetEase(Ease.Linear);
-    }
 
     public void Jump(float jumpVelocity)
     {

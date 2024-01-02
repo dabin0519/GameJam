@@ -10,10 +10,16 @@ public class BatchCheck : MonoBehaviour
     private Collider2D col;
     private bool batchClear;
 
+    public bool BatchClearPro { get { return batchClear; } set { batchClear = value; } }
+
+    private Color _currentColor;
+
     private void Awake()
     {
         batchAreaRenderer = GetComponent<SpriteRenderer>();
         col = GetComponent<Collider2D>();
+
+        _currentColor = batchAreaRenderer.color;
     }
 
     private void Update()
@@ -41,7 +47,7 @@ public class BatchCheck : MonoBehaviour
 
     public void BatchClear()
     {
-        batchAreaRenderer.color = Color.white;
+        batchAreaRenderer.color = _currentColor;
         col.enabled = true;
         batchClear = true;
     }

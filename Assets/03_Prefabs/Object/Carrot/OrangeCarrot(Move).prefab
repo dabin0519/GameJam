@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1829546600158436837}
   - component: {fileID: 339356288779030008}
   - component: {fileID: 2579410081895276260}
+  - component: {fileID: 6516146520414712543}
   m_Layer: 0
   m_Name: OrangeCarrot(Move)
   m_TagString: Untagged
@@ -172,3 +173,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveCount: 3
+--- !u!114 &6516146520414712543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7743103587511897123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8588220b51c4640a9bbfeb5c0d28fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
