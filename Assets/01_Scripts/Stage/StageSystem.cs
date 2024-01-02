@@ -43,6 +43,7 @@ public class StageSystem : MonoBehaviour, ISaveManager
     private void Awake()
     {
         Instance = this;
+        LoadStage();
     }
 
     private void Update()

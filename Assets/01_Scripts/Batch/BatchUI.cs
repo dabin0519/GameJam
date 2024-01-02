@@ -23,6 +23,7 @@ public class BatchUI : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointe
 
     public void OnPointerDown(PointerEventData eventData) //창 클릭
     {
+        Debug.Log("클릭");
         if (StageSystem.Instance.IsPlay) return;
 
         if (eventData.pointerCurrentRaycast.gameObject.TryGetComponent<PuzzleImage>(out PuzzleImage puzzleImage))
