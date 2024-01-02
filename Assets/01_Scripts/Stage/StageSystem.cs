@@ -8,7 +8,7 @@ using TMPro;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class StageSystem : MonoBehaviour, ISaveManager
+public class StageSystem : MonoBehaviour
 {
     public static StageSystem Instance;
 
@@ -38,6 +38,9 @@ public class StageSystem : MonoBehaviour, ISaveManager
 
     private int currentStage;
     private float currentPlayTime = 0f;
+
+    private int _clearAmount;
+    private int _heart;
 
     private void Awake()
     {
@@ -86,25 +89,14 @@ public class StageSystem : MonoBehaviour, ISaveManager
 
     private void GameClear()
     {
-        gameData.clearAmount++;
+        _clearAmount++; // 이게 아니라 ClearAmount++; ㅉ
         SceneManager.LoadScene("LoadingScene");
     }
 
     private void GameLose()
     {
-        gameData.heart--;
+        _heart--;
         SceneManager.LoadScene("LoadingScene");
-    }
-
-    public void LoadData(GameData data)
-    {
-        gameData = data;
-        currentStage = data.stage;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        
     }
 
     //private void GameClear() //OnClearEvt도착지에서 ?.Invoke() 해주면 완료

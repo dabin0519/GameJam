@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SaveManager : MonoSingleton<SaveManager>
+public class SaveManager : MonoBehaviour //MonoSingleton<SaveManager>
 {
     [SerializeField] private string _fileName;
 

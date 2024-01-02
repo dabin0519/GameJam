@@ -53,9 +53,6 @@ public class PlayerController : MonoBehaviour
         _defultScaleY = transform.localScale.y;
         _moveDir = new Vector3(1, 0, 0);
         _circleColiderRadius = _circleCollider2D.radius;
-
-        Debug.LogWarning("임시코드임");
-        StartCoroutine(DefualtJump());
     }
 
     private void Update()

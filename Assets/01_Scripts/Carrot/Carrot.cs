@@ -30,7 +30,10 @@ public abstract class Carrot : MonoBehaviour
         }
     }
 
-    protected abstract void CarrotAbility();
+    protected virtual void CarrotAbility()
+    {
+        _player.Movement(9);
+    }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {

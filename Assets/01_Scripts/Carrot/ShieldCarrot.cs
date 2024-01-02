@@ -6,6 +6,7 @@ public class ShieldCarrot : Carrot
 {
     protected override void CarrotAbility()
     {
+        base.CarrotAbility();
         _playerHP.Shield(true);
     }
 }

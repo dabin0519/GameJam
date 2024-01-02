@@ -6,6 +6,7 @@ public class ReverseCarrot : Carrot
 {
     protected override void CarrotAbility()
     {
+        base.CarrotAbility();
         Vector3 player = _player.MoveDir;
         _player.MoveDir = new Vector3(-player.x, player.y);
     }
