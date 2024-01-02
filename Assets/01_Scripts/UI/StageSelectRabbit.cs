@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StageSelectRabbit : MonoBehaviour, ISaveManager
 {
-    [SerializeField] private Image starImage;
     [SerializeField] private float _moveSpeed = 5f;
 
     [SerializeField] private List<Transform> _roadPoints;
@@ -14,6 +14,7 @@ public class StageSelectRabbit : MonoBehaviour, ISaveManager
 
     private GameData gameData;
     private int _roadIdx;
+    private int _stageIdx;
 
     private void Start()
     {
@@ -33,6 +34,8 @@ public class StageSelectRabbit : MonoBehaviour, ISaveManager
     public void SetRabbitMove(int stageIdx)
     {
         StopAllCoroutines();
+
+        _stageIdx = stageIdx;
         for (int i = 0; i < _roadPoints.Count; i++)
         {
             if (_roadPoints[i] == _stagePoints[stageIdx - 1])
@@ -71,6 +74,8 @@ public class StageSelectRabbit : MonoBehaviour, ISaveManager
                 else
                 {
                     Debug.Log("µµÂø");
+                    SaveData(ref gameData);
+                    SceneManager.LoadScene("Wheesong");
                     break;
                 }
             }
@@ -81,11 +86,10 @@ public class StageSelectRabbit : MonoBehaviour, ISaveManager
     public void LoadData(GameData data)
     {
         gameData = data;
-        
     }
 
     public void SaveData(ref GameData data)
     {
-        
+        data.stage = _stageIdx;
     }
 }

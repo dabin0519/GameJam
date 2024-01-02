@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/Dabin.unity
     guid: 498383c6a761ac14ba9987e12301baf1
+  - enabled: 1
+    path: Assets/00_Scenes/MinSeongScene.unity
+    guid: d2e59f174e467e94d8d3f3035bd2b305
+  - enabled: 1
+    path: Assets/00_Scenes/Wheesong.unity
+    guid: 5ef0c443b0218f24f9b5bba9402427e7
   m_configObjects: {}
