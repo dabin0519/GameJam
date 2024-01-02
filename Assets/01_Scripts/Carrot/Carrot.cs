@@ -18,7 +18,8 @@ public abstract class Carrot : MonoBehaviour
         _batchCheck = GetComponent<BatchCheck>();
         _collider = GetComponent<Collider2D>();
 
-        _collider.enabled = false;
+        if(_batchCheck != null)
+            _collider.enabled = false;
     }
 
     protected virtual void Update()

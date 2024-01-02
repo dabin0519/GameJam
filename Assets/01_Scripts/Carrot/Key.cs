@@ -13,12 +13,11 @@ public class Key : Carrot
     {
         base.Awake();
         _endFlag.IsKey = true;
-        StartCoroutine(KeyAnimCoroutine());
+       // StartCoroutine(KeyAnimCoroutine());
     }
 
     protected override void CarrotAbility()
     {
-        Debug.Log("??");
         _endFlag.IsKey = false;
     }
 

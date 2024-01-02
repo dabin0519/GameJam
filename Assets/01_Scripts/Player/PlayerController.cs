@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             SlopeCheck();
             Flip();
-            transform.position += _moveDir.normalized * 3f * Time.deltaTime;
+            //transform.position += _moveDir.normalized * 3f * Time.deltaTime;
         }
         else if(!_isOneCall && _isDie)
         {
@@ -74,12 +74,18 @@ public class PlayerController : MonoBehaviour
         
         if(!Active)
             StopAllCoroutines();
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Movement(9);
+        }
     }
 
-    public void OnActive()
+    public void OnStart()
     {
         StartCoroutine(DefualtJump());
 
+        Movement(9);
         Active = true;
     }
     

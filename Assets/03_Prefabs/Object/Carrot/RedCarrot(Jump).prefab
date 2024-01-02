@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7095952020015622096}
   - component: {fileID: 8985525864536384521}
   - component: {fileID: 1798077401891737881}
-  - component: {fileID: 3836119051226608926}
   m_Layer: 0
   m_Name: RedCarrot(Jump)
   m_TagString: Untagged
@@ -172,16 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e2655d399382d438613f6d77d7a2f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 5
---- !u!114 &3836119051226608926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535436164875887242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d8588220b51c4640a9bbfeb5c0d28fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _jumpForce: 6
