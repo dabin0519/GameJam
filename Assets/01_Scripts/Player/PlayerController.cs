@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
+using System;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("--Player info--")]
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _moveDuration;
     [SerializeField] private float _jumpForce;
     [SerializeField] private Transform _groundChecker;
     [SerializeField] private float _groundCheckDistance;
@@ -38,6 +40,8 @@ public class PlayerController : MonoBehaviour
     private float _slopeDownAngle;
     private float _lastSlopeAngle;
     private bool _canWalkOnSlope;
+    private bool _isDie;
+    private bool _isOneCall;
 
     public Vector3 MoveDir { get { return _moveDir; } set { _moveDir = value; } }
 
@@ -54,29 +58,26 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(DefualtJump());
     }
 
-    private bool _isOneCall;
-
     private void Update()
     {
         if(Active)
         {
             SlopeCheck();
-            Movement();
+            //Movement();
             Flip();
         }
-        else if(!_isOneCall)
+        else if(!_isOneCall && _isDie)
         {
             _animator.SetTrigger("Die");
             Jump(_deathJumpForce);
-            StopAllCoroutines();
             _isOneCall = true;
         }
+        
+        if(!Active)
+            StopAllCoroutines();
     }
-
-    private void Movement()
-    {
-        transform.position += _moveDir.normalized * _moveSpeed * Time.deltaTime;
-    }
+    
+    #region Slope
 
     private void SlopeCheck()
     {
@@ -157,6 +158,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #endregion
+
     private void Flip()
     {
         if (_moveDir.x < 0)
@@ -169,6 +172,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #region Coroutine
     private IEnumerator DefualtJump()
     {
         while(true)
@@ -185,11 +189,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region public
+    public void Movement(int moveValue = 3)
+    {
+        //transform.position += _moveDir.normalized * _moveSpeed * Time.deltaTime;
+        float startPosX = transform.position.x;
+        float value = _moveDir.x >= 0 ? moveValue : -moveValue;
+        float endPosX = startPosX + value;
+
+        transform.DOMoveX(endPosX, _moveDuration).SetEase(Ease.Linear);
+    }
+
     public void Jump(float jumpVelocity)
     {
         _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpVelocity);
         JumpEvent?.Invoke();
     }
+
+    public void Die()
+    {
+        _isDie = true;
+        Active = false;
+    }
+    #endregion
 
     private bool IsGroundDected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
 
