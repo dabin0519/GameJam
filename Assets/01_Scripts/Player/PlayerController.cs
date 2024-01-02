@@ -187,9 +187,26 @@ public class PlayerController : MonoBehaviour
 
     public void Movement(int r)
     {
-        _isMove = true;
+        if(_isMove)
+        {
+            // 이미 실행이 되고 있는건데
+            StartCoroutine(ChangeCoroutine());
+        }
+        else
+        {
+            _isMove = true;
+        }
+
         StartCoroutine(MovementCoroutine(r));
     }
+
+    private IEnumerator ChangeCoroutine()
+    {
+        yield return new WaitUntil(() => _isMove == false);
+        _isMove = true;
+    }
+
+    #region Coroutine
 
     private IEnumerator MovementCoroutine(int r)
     {
@@ -205,7 +222,6 @@ public class PlayerController : MonoBehaviour
         _isMove = false;
     }
 
-    #region Coroutine
     private IEnumerator DefualtJump()
     {
         while(true)
