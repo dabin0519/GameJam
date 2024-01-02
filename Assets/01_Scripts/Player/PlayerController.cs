@@ -47,12 +47,17 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _animator = transform.Find("Visual").GetComponent<Animator>();  
+        _animator = transform.Find("Visual").GetComponent<Animator>();
         _circleCollider2D = GetComponent<CircleCollider2D>();
 
         _defultScaleY = transform.localScale.y;
         _moveDir = new Vector3(1, 0, 0);
         _circleColiderRadius = _circleCollider2D.radius;
+    }
+
+    private void Start()
+    {
+        StageSystem.Instance.OnStartEvt += OnStart;
     }
 
     private void Update()

@@ -12,32 +12,28 @@ public class StageSystem : MonoBehaviour
 {
     public static StageSystem Instance;
 
-    public event Action OnStartEvt; //½ÇÇà½ÃÅ³¶§
-    public event Action OnClearEvt; //°ÔÀÓ Å¬¸®¾î½Ã
-    public event Action OnLoseEvt; //°ÔÀÓ Á³À»½Ã
+    public event Action OnStartEvt; //ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ï¿½
 
     [HideInInspector] public bool IsPlay { get; set; }
 
-    [Header("¸®½ºÆ®")]
+    [Header("ï¿½ï¿½ï¿½ï¿½Æ®")]
     [SerializeField] private List<PuzzleImage> puzzleImages;
     [SerializeField] private List<StageData> stageData;
 
-    [Header("¿ÜºÎÂüÁ¶")]
+    [Header("ï¿½Üºï¿½ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField] private Transform settingPanel;
     [SerializeField] private TextMeshProUGUI timeText;
-
-    [Header("ÇÁ¸®ÆÕ")]
-    [SerializeField] private Image starImage;
 
     //private TextMeshProUGUI timeText;
     //private RectTransform starPanel;
     //private Button stageBtn;
     //private Button nextBtn;
 
-    private GameData gameData;
-
+    [SerializeField] private float currentPlayTime;
     private int currentStage;
-    private float currentPlayTime = 0f;
+
+    private int clearAmount;
+    private int heart;
 
     private int _clearAmount;
     private int _heart;
@@ -45,7 +41,7 @@ public class StageSystem : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        LoadStage();
+        //LoadStage();
     }
 
     private void Update()
@@ -69,49 +65,50 @@ public class StageSystem : MonoBehaviour
     {
         currentPlayTime = stageData[currentStage].playTime;
 
-        Instantiate(stageData[currentStage].map); //¸Ê »ý¼º
+        Instantiate(stageData[currentStage].map); //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-        foreach (PuzzleData puzzleData in stageData[currentStage].puzzleDatas) //ÆÛÁñ »ý¼º
+        foreach (PuzzleData puzzleData in stageData[currentStage].puzzleDatas) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             //PuzzleImage settingPuzzle = puzzleImages.Find(p => p.puzzle == puzzleData.puzzleType);
             PuzzleImage settingPuzzle = Instantiate(puzzleImages.Find(p => p.puzzle == puzzleData.puzzleType), settingPanel);
             settingPuzzle.Cnt = puzzleData.puzzleCnt;
         }
 
-        OnClearEvt += GameClear;
-        OnLoseEvt += GameLose;
-
-        //timeText = clearPanel.Find("MainPanel").Find("TimeText").GetComponent<TextMeshProUGUI>();//ºÐÃÊ·Î
-        //starPanel = clearPanel.Find("MainPanel").Find("StarPanel").GetComponent<RectTransform>();//º° ´Þ¾Æ³õ´Â °÷
-        //stageBtn = clearPanel.Find("MainPanel").Find("StageBtn").GetComponent<Button>();//½ºÅ×ÀÌÁö µ¹¾Æ°¡±â
-        //nextBtn = clearPanel.Find("MainPanel").Find("NextBtn").GetComponent<Button>();//´ÙÀ½ ½ºÅ×ÀÌÁö
+        //timeText = clearPanel.Find("MainPanel").Find("TimeText").GetComponent<TextMeshProUGUI>();//ï¿½ï¿½ï¿½Ê·ï¿½
+        //starPanel = clearPanel.Find("MainPanel").Find("StarPanel").GetComponent<RectTransform>();//ï¿½ï¿½ ï¿½Þ¾Æ³ï¿½ï¿½ï¿½ ï¿½ï¿½
+        //stageBtn = clearPanel.Find("MainPanel").Find("StageBtn").GetComponent<Button>();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½
+        //nextBtn = clearPanel.Find("MainPanel").Find("NextBtn").GetComponent<Button>();//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
-    private void GameClear()
+    public void GameClear() //ï¿½ï¿½ï¿½ï¿½Å¬ï¿½ï¿½ï¿½ï¿½
     {
-        _clearAmount++; // ÀÌ°Ô ¾Æ´Ï¶ó ClearAmount++; ¤¹
+        //_clearAmount++; // ï¿½Ì°ï¿½ ï¿½Æ´Ï¶ï¿½ ClearAmount++; ï¿½ï¿½
+        //gameData.clearAmount++;
         SceneManager.LoadScene("LoadingScene");
     }
 
-    private void GameLose()
+    public void GameLose() //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     {
-        _heart--;
+        //_heart--;
+        //TextAsset textAsset;
+        //textAsset.
+        //gameData.heart--;
         SceneManager.LoadScene("LoadingScene");
     }
 
-    //private void GameClear() //OnClearEvtµµÂøÁö¿¡¼­ ?.Invoke() ÇØÁÖ¸é ¿Ï·á
+    //private void GameClear() //OnClearEvtï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ?.Invoke() ï¿½ï¿½ï¿½Ö¸ï¿½ ï¿½Ï·ï¿½
     //{
-    //    OnStopEvt?.Invoke(); //ÇÃ·¹ÀÌ¾î ¸ØÃß°í
+    //    OnStopEvt?.Invoke(); //ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ß°ï¿½
 
     //    string second = TimeSpan.FromSeconds(currentPlayTime).ToString("mm\\:ss");
     //    var time = second.Split(":");
     //    timeText.text = $"{time[0]}m {time[1]}s";
 
-    //    //Ã¢¶ß±â(°É¸°½Ã°£, º°ÀÇ ¾ç, ´ÙÀ½½ºÅ×ÀÌÁö ¹öÆ°, ½ºÅ×ÀÌÁö ¼±ÅÃ ¹öÆ°)
+    //    //Ã¢ï¿½ß±ï¿½(ï¿½É¸ï¿½ï¿½Ã°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°)
     //    clearPanel.DOMoveY(0, 0.5f).SetEase(Ease.InOutBounce)
     //        .OnComplete(() => {
     //            stageBtn.onClick.AddListener(() => { GameOut(); });
-    //            nextBtn.onClick.AddListener(() => { NextGame(-1);/*ÀÎÀÚ·Î ÇöÀç ½ºÅ×ÀÌÁö + 1 ³Ö±â*/});
+    //            nextBtn.onClick.AddListener(() => { NextGame(-1);/*ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + 1 ï¿½Ö±ï¿½*/});
     //        });
     //}
 }

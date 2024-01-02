@@ -23,9 +23,8 @@ public class BatchTile : MonoBehaviour
 
     public Vector2 Vector2IntPos(Vector2 position)
     {
-        float x = Mathf.Round(position.x * 2) * 0.5f;
-        float y = Mathf.Round(position.y * 2) * 0.5f;
-        Vector2 pos = new Vector2(x, y);
+        Vector2 pos = Vector2Int.CeilToInt(position);
+        pos += new Vector2(-0.5f, -0.5f);
         return pos;
     }
 }

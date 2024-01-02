@@ -20,11 +20,12 @@ public class PuzzleImage : MonoBehaviour
     }
 
     private TextMeshProUGUI amountText;
-    private int cnt;
+    [SerializeField] private int cnt;
 
     private void Awake()
     {
         amountText = GetComponentInChildren<TextMeshProUGUI>();
+        TextValue(cnt);
     }
 
     private void TextValue(int amount)
