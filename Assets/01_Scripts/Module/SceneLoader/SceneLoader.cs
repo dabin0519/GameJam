@@ -1,16 +1,12 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SceneLoader : MonoSingleton<SceneLoader>
 {
-    [SerializeField] private Slider _loadingBar;
-
-    public void Test()
-    {
-        Debug.Log("Test");
-    }
+    [SerializeField] private TextMeshProUGUI _loadingTxt;
 
     public void LoadScene(string level)
     {
@@ -24,7 +20,20 @@ public class SceneLoader : MonoSingleton<SceneLoader>
         while(!loadOperation.isDone)
         {
             float value = Mathf.Clamp01(loadOperation.progress / 0.9f);
-            _loadingBar.value = value;
+
+            switch((loadOperation.progress / 0.9f) % 3)
+            {
+                case 0:
+                    _loadingTxt.text = "Loading.";
+                    break;
+                case 1:
+                    _loadingTxt.text = "Loading..";
+                    break;
+                case 2:
+                    _loadingTxt.text = "Loading...";
+                    break;
+            }
+            //_loadingBar.value = value;
             yield return null;
         }
     }

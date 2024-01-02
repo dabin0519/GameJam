@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4154845220387072250}
   - component: {fileID: 2966927924139981438}
   - component: {fileID: 4474289466926829776}
+  - component: {fileID: -2120212520934552698}
   m_Layer: 0
   m_Name: YellowCarrot(Shield)
   m_TagString: Untagged
@@ -169,5 +170,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dc8242feaf0bf74eb3c1c2a1668ee77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2120212520934552698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416701214577582573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8588220b51c4640a9bbfeb5c0d28fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
