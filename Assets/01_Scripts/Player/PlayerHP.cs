@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerHP : MonoBehaviour
 {
+    public UnityEvent DieEvent;
+
     [SerializeField] private int _maxHP;
     [SerializeField] private GameObject _shield;
 
@@ -12,6 +14,7 @@ public class PlayerHP : MonoBehaviour
 
     private int _hp;
     private bool _isShield = false;
+    private bool _isDead = false;
 
     public int HP { get { return _hp; } set { _hp = value; } }
 
@@ -24,9 +27,11 @@ public class PlayerHP : MonoBehaviour
 
     private void Update()
     {
-        if(_hp <= 0)
+        if(_hp <= 0 && !_isDead)
         {
+            _isDead = true;
             _playerController.Die();
+            DieEvent?.Invoke();
         }
     }
 

@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _animator = transform.Find("Visual").GetComponent<Animator>();  
+        _animator = transform.Find("Visual").GetComponent<Animator>();
         _circleCollider2D = GetComponent<CircleCollider2D>();
 
         _defultScaleY = transform.localScale.y;
@@ -56,6 +56,11 @@ public class PlayerController : MonoBehaviour
 
         Debug.LogWarning("임시코드임");
         StartCoroutine(DefualtJump());
+    }
+
+    private void Start()
+    {
+        StageSystem.Instance.OnStartEvt += OnStart;
     }
 
     private void Update()

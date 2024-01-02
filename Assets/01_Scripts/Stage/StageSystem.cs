@@ -8,13 +8,11 @@ using TMPro;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class StageSystem : MonoBehaviour, ISaveManager
+public class StageSystem : MonoBehaviour
 {
     public static StageSystem Instance;
 
     public event Action OnStartEvt; //실행시킬때
-    public event Action OnClearEvt; //게임 클리어시
-    public event Action OnLoseEvt; //게임 졌을시
 
     [HideInInspector] public bool IsPlay { get; set; }
 
@@ -26,23 +24,21 @@ public class StageSystem : MonoBehaviour, ISaveManager
     [SerializeField] private Transform settingPanel;
     [SerializeField] private TextMeshProUGUI timeText;
 
-    [Header("프리팹")]
-    [SerializeField] private Image starImage;
-
     //private TextMeshProUGUI timeText;
     //private RectTransform starPanel;
     //private Button stageBtn;
     //private Button nextBtn;
 
-    private GameData gameData;
-
+    [SerializeField] private float currentPlayTime;
     private int currentStage;
-    private float currentPlayTime = 0f;
+
+    private int clearAmount;
+    private int heart;
 
     private void Awake()
     {
         Instance = this;
-        LoadStage();
+        //LoadStage();
     }
 
     private void Update()
@@ -75,36 +71,24 @@ public class StageSystem : MonoBehaviour, ISaveManager
             settingPuzzle.Cnt = puzzleData.puzzleCnt;
         }
 
-        OnClearEvt += GameClear;
-        OnLoseEvt += GameLose;
-
         //timeText = clearPanel.Find("MainPanel").Find("TimeText").GetComponent<TextMeshProUGUI>();//분초로
         //starPanel = clearPanel.Find("MainPanel").Find("StarPanel").GetComponent<RectTransform>();//별 달아놓는 곳
         //stageBtn = clearPanel.Find("MainPanel").Find("StageBtn").GetComponent<Button>();//스테이지 돌아가기
         //nextBtn = clearPanel.Find("MainPanel").Find("NextBtn").GetComponent<Button>();//다음 스테이지
     }
 
-    private void GameClear()
+    public void GameClear() //게임클리어
     {
-        gameData.clearAmount++;
+        //gameData.clearAmount++;
         SceneManager.LoadScene("LoadingScene");
     }
 
-    private void GameLose()
+    public void GameLose() //게임짐
     {
-        gameData.heart--;
+        //TextAsset textAsset;
+        //textAsset.
+        //gameData.heart--;
         SceneManager.LoadScene("LoadingScene");
-    }
-
-    public void LoadData(GameData data)
-    {
-        gameData = data;
-        currentStage = data.stage;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        
     }
 
     //private void GameClear() //OnClearEvt도착지에서 ?.Invoke() 해주면 완료
