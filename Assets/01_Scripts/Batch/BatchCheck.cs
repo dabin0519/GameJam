@@ -8,7 +8,8 @@ public class BatchCheck : MonoBehaviour
 
     private SpriteRenderer batchAreaRenderer;
     private Collider2D col;
-    private bool batchClear;
+
+    [SerializeField] private bool batchClear;
 
     public bool BatchClearPro { get { return batchClear; } set { batchClear = value; } }
 
