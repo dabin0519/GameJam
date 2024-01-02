@@ -9,7 +9,7 @@ public abstract class Carrot : MonoBehaviour
     protected PlayerHP _playerHP;
     protected Collider2D _collider;
 
-    protected bool _isNotDestroy;
+    protected bool _isNotDestroy = false;
 
     protected virtual void Awake()
     {
@@ -23,7 +23,7 @@ public abstract class Carrot : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(_batchCheck.BatchClearPro)
+        if(_batchCheck != null && _batchCheck.BatchClearPro)
         {
             _collider.enabled = true;
         }
