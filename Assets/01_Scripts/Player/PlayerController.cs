@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     private bool _canWalkOnSlope;
     private bool _isDie;
     private bool _isOneCall;
+    private bool _isMove;
 
     public Vector3 MoveDir { get { return _moveDir; } set { _moveDir = value; } }
 
@@ -186,6 +187,7 @@ public class PlayerController : MonoBehaviour
 
     public void Movement(int r)
     {
+        _isMove = true;
         StartCoroutine(MovementCoroutine(r));
     }
 
@@ -200,6 +202,7 @@ public class PlayerController : MonoBehaviour
             transform.DOMoveX(endPos, _moveDuration);
             yield return new WaitForSeconds(_moveDuration);
         }
+        _isMove = false;
     }
 
     #region Coroutine
@@ -207,7 +210,7 @@ public class PlayerController : MonoBehaviour
     {
         while(true)
         {
-            if(IsGroundDected())
+            if(IsGroundDected() && _isMove)
             {
                 transform.DOScaleY(_increaseScaleY, _increaseDuration);
                 yield return new WaitForSeconds(_increaseDuration);
