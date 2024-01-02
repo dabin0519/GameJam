@@ -5,12 +5,28 @@ using UnityEngine;
 public abstract class Carrot : MonoBehaviour
 {
     protected PlayerController _player;
+    protected BatchCheck _batchCheck;
     protected PlayerHP _playerHP;
+    protected Collider2D _collider;
+
+    protected bool _isNotDestroy;
 
     protected virtual void Awake()
     {
         _player = FindObjectOfType<PlayerController>();
         _playerHP = FindObjectOfType<PlayerHP>();
+        _batchCheck = GetComponent<BatchCheck>();
+        _collider = GetComponent<Collider2D>();
+
+        _collider.enabled = false;
+    }
+
+    protected virtual void Update()
+    {
+        if(_batchCheck.BatchClearPro)
+        {
+            _collider.enabled = true;
+        }
     }
 
     protected abstract void CarrotAbility();
@@ -20,7 +36,8 @@ public abstract class Carrot : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             CarrotAbility();
-            Destroy(gameObject);
+            if(!_isNotDestroy)
+                Destroy(gameObject);
         }
     }
 }
