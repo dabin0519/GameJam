@@ -6,7 +6,17 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoSingleton<SceneLoader>
 {
-    [SerializeField] private TextMeshProUGUI _loadingTxt;
+    [SerializeField] private TextMeshProUGUI _tipText;
+    [SerializeField] private TipListSO _tipSO;
+    [SerializeField] private float _minLoadingDuration;
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            LoadScene("MainScene");
+        }
+    }
 
     public void LoadScene(string level)
     {
@@ -15,26 +25,11 @@ public class SceneLoader : MonoSingleton<SceneLoader>
 
     private IEnumerator LoadSceneAsync(string level)
     {
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(level);
+        int radomValue = Random.Range(0, _tipSO.tipList.Count);
+        _tipText.text = _tipSO.tipList[radomValue];
 
-        while(!loadOperation.isDone)
-        {
-            float value = Mathf.Clamp01(loadOperation.progress / 0.9f);
+        yield return new WaitForSeconds(_minLoadingDuration);
 
-            switch((loadOperation.progress / 0.9f) % 3)
-            {
-                case 0:
-                    _loadingTxt.text = "Loading.";
-                    break;
-                case 1:
-                    _loadingTxt.text = "Loading..";
-                    break;
-                case 2:
-                    _loadingTxt.text = "Loading...";
-                    break;
-            }
-            //_loadingBar.value = value;
-            yield return null;
-        }
+        SceneManager.LoadScene(level);
     }
 }
