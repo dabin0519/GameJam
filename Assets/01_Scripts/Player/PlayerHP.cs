@@ -26,7 +26,7 @@ public class PlayerHP : MonoBehaviour
     {
         if(_hp <= 0)
         {
-            _playerController.Active = false;
+            _playerController.Die();
         }
     }
 

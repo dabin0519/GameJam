@@ -6,6 +6,7 @@ public abstract class Carrot : MonoBehaviour
 {
     protected PlayerController _player;
     protected PlayerHP _playerHP;
+    protected bool _isNotDestroy;
 
     protected virtual void Awake()
     {
@@ -20,7 +21,8 @@ public abstract class Carrot : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             CarrotAbility();
-            Destroy(gameObject);
+            if(!_isNotDestroy)
+                Destroy(gameObject);
         }
     }
 }
