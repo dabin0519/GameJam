@@ -1445,7 +1445,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2126885193}
         m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
-        m_MethodName: SceneLoadBtn
+        m_MethodName: SceneLoad
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2294,7 +2294,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2126885193}
         m_TargetAssemblyTypeName: ButtonEvent, Assembly-CSharp
-        m_MethodName: SceneLoadBtn
+        m_MethodName: SceneLoad
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

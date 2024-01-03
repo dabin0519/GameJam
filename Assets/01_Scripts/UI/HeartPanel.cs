@@ -12,6 +12,8 @@ public class HeartPanel : MonoBehaviour
 
     public void HeartUp(int heart)
     {
+        if (heart < 0) return;
+
         for (int i = 0; i < heart; i++)
         {
             Image image = Instantiate(heartImage, transform);
@@ -23,7 +25,7 @@ public class HeartPanel : MonoBehaviour
 
         Sequence sequence = DOTween.Sequence();
         sequence
-            .Append(movingHeart.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 1.1f).SetEase(Ease.InElastic))
+            .Append(movingHeart.transform.DOScale(Vector3.zero, 1.1f).SetEase(Ease.InElastic))
             .Append(transform.transform.DOMoveY(-500, 0.4f));
     }
 }
