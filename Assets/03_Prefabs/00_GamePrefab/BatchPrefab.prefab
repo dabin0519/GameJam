@@ -47,7 +47,7 @@ MonoBehaviour:
   puzzleList:
   - puzzleType: 0
     puzzleBatchType: 0
-    puzzleObj: {fileID: 313913068362138955, guid: 04b79afec5c92b74995c945490772e4e, type: 3}
+    puzzleObj: {fileID: 2366238225732124411, guid: 3c866c63c737038459a67b8a7f993ed3, type: 3}
     puzzleTile: {fileID: 0}
   - puzzleType: 1
     puzzleBatchType: 0
@@ -65,6 +65,14 @@ MonoBehaviour:
     puzzleBatchType: 0
     puzzleObj: {fileID: 4416701214577582573, guid: 903f662471717fe40860e8a268bd9926, type: 3}
     puzzleTile: {fileID: 0}
+  - puzzleType: 5
+    puzzleBatchType: 0
+    puzzleObj: {fileID: 1338078816982101092, guid: 3b18364895be04a45bcd7c8238cc6f77, type: 3}
+    puzzleTile: {fileID: 0}
+  - puzzleType: 6
+    puzzleBatchType: 1
+    puzzleObj: {fileID: 1410826207039420008, guid: 6a4d35bb9b9641f44ac42ae19471619a, type: 3}
+    puzzleTile: {fileID: 11400000, guid: 8fe58715a77103d41a39a5869b7c1292, type: 2}
 --- !u!1 &2487100085378382204
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,9 @@ namespace EnumList
         Green,
         Orange,
         Red,
-        Yellow
+        Yellow,
+        RabbitHole,
+        block
     }
 
     public enum BatchType

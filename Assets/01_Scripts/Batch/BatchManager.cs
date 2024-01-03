@@ -19,6 +19,11 @@ public class BatchManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        StageSystem.Instance.OnStartEvt += PuzzleBatch;
+    }
+
     public void PuzzleCreate(Vector2 batchPos, Puzzle puzzleEnum, PuzzleImage puzzleImage)
     {
         puzzleType = puzzleList.Find(p => p.puzzleType == puzzleEnum);
