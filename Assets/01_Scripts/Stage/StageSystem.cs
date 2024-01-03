@@ -37,6 +37,8 @@ public class StageSystem : MonoBehaviour
 
     private PlayData playData;
 
+    private EndFlag endFlag;
+
     //private int clearAmount;
     //private int heart;
 
@@ -44,8 +46,11 @@ public class StageSystem : MonoBehaviour
     {
         Instance = this;
         playData = Resources.Load<PlayData>("PlayData");
+        
         //LoadStage();
         timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
+        endFlag = FindObjectOfType<EndFlag>();
+        endFlag.EndEvent += GameClear;
     }
 
     private void Update()

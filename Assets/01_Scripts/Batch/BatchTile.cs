@@ -31,7 +31,8 @@ public class BatchTile : MonoBehaviour
     public Vector2 Vector2IntPos(Vector2 position)
     {
         Vector2 pos = Vector2Int.CeilToInt(position);
-        pos += new Vector2(-0.5f, -0.5f);
+        pos += new Vector2(-0.5f, 0f);
+        //pos += new Vector2(-0.5f, -0.5f);
         return pos;
     }
 }

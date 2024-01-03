@@ -6,7 +6,7 @@ using System;
 
 public class EndFlag : Carrot
 {
-    public UnityEvent EndEvent;
+    public event Action EndEvent;
     public bool IsKey;
 
     protected override void CarrotAbility()
