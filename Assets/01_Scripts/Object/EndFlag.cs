@@ -7,7 +7,6 @@ using System;
 public class EndFlag : Carrot
 {
     public UnityEvent EndEvent;
-    public bool IsKey;
 
     protected override void CarrotAbility()
     {
@@ -17,8 +16,6 @@ public class EndFlag : Carrot
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (IsKey)
-            return;
         base.OnTriggerEnter2D(collision);
     }
 }
