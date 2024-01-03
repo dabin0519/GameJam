@@ -20,13 +20,19 @@ public class Door : Carrot
 
     protected override void CarrotAbility()
     {
-        if(_doorType == DoorType.Gold && _player.GoldKey)
+        if(_doorType == DoorType.Gold)
         {
-            Destroy(gameObject);
+            if (_player.GoldKey)
+                Destroy(gameObject);
+            else
+                _playerHP.Damage();
         }
-        else if(_doorType == DoorType.Shilver && _player.SilverKey)
+        else if(_doorType == DoorType.Shilver)
         {
-            Destroy(gameObject);
+            if (_player.SilverKey)
+                Destroy(gameObject);
+            else
+                _playerHP.Damage();
         }
     }
 }
