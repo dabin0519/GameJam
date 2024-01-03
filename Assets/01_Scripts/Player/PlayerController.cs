@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     public UnityEvent JumpEvent;
     public bool Active { get; set; } = true;
     public Vector3 MoveDir { get { return _moveDir; } set { _moveDir = value; } }
-    public bool EnergyUP { get; set; } = false;
+    public bool EnergyUP = true;
     public bool GoldKey = false;
     public bool SilverKey = false;
 
