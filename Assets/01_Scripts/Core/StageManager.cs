@@ -15,9 +15,10 @@ public class StageManager : MonoBehaviour
     private void Awake()
     {
         if(Instance == null)
+        {
             Instance = this;
-
-        DontDestroyOnLoad(transform);
+            DontDestroyOnLoad(transform);
+        }
 
         _queue = new Queue<int>();
         _stageList = new List<int>();
