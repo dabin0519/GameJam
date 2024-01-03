@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00_Scenes/Dabin/Stage5Scene.unity
     guid: 87b2d97e8d024764180d67c11d4c11e8
+  - enabled: 1
+    path: Assets/00_Scenes/GameoverScene.unity
+    guid: cf68b2d498db4bf43aaa25a99d42041b
   m_configObjects: {}

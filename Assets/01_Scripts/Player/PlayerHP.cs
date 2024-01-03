@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.Events;
 
 public class PlayerHP : MonoBehaviour
 {
-    public UnityEvent DieEvent;
+    public event Action DieEvent;
 
     [SerializeField] private int _maxHP;
     [SerializeField] private GameObject _shield;

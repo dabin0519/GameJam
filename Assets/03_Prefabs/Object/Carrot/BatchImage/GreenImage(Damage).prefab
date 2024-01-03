@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 546925844497240694, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: puzzle
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_Pivot.x
@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8050282149727017334, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_Name
-      value: GreenImage
+      value: GreenImage(Damage)
       objectReference: {fileID: 0}
     - target: {fileID: 8871581295207750483, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_Sprite
