@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7717439367701551484}
   - component: {fileID: 1785768879719728351}
   - component: {fileID: 813457590575493106}
-  m_Layer: 0
+  - component: {fileID: 6601163456637933883}
+  m_Layer: 7
   m_Name: RabbitHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,3 +147,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6601163456637933883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338078816982101092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d8588220b51c4640a9bbfeb5c0d28fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batchClear: 0

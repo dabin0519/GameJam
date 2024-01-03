@@ -25,7 +25,6 @@ public class BatchTile : MonoBehaviour
         TileBase underBase = null;
         tileBase = _tilemap.GetTile(_tilemap.WorldToCell(position));
         underBase = _tilemap.GetTile(_tilemap.WorldToCell(position - new Vector2(0, 1f)));
-        Debug.Log(position - new Vector2(0, 1f));
         return tileBase || !underBase;
     }
 
