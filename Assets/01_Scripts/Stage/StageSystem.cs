@@ -22,6 +22,7 @@ public class StageSystem : MonoBehaviour
 
     [Header("�ܺ�����")]
     [SerializeField] private ButtonEvent buttonEvent;
+    [SerializeField] private HeartPanel heartPanel;
     [SerializeField] private Transform settingPanel;
     [SerializeField] private RectTransform timeImage;
     private Image timeFillImage;
@@ -94,6 +95,7 @@ public class StageSystem : MonoBehaviour
 
     public void GameLose() //������
     {
+        heartPanel.HeartUp(playData.heart);
         playData.heart--;
         if (playData.heart <= 0)
         {
