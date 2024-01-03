@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TipList
   m_EditorClassIdentifier: 
   tipList:
-  - "\uAC15\uBBFC\uC131 \uB098\uC05C\uB188"
-  - "\u3147\u3147\u3147\u3147\u3147"
-  - "\uC774\uAC83\uC740 \uD14D\uC2A4\uD2B8 \uC785\uB2C8\uB2E4"
-  - "\uAC15\uBBFC\uC131 \uC8FD\uC5B4"
+  - Loading.
+  - Loading..
+  - Loading...
+  - Loading?
