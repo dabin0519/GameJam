@@ -17,6 +17,8 @@ public class StageManager : MonoBehaviour
         if(Instance == null)
             Instance = this;
 
+        DontDestroyOnLoad(transform);
+
         _queue = new Queue<int>();
         _stageList = new List<int>();
 
