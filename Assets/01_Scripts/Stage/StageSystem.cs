@@ -76,15 +76,20 @@ public class StageSystem : MonoBehaviour
 
         if (currentPlayTime <= 0)
         {
-            IsPlay = true;
-            currentPlayTime = 999;
-            //timeText.gameObject.SetActive(false);
-            DOTween.Kill(timeImage);
-            timeImage.DOAnchorPosY(timeImage.sizeDelta.y, 0.8f).SetEase(Ease.InOutBack);
-            isShaking=false;
-            settingPanel.DOMoveY(-300, 0.5f);
-            OnStartEvt?.Invoke();
+            StartGame();
         }
+    }
+
+    public void StartGame()
+    {
+        IsPlay = true;
+        currentPlayTime = 999;
+        //timeText.gameObject.SetActive(false);
+        DOTween.Kill(timeImage);
+        timeImage.DOAnchorPosY(timeImage.sizeDelta.y, 0.8f).SetEase(Ease.InOutBack);
+        isShaking = false;
+        settingPanel.DOMoveY(-300, 0.5f);
+        OnStartEvt?.Invoke();
     }
 
     public void GameClear() //����Ŭ����
@@ -95,6 +100,7 @@ public class StageSystem : MonoBehaviour
 
     public void GameLose() //������
     {
+        Debug.Log("실패");
         heartPanel.HeartUp(playData.heart);
         playData.heart--;
         if (playData.heart <= 0)
