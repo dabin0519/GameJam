@@ -17,7 +17,7 @@ public class FootImageController : MonoBehaviour
     private void Update()
     {
         SetFootImage();
-        Debug.Log(_playerController.MoveCnt);
+        //Debug.Log(_playerController.MoveCnt);
     }
 
     public void SetFootImage()
