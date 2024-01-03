@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _groundChecker;
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private Tilemap _groundTile;
 
     [Header("--SlopeInfo--")]
     [SerializeField] private float _slopeCheckDistance;
@@ -202,13 +204,13 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(MovementCoroutine(r));
     }
 
+
+    #region Coroutine
     private IEnumerator ChangeCoroutine()
     {
         yield return new WaitUntil(() => _isMove == false);
         _isMove = true;
     }
-
-    #region Coroutine
 
     private IEnumerator MovementCoroutine(int r)
     {
