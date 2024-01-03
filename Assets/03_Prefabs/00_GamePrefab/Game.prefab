@@ -447,6 +447,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _groundTile: {fileID: 8925871232310966644}
+  _timeDuration: 3
   _moveSpeed: 3
   _jumpForce: 2.5
   _slopeCheckDistance: 2
@@ -487,6 +488,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHP: 1
   _shield: {fileID: 6443864110403893444}
+  _dontDieDuration: 0
 --- !u!1 &3381640015132387227
 GameObject:
   m_ObjectHideFlags: 0

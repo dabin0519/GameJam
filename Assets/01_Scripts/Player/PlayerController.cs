@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private LayerMask _whatIsGround;
     [SerializeField] private Tilemap _groundTile;
-    [SerializeField] private float _stopOffset;
+    [SerializeField] private float _timeDuration;
 
     [Header("--Enrgy Info")]
     [SerializeField] private float _moveSpeed;
@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _increaseScaleY;
     [SerializeField] private float _increaseDuration;
     [SerializeField] private float _deathJumpForce;
-    [SerializeField] private float _timeDuration;
 
     #region Property
 
@@ -226,10 +225,10 @@ public class PlayerController : MonoBehaviour
     {
         Vector3Int cellPos = _groundTile.WorldToCell(transform.position + (Vector3)direction);
 
+        Physics2D.Raycast(transform.position, direction, Vector2.Distance(transform.position, direction));
+
         return !_groundTile.HasTile(cellPos);
     }
-
-    private bool IsStop() => Mathf.Abs(_currentPos.x - _lastPos.x) < _stopOffset;
 
     #endregion
 
