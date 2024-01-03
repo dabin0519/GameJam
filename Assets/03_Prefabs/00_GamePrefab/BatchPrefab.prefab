@@ -152,7 +152,7 @@ MonoBehaviour:
   - puzzleType: 7
     puzzleBatchType: 1
     puzzleObj: {fileID: 1410826207039420008, guid: 6a4d35bb9b9641f44ac42ae19471619a, type: 3}
-    puzzleTile: {fileID: 11400000, guid: 8fe58715a77103d41a39a5869b7c1292, type: 2}
+    puzzleTile: {fileID: 11400000, guid: 9354a9d9b5b65b843a5336f049f7a5b9, type: 2}
 --- !u!1 &2254445542903765004
 GameObject:
   m_ObjectHideFlags: 0
