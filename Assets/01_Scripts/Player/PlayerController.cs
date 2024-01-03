@@ -162,6 +162,7 @@ public class PlayerController : MonoBehaviour
 
     #region EnergyLogic
 
+    private bool _isStageOneCall;
 
     private void EnergyMove()
     {
@@ -191,7 +192,11 @@ public class PlayerController : MonoBehaviour
 
             if(_time >= _timeDuration)
             {
-                StageSystem.Instance.GameLose();
+                if(!_isStageOneCall)
+                {
+                    _isStageOneCall = true;
+                    StageSystem.Instance.GameLose();
+                }
             }
         }
     }
