@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _groundChecker;
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private LayerMask _whatIsGround;
+    [SerializeField] private Transform  _wallChecker;
+    [SerializeField] private float      _wallCheckDistance;
     [SerializeField] private Tilemap _groundTile;
     [SerializeField] private float _timeDuration;
 
@@ -85,6 +87,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(IsWallDected());
+
         if (Active)
         {
             _currentPos = transform.position;
@@ -157,6 +161,12 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
+
+    private IEnumerator WaitCoroutine()
+    {
+        yield return new WaitForSeconds(_timeDuration);
+        StageSystem.Instance.GameLose();
+    }
     #endregion
 
     #region EnergyLogic
@@ -167,7 +177,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveDir = _moveDir * _moveSpeed * Time.deltaTime;
 
-        if (IsCanNextTile(_moveDir))
+        //if (IsCanNextTile(_moveDir))
+        if(!IsWallDected())
         {
             transform.position += moveDir; // º®¿¡ ¸ØÃß¸é ¹º°¡ÇØÁÖ±â
             _lastPos = transform.position;
@@ -182,15 +193,20 @@ public class PlayerController : MonoBehaviour
             if(_cnt >= _maxCnt)
             {
                 _isMove = false;
+                StartCoroutine(WaitCoroutine());
                 _maxCnt -= _cnt;
             }
         }
         else
         {
+            Debug.Log("?");
+
             _time += Time.deltaTime;
 
             if(_time >= _timeDuration)
             {
+                Debug.Log("???");
+
                 if(!_isStageOneCall)
                 {
                     _isStageOneCall = true;
@@ -221,14 +237,16 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGroundDected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
 
-    private bool IsCanNextTile(Vector2 direction)
+    /*private bool IsCanNextTile(Vector2 direction)
     {
         Vector3Int cellPos = _groundTile.WorldToCell(transform.position + (Vector3)direction);
 
         Physics2D.Raycast(transform.position, direction, Vector2.Distance(transform.position, direction));
 
         return !_groundTile.HasTile(cellPos);
-    }
+    }*/
+
+    private bool IsWallDected() => Physics2D.Raycast(_wallChecker.position, _moveDir, _wallCheckDistance, _whatIsGround);
 
     #endregion
 
@@ -321,6 +339,9 @@ public class PlayerController : MonoBehaviour
         if (_groundChecker != null)
             Gizmos.DrawLine(_groundChecker.position,
                 _groundChecker.position + new Vector3(0, -_groundCheckDistance, 0));
+        if (_wallChecker != null)
+            Gizmos.DrawLine(_wallChecker.position,
+                _wallChecker.position + new Vector3(_wallCheckDistance, 0, 0));
     }
 #endif
 }
