@@ -22,7 +22,10 @@ public class StageSystem : MonoBehaviour
 
     [Header("�ܺ�����")]
     [SerializeField] private Transform settingPanel;
-    [SerializeField] private TextMeshProUGUI timeText;
+    //[SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private RectTransform timeImage;
+    private Image timeFillImage;
+    private bool isShaking = false;
 
     //private TextMeshProUGUI timeText;
     //private RectTransform starPanel;
@@ -42,6 +45,7 @@ public class StageSystem : MonoBehaviour
     {
         Instance = this;
         //LoadStage();
+        timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
     }
 
     private void Update()
@@ -49,14 +53,25 @@ public class StageSystem : MonoBehaviour
         if (!IsPlay)
         {
             currentPlayTime -= Time.deltaTime;
-            timeText.text = currentPlayTime.ToString("##");
+            //timeText.text = currentPlayTime.ToString("##");
+            timeFillImage.fillAmount = currentPlayTime / stageData[currentStage].playTime;
+        }
+
+        if(currentPlayTime / stageData[currentStage].playTime < 0.3f && !isShaking)// added
+        {
+            isShaking = true;
+            timeImage.DOShakePosition((stageData[currentStage].playTime - currentPlayTime) * 0.5f, 10, 15);
+            timeFillImage.DOColor(Color.red, stageData[currentStage].playTime - currentPlayTime);
         }
 
         if (currentPlayTime <= 0)
         {
             IsPlay = true;
             currentPlayTime = 999;
-            timeText.gameObject.SetActive(false);
+            //timeText.gameObject.SetActive(false);
+            DOTween.Kill(timeImage);
+            timeImage.DOAnchorPosY(timeImage.sizeDelta.y, 0.8f).SetEase(Ease.InOutBack);
+            isShaking=false;
             OnStartEvt?.Invoke();
         }
     }
