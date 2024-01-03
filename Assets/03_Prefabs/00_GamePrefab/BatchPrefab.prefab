@@ -445,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 5979517970893827599}
   timeImage: {fileID: 3812809951130877586}
-  maxPlayTime: 0
+  maxPlayTime: 10
 --- !u!1 &6457477760196048574
 GameObject:
   m_ObjectHideFlags: 0
