@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using EnumList;
 
 namespace StructList
 {
+    
+
     [System.Serializable]
     public struct PuzzleType
     {
         public Puzzle puzzleType;
+        public BatchType puzzleBatchType;
         public GameObject puzzleObj;
+        public TileBase puzzleTile;
     }
 
     [System.Serializable]

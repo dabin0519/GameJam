@@ -35,15 +35,15 @@ public class StageSystem : MonoBehaviour
     [SerializeField] private float currentPlayTime;
     private int currentStage;
 
-    private int clearAmount;
-    private int heart;
+    private PlayData playData;
 
-    private int _clearAmount;
-    private int _heart;
+    //private int clearAmount;
+    //private int heart;
 
     private void Awake()
     {
         Instance = this;
+        playData = Resources.Load<PlayData>("PlayData");
         //LoadStage();
         timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
     }
@@ -99,6 +99,7 @@ public class StageSystem : MonoBehaviour
     {
         //_clearAmount++; // �̰� �ƴ϶� ClearAmount++; ��
         //gameData.clearAmount++;
+        playData.clearAmount++;
         SceneManager.LoadScene("LoadingScene");
     }
 
@@ -108,6 +109,7 @@ public class StageSystem : MonoBehaviour
         //TextAsset textAsset;
         //textAsset.
         //gameData.heart--;
+        playData.heart--;
         SceneManager.LoadScene("LoadingScene");
     }
 

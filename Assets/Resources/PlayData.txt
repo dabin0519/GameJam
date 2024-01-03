@@ -1,1 +1,0 @@
-clearAmount = 0, heart = 0

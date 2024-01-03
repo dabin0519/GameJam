@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6070360369607696028}
   - component: {fileID: 3651334141089967403}
   - component: {fileID: 5470732173086360346}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GreenCarrot(Damage)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,13 +76,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9eb697467e602a248b561f4691fcd566, type: 3}
+  m_SortingOrder: 75
+  m_Sprite: {fileID: 1690479186, guid: 9eb697467e602a248b561f4691fcd566, type: 3}
   m_Color: {r: 0.21107125, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 0.306, y: 0.506}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525456302453247624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -123,9 +123,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 5, y: 5}
+    pivot: {x: 0.5, y: 0.7}
+    oldSize: {x: 0.306, y: 0.506}
+    newSize: {x: 0.306, y: 0.506}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -184,3 +184,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8588220b51c4640a9bbfeb5c0d28fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  batchClear: 0
