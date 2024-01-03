@@ -38,7 +38,7 @@ public class ButtonEvent : MonoBehaviour
         }
 
         float u = blackImage.material.GetFloat("_Value");
-        DOTween.To(() => u, x => u = x, 0f, 1f).SetEase(Ease.OutCubic).OnUpdate(() =>
+        DOTween.To(() => u, x => u = x, 0f, 1.5f).SetEase(Ease.OutCubic).OnUpdate(() =>
         {
             blackImage.material.SetFloat("_Value", u);
         }).OnComplete(() =>

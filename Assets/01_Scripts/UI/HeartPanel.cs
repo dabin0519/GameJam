@@ -23,10 +23,7 @@ public class HeartPanel : MonoBehaviour
 
         Sequence sequence = DOTween.Sequence();
         sequence
-            .Append(movingHeart.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 0.7f).SetEase(Ease.InElastic))
-            .Join(movingHeart.transform.DORotate(new Vector3(-90f, 0, 0), 0.6f).OnComplete(() =>
-            {
-                transform.transform.DOMoveY(-500, 0.4f);
-            }));
+            .Append(movingHeart.transform.DOScale(new Vector3(0.1f, 0.1f, 0.1f), 1.1f).SetEase(Ease.InElastic))
+            .Append(transform.transform.DOMoveY(-500, 0.4f));
     }
 }
