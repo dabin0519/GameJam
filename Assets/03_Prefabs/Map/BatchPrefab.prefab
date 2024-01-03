@@ -46,13 +46,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleList:
   - puzzleType: 0
-    puzzleObj: {fileID: 2584193002586921774, guid: 19862915b1e47ae458738cb28579882a, type: 3}
+    puzzleBatchType: 0
+    puzzleObj: {fileID: 2366238225732124411, guid: 3c866c63c737038459a67b8a7f993ed3, type: 3}
+    puzzleTile: {fileID: 0}
   - puzzleType: 1
-    puzzleObj: {fileID: 4507697116647147531, guid: 3fb6a88dafb570b4db685e4005d59d4c, type: 3}
+    puzzleBatchType: 0
+    puzzleObj: {fileID: 525456302453247624, guid: 40d93031a8c4b5443b3ba664ef2497c3, type: 3}
+    puzzleTile: {fileID: 0}
   - puzzleType: 2
-    puzzleObj: {fileID: 2584193002586921774, guid: 8a36e472754f1ab46bf7c98a0525641b, type: 3}
+    puzzleBatchType: 0
+    puzzleObj: {fileID: 7743103587511897123, guid: 7776d5fd7a262a9419b30edf7c5b749d, type: 3}
+    puzzleTile: {fileID: 0}
   - puzzleType: 3
-    puzzleObj: {fileID: 4507697116647147531, guid: b87b15170502c904ba59dc75ba80838f, type: 3}
+    puzzleBatchType: 0
+    puzzleObj: {fileID: 535436164875887242, guid: b67771a61b43fbc4b93d2978caef0af7, type: 3}
+    puzzleTile: {fileID: 0}
+  - puzzleType: 4
+    puzzleBatchType: 0
+    puzzleObj: {fileID: 4416701214577582573, guid: 903f662471717fe40860e8a268bd9926, type: 3}
+    puzzleTile: {fileID: 0}
 --- !u!1 &2487100085378382204
 GameObject:
   m_ObjectHideFlags: 0

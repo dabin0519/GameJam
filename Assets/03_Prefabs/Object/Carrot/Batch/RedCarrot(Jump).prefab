@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8985525864536384521}
   - component: {fileID: 1798077401891737881}
   - component: {fileID: -5099123515429683935}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RedCarrot(Jump)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,13 +76,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d1c18028951e6674eb2f77ad6df881eb, type: 3}
+  m_SortingOrder: 75
+  m_Sprite: {fileID: -265434444, guid: d1c18028951e6674eb2f77ad6df881eb, type: 3}
   m_Color: {r: 1, g: 0.28019822, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 0.316, y: 0.492}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535436164875887242}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -123,9 +123,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 5, y: 5}
+    pivot: {x: 0.5, y: 0.7}
+    oldSize: {x: 0.316, y: 0.492}
+    newSize: {x: 0.316, y: 0.492}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -185,3 +185,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8588220b51c4640a9bbfeb5c0d28fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  batchClear: 0
