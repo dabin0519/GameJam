@@ -30,9 +30,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _deathJumpForce;
 
     public UnityEvent JumpEvent;
-    public bool Active { get; set; } = true;
+    public bool Active { get; set; } = false;
     public Vector3 MoveDir { get { return _moveDir; } set { _moveDir = value; } }
-    public bool EnergyUP { get; set; } = false;
     public bool GoldKey = false;
     public bool SilverKey = false;
 
@@ -42,7 +41,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _moveDir;
     private Vector2 _slopeNormalPerp;
-    private float _defultScaleY;
     private float _circleColiderRadius;
     private float _slopeDownAngle;
     private float _lastSlopeAngle;
@@ -50,7 +48,6 @@ public class PlayerController : MonoBehaviour
     private bool _isDie;
     private bool _isOneCall;
     private bool _isMove;
-    private bool _isEnergyMove;
 
     private void Awake()
     {
@@ -58,7 +55,6 @@ public class PlayerController : MonoBehaviour
         _animator = transform.Find("Visual").GetComponent<Animator>();
         _circleCollider2D = GetComponent<CircleCollider2D>();
 
-        _defultScaleY = transform.localScale.y;
         _moveDir = new Vector3(1, 0, 0);
         _circleColiderRadius = _circleCollider2D.radius;
     }
@@ -74,7 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             SlopeCheck();
             Flip();
-            //transform.position += _moveDir.normalized * 3f * Time.deltaTime;
+            EnergyMove();
         }
         else if(!_isOneCall && _isDie)
         {
@@ -85,9 +81,6 @@ public class PlayerController : MonoBehaviour
         
         if(!Active)
             StopAllCoroutines();
-
-        if (EnergyUP && _isEnergyMove)
-            EnergyMove();
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -103,6 +96,86 @@ public class PlayerController : MonoBehaviour
         Active = true;
     }
     
+
+    private void Flip()
+    {
+        if (_moveDir.x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, -180, 0);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    public void Movement(int r)
+    {
+        _cnt = 0;
+        
+        _maxCnt += r;
+        _isMove = true;
+        _startPos = transform.position;
+    }
+
+    #region Coroutine
+    private IEnumerator DefualtJump()
+    {
+        while(true)
+        {
+            if(IsGroundDected() && _isMove)
+            {
+                Jump(_jumpForce);
+            }
+            yield return null;
+        }
+    }
+    #endregion
+
+    #region EnergyLogic
+
+    private Vector2 _startPos;
+    private int _cnt;
+    private int _maxCnt;
+
+    private void EnergyMove()
+    {
+        transform.position += _moveDir * _moveSpeed * Time.deltaTime;
+
+        if(Vector2.Distance(_startPos, transform.position) >= 1f)
+        {
+            _startPos = transform.position;
+            ++_cnt;
+
+            if(_cnt >= _maxCnt)
+            {
+                _isMove = false;
+                _maxCnt -= _cnt;
+            }
+        }
+    }
+
+    #endregion
+
+    #region public
+
+    public void Jump(float jumpVelocity)
+    {
+        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpVelocity);
+        JumpEvent?.Invoke();
+    }
+
+    public void Die()
+    {
+        _isDie = true;
+        Active = false;
+    }
+    #endregion
+
+    private bool IsGroundDected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
+
+    private bool CheckNextStep(Vector2 direction) => !_groundTile.HasTile(_groundTile.WorldToCell(transform.position + (Vector3)direction));
+
     #region Slope
 
     private void SlopeCheck()
@@ -185,144 +258,6 @@ public class PlayerController : MonoBehaviour
     }
 
     #endregion
-
-    private void Flip()
-    {
-        if (_moveDir.x < 0)
-        {
-            transform.rotation = Quaternion.Euler(0, -180, 0);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-    }
-
-    public void Movement(int r)
-    {
-        if(!EnergyUP)
-        {
-            if(_isMove)
-            {
-                // 이미 실행이 되고 있는건데
-                StartCoroutine(ChangeCoroutine());
-            }
-            else
-            {
-                _isMove = true;
-            }
-
-            StartCoroutine(MovementCoroutine(r));
-        }
-        else // 활력 당근 먹었을 때
-        {
-            _isEnergyMove = true;
-            _cnt = 0;
-            _maxCnt = r;
-            _isMove = true;
-            _startPos = transform.position;
-        }
-    }
-
-    #region Coroutine
-    private IEnumerator ChangeCoroutine()
-    {
-        yield return new WaitUntil(() => _isMove == false);
-        _isMove = true;
-    }
-
-    private IEnumerator MovementCoroutine(int r)
-    {
-        for (int i = 0; i < r; i++)
-        {
-            float startPos = transform.position.x;
-            float value = _moveDir.x >= 0 ? 1 : -1;
-            float endPos = startPos + value;
-            Vector2 dir = new(value, 0);
-
-            if(CheckNextStep(dir))
-            {
-                transform.DOMoveX(endPos, _moveDuration);
-            }
-            else
-            {
-                Active = false;
-                break;
-            }
-
-            yield return new WaitForSeconds(_moveDuration);
-        }
-        _isMove = false;
-    }
-
-    private IEnumerator DefualtJump()
-    {
-        while(true)
-        {
-            if(IsGroundDected() && _isMove)
-            {
-                if(!EnergyUP)
-                {
-                    transform.DOScaleY(_increaseScaleY, _increaseDuration);
-                    yield return new WaitForSeconds(_increaseDuration);
-                    transform.DOScaleY(_defultScaleY, _increaseDuration);
-                    yield return new WaitForSeconds(_increaseDuration);
-                    JumpEvent?.Invoke();
-                }
-                else
-                {
-                    Jump(_jumpForce);
-                }
-            }
-            yield return null;
-        }
-    }
-
-    #endregion
-
-    #region EnergyLogic
-
-    private Vector2 _startPos;
-    private int _cnt;
-    private int _maxCnt;
-
-    private void EnergyMove()
-    {
-        transform.position += _moveDir * _moveSpeed * Time.deltaTime;
-
-        if(Vector2.Distance(_startPos, transform.position) >= 1f)
-        {
-            _startPos = transform.position;
-            ++_cnt;
-
-            if(_cnt >= _maxCnt)
-            {
-                _isEnergyMove = false;
-            }
-        }
-    }
-
-    #endregion
-
-
-    #region public
-
-    public void Jump(float jumpVelocity)
-    {
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpVelocity);
-        JumpEvent?.Invoke();
-    }
-
-    public void Die()
-    {
-        _isDie = true;
-        Active = false;
-    }
-    #endregion
-
-    private bool IsGroundDected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
-
-    private bool CheckNextStep(Vector2 direction) => !_groundTile.HasTile(_groundTile.WorldToCell(transform.position + (Vector3)direction));
 
 #if UNITY_EDITOR
     protected virtual void OnDrawGizmos()
