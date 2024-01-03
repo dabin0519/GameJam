@@ -50,7 +50,7 @@ public class StageSystem : MonoBehaviour
         //LoadStage();
         timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
         endFlag = FindObjectOfType<EndFlag>();
-        endFlag.EndEvent += GameClear;
+        //endFlag.EndEvent += GameClear;
     }
 
     private void Update()

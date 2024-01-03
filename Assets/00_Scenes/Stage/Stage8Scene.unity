@@ -131,25 +131,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1151809161480322502, guid: c42081854649f0b40807c10327593643, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151809161480322502, guid: c42081854649f0b40807c10327593643, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3223161436457539680, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: _groundTile
       value: 
       objectReference: {fileID: 1513983151}
     - target: {fileID: 3995816600687039071, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.3
+      value: -11.27
       objectReference: {fileID: 0}
     - target: {fileID: 3995816600687039071, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.45
+      value: -2.54
       objectReference: {fileID: 0}
     - target: {fileID: 4250260767858989592, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.13
+      value: -11.325
       objectReference: {fileID: 0}
     - target: {fileID: 4250260767858989592, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5
+      value: -2.62
       objectReference: {fileID: 0}
     - target: {fileID: 5359859245647443744, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_IsActive
@@ -207,6 +215,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -2.64
       objectReference: {fileID: 0}
+    - target: {fileID: 8625763444978848839, guid: c42081854649f0b40807c10327593643, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b72f3e9d499366347b9da2e7181c09be, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
