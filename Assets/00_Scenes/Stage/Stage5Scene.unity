@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6543164301452985275, guid: c42081854649f0b40807c10327593643, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7095864700657573290, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_Name
       value: Game
@@ -341,7 +345,7 @@ GameObject:
   - component: {fileID: 1513983154}
   - component: {fileID: 1513983153}
   - component: {fileID: 1513983155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}

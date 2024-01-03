@@ -70,7 +70,11 @@ public class PlayerController : MonoBehaviour
         {
             SlopeCheck();
             Flip();
-            EnergyMove();
+
+            if(_isMove)
+            {
+                EnergyMove();
+            }
         }
         else if(!_isOneCall && _isDie)
         {
@@ -140,7 +144,10 @@ public class PlayerController : MonoBehaviour
 
     private void EnergyMove()
     {
-        transform.position += _moveDir * _moveSpeed * Time.deltaTime;
+        Vector3 moveDir = _moveDir * _moveSpeed * Time.deltaTime;
+
+        if (CheckNextStep(_moveDir))
+            transform.position += moveDir;
 
         if(Vector2.Distance(_startPos, transform.position) >= 1f)
         {
