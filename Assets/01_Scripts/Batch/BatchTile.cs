@@ -4,7 +4,6 @@ using UnityEngine.Tilemaps;
 public class BatchTile : MonoBehaviour
 {
     public static BatchTile Instance;
-
     private Tilemap _tilemap;
 
     private void Awake()
@@ -12,6 +11,12 @@ public class BatchTile : MonoBehaviour
         Instance = this;
 
         _tilemap = GetComponent<Tilemap>();
+    }
+
+    public void PlaseNewTileObj(Vector3 position, TileBase tile)
+    {
+        Vector3Int cellPosition = _tilemap.WorldToCell(position);
+        _tilemap.SetTile(cellPosition, tile);
     }
 
     public bool IsBatchObj(Vector2 position)

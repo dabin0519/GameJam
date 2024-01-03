@@ -12,4 +12,10 @@ namespace EnumList
         Red,
         Yellow
     }
+
+    public enum BatchType
+    {
+        Obj,
+        Tile
+    }
 }
