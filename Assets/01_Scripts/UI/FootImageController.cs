@@ -42,6 +42,7 @@ public class FootImageController : MonoBehaviour
         {
             for (int i = 0; i < Mathf.Abs(amount); i++)
             {
+                if (transform.childCount - 1 < 0) break;
                 GameObject go = transform.GetChild(transform.childCount - 1).gameObject;
                 Sequence seq = DOTween.Sequence();
 
