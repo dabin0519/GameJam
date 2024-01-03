@@ -4,7 +4,6 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
-using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private LayerMask _whatIsGround;
     [SerializeField] private Tilemap _groundTile;
+    [SerializeField] private float _stopOffset;
 
     [Header("--Enrgy Info")]
     [SerializeField] private float _moveSpeed;
@@ -30,11 +30,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _increaseDuration;
     [SerializeField] private float _deathJumpForce;
 
+    #region Property
+
     public UnityEvent JumpEvent;
     public bool Active { get; set; } = false;
     public Vector3 MoveDir { get { return _moveDir; } set { _moveDir = value; } }
     public bool GoldKey = false;
     public bool SilverKey = false;
+
+    #endregion
+
+    #region privateVariable
 
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
@@ -51,6 +57,11 @@ public class PlayerController : MonoBehaviour
     private bool _isDie;
     private bool _isOneCall;
     private bool _isMove;
+    private bool _isStop;
+
+    #endregion
+
+    #region GameLogic
 
     private void Awake()
     {
@@ -65,7 +76,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         StageSystem.Instance.OnStartEvt += OnStart;
-        _lastPos = transform.position;
     }
 
     private void Update()
@@ -74,9 +84,9 @@ public class PlayerController : MonoBehaviour
         {
             _currentPos = transform.position;
 
-            if (IsStop())
+            if (IsStop() && !_isStop)
             {
-                //_isStop = true;
+                _isStop = true;
                 StartCoroutine(StopCoroutine());
             }
 
@@ -87,7 +97,6 @@ public class PlayerController : MonoBehaviour
             {
                 EnergyMove();
             }
-            _lastPos = _currentPos;
         }
         else if(!_isOneCall && _isDie)
         {
@@ -98,7 +107,6 @@ public class PlayerController : MonoBehaviour
         
         if(!Active)
             StopAllCoroutines();
-
     }
 
     public void OnStart()
@@ -130,6 +138,7 @@ public class PlayerController : MonoBehaviour
         _isMove = true;
         _startPos = transform.position;
     }
+    #endregion
 
     #region Coroutine
     private IEnumerator DefualtJump()
@@ -146,7 +155,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator StopCoroutine()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
 
         if(IsStop())
         {
@@ -168,7 +177,10 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = _moveDir * _moveSpeed * Time.deltaTime;
 
         if (IsCanNextTile(_moveDir))
+        {
             transform.position += moveDir; // º®¿¡ ¸ØÃß¸é ¹º°¡ÇØÁÖ±â
+            _lastPos = transform.position;
+        }
 
         if(Vector2.Distance(_startPos, transform.position) >= 1f)
         {
@@ -185,7 +197,7 @@ public class PlayerController : MonoBehaviour
 
     #endregion
 
-    #region public
+    #region publicMethod
 
     public void Jump(float jumpVelocity)
     {
@@ -200,9 +212,20 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+    #region boolMethod
+
     private bool IsGroundDected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
-    private bool IsCanNextTile(Vector2 direction) => !_groundTile.HasTile(_groundTile.WorldToCell(transform.position + (Vector3)direction));
-    private bool IsStop() => _currentPos == _lastPos;
+
+    private bool IsCanNextTile(Vector2 direction)
+    {
+        Vector3Int cellPos = _groundTile.WorldToCell(transform.position + (Vector3)direction);
+
+        return !_groundTile.HasTile(cellPos);
+    }
+
+    private bool IsStop() => Mathf.Abs(_currentPos.x - _lastPos.x) < _stopOffset;
+
+    #endregion
 
     #region Slope
 
