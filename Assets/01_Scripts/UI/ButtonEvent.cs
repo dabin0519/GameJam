@@ -7,6 +7,7 @@ using DG.Tweening;
 public class ButtonEvent : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer blackImage;
+    [SerializeField] private GameObject[] disActiveObjs;
 
     private void Start()
     {
@@ -30,6 +31,11 @@ public class ButtonEvent : MonoBehaviour
 
     public void SceneLoad(string sceneName)
     {
+        if (disActiveObjs.Length != 0)
+        {
+            foreach (GameObject obj in disActiveObjs)
+                obj.SetActive(false);
+        }
 
         float u = blackImage.material.GetFloat("_Value");
         DOTween.To(() => u, x => u = x, 0f, 1f).SetEase(Ease.OutCubic).OnUpdate(() =>
