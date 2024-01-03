@@ -47,7 +47,7 @@ MonoBehaviour:
   puzzleList:
   - puzzleType: 0
     puzzleBatchType: 0
-    puzzleObj: {fileID: 2366238225732124411, guid: 3c866c63c737038459a67b8a7f993ed3, type: 3}
+    puzzleObj: {fileID: 313913068362138955, guid: 04b79afec5c92b74995c945490772e4e, type: 3}
     puzzleTile: {fileID: 0}
   - puzzleType: 1
     puzzleBatchType: 0
@@ -433,9 +433,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleImages:
   - {fileID: 7814999463026265675, guid: 04b79afec5c92b74995c945490772e4e, type: 3}
-  - {fileID: 7814999463026265675, guid: 9fc62d1e02d4fbb4cb9e015b038f01b5, type: 3}
-  - {fileID: 7814999463026265675, guid: 173af87d6f3929e45bcb08e9b0475208, type: 3}
-  - {fileID: 7814999463026265675, guid: 27f9d3004b8c9f6409fec296747a3a5c, type: 3}
+  - {fileID: 7814999463026265675, guid: 391d9efef0bd0854e99da9f8f8fb33d1, type: 3}
+  - {fileID: 7814999463026265675, guid: 7d09071472e405043b2303a954554b3f, type: 3}
+  - {fileID: 7814999463026265675, guid: 6d14b8bed0942304aa3a3d9d168f58db, type: 3}
+  - {fileID: 7814999463026265675, guid: dec63afa6396d564ebf3cf10b5552f7b, type: 3}
   stageData:
   - playTime: 15
     map: {fileID: 176033042228144606, guid: cbe7d1fc513e11840b705509b22d59be, type: 3}
