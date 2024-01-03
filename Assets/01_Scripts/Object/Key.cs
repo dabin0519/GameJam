@@ -3,22 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
+public enum KeyType
+{
+    Gold,
+    Shilver
+}
+
 public class Key : Carrot
 {
-    [SerializeField] private EndFlag _endFlag;
     [SerializeField] private float _upValue;
     [SerializeField] private float _duration;
+    [SerializeField] private KeyType _type;
 
     protected override void Awake()
     {
         base.Awake();
-        _endFlag.IsKey = true;
         StartCoroutine(KeyAnimCoroutine());
     }
 
     protected override void CarrotAbility()
     {
-        _endFlag.IsKey = false;
+        if(_type == KeyType.Gold)
+        {
+            _player.GoldKey = true;
+        }
+        else if(_type == KeyType.Shilver)
+        {
+            _player.SilverKey = true;
+        }
     }
 
     private IEnumerator KeyAnimCoroutine()

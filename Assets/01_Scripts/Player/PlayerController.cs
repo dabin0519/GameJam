@@ -7,15 +7,18 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("--Player info--")]
+    [Header("--Player Info--")]
     [SerializeField] private float _moveDuration;
-    [SerializeField] private float _jumpForce;
     [SerializeField] private Transform _groundChecker;
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private LayerMask _whatIsGround;
     [SerializeField] private Tilemap _groundTile;
 
-    [Header("--SlopeInfo--")]
+    [Header("--Enrgy Info")]
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _jumpForce;
+
+    [Header("--Slope Info--")]
     [SerializeField] private float _slopeCheckDistance;
     [SerializeField] private PhysicsMaterial2D _fullFriction;
     [SerializeField] private PhysicsMaterial2D _noFriction;
@@ -28,6 +31,10 @@ public class PlayerController : MonoBehaviour
 
     public UnityEvent JumpEvent;
     public bool Active { get; set; } = true;
+    public Vector3 MoveDir { get { return _moveDir; } set { _moveDir = value; } }
+    public bool EnergyUP { get; set; } = false;
+    public bool GoldKey = false;
+    public bool SilverKey = false;
 
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
@@ -43,8 +50,7 @@ public class PlayerController : MonoBehaviour
     private bool _isDie;
     private bool _isOneCall;
     private bool _isMove;
-
-    public Vector3 MoveDir { get { return _moveDir; } set { _moveDir = value; } }
+    private bool _isEnergyMove;
 
     private void Awake()
     {
@@ -80,9 +86,12 @@ public class PlayerController : MonoBehaviour
         if(!Active)
             StopAllCoroutines();
 
+        if (EnergyUP && _isEnergyMove)
+            EnergyMove();
+
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Movement(9);
+            OnStart();
         }
     }
 
@@ -191,19 +200,29 @@ public class PlayerController : MonoBehaviour
 
     public void Movement(int r)
     {
-        if(_isMove)
+        if(!EnergyUP)
         {
-            // 이미 실행이 되고 있는건데
-            StartCoroutine(ChangeCoroutine());
+            if(_isMove)
+            {
+                // 이미 실행이 되고 있는건데
+                StartCoroutine(ChangeCoroutine());
+            }
+            else
+            {
+                _isMove = true;
+            }
+
+            StartCoroutine(MovementCoroutine(r));
         }
-        else
+        else // 활력 당근 먹었을 때
         {
+            _isEnergyMove = true;
+            _cnt = 0;
+            _maxCnt = r;
             _isMove = true;
+            _startPos = transform.position;
         }
-
-        StartCoroutine(MovementCoroutine(r));
     }
-
 
     #region Coroutine
     private IEnumerator ChangeCoroutine()
@@ -219,8 +238,18 @@ public class PlayerController : MonoBehaviour
             float startPos = transform.position.x;
             float value = _moveDir.x >= 0 ? 1 : -1;
             float endPos = startPos + value;
+            Vector2 dir = new(value, 0);
 
-            transform.DOMoveX(endPos, _moveDuration);
+            if(CheckNextStep(dir))
+            {
+                transform.DOMoveX(endPos, _moveDuration);
+            }
+            else
+            {
+                Active = false;
+                break;
+            }
+
             yield return new WaitForSeconds(_moveDuration);
         }
         _isMove = false;
@@ -232,17 +261,49 @@ public class PlayerController : MonoBehaviour
         {
             if(IsGroundDected() && _isMove)
             {
-                transform.DOScaleY(_increaseScaleY, _increaseDuration);
-                yield return new WaitForSeconds(_increaseDuration);
-                transform.DOScaleY(_defultScaleY, _increaseDuration);
-                yield return new WaitForSeconds(_increaseDuration);
-                JumpEvent?.Invoke();
+                if(!EnergyUP)
+                {
+                    transform.DOScaleY(_increaseScaleY, _increaseDuration);
+                    yield return new WaitForSeconds(_increaseDuration);
+                    transform.DOScaleY(_defultScaleY, _increaseDuration);
+                    yield return new WaitForSeconds(_increaseDuration);
+                    JumpEvent?.Invoke();
+                }
+                else
+                {
+                    Jump(_jumpForce);
+                }
             }
             yield return null;
         }
     }
 
     #endregion
+
+    #region EnergyLogic
+
+    private Vector2 _startPos;
+    private int _cnt;
+    private int _maxCnt;
+
+    private void EnergyMove()
+    {
+        transform.position += _moveDir * _moveSpeed * Time.deltaTime;
+
+        if(Vector2.Distance(_startPos, transform.position) >= 1f)
+        {
+            _startPos = transform.position;
+            ++_cnt;
+
+            if(_cnt >= _maxCnt)
+            {
+                _isEnergyMove = false;
+            }
+        }
+    }
+
+    #endregion
+
 
     #region public
 
@@ -260,6 +321,8 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private bool IsGroundDected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
+
+    private bool CheckNextStep(Vector2 direction) => !_groundTile.HasTile(_groundTile.WorldToCell(transform.position + (Vector3)direction));
 
 #if UNITY_EDITOR
     protected virtual void OnDrawGizmos()
