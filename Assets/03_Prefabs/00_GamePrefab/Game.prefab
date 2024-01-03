@@ -441,7 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704e33a5a20d78c4cb40b3077cce04a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveDuration: 0.4
   _groundChecker: {fileID: 5227428683305429408}
   _groundCheckDistance: 0.08
   _whatIsGround:
