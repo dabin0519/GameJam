@@ -21,16 +21,12 @@ public class StageSystem : MonoBehaviour
     //[SerializeField] private List<StageData> stageData;
 
     [Header("�ܺ�����")]
+    [SerializeField] private ButtonEvent buttonEvent;
+    [SerializeField] private HeartPanel heartPanel;
     [SerializeField] private Transform settingPanel;
-    //[SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private RectTransform timeImage;
     private Image timeFillImage;
     private bool isShaking = false;
-
-    //private TextMeshProUGUI timeText;
-    //private RectTransform starPanel;
-    //private Button stageBtn;
-    //private Button nextBtn;
 
     [SerializeField] private float maxPlayTime;
     private float currentPlayTime;
@@ -49,13 +45,17 @@ public class StageSystem : MonoBehaviour
         Instance = this;
         playData = Resources.Load<PlayData>("PlayData");
 
+        //이벤트
         endFlag = FindObjectOfType<EndFlag>();
         playerHP = FindObjectOfType<PlayerHP>();
         endFlag.EndEvent += GameClear;
         playerHP.DieEvent += GameLose;
 
+        //타이머
         timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
         currentPlayTime = maxPlayTime;
+
+        settingPanel.DOMoveY(0, 0.5f);
     }
 
     private void Update()
@@ -82,33 +82,29 @@ public class StageSystem : MonoBehaviour
             DOTween.Kill(timeImage);
             timeImage.DOAnchorPosY(timeImage.sizeDelta.y, 0.8f).SetEase(Ease.InOutBack);
             isShaking=false;
+            settingPanel.DOMoveY(-300, 0.5f);
             OnStartEvt?.Invoke();
         }
     }
 
     public void GameClear() //����Ŭ����
     {
-        //_clearAmount++; // �̰� �ƴ϶� ClearAmount++; ��
-        //gameData.clearAmount++;
         playData.clearAmount++;
-        SceneManager.LoadScene("LoadingScene");
+        buttonEvent.SceneLoad("LoadingScene");
     }
 
     public void GameLose() //������
     {
-        //_heart--;
-        //TextAsset textAsset;
-        //textAsset.
-        //gameData.heart--;
+        heartPanel.HeartUp(playData.heart);
         playData.heart--;
         if (playData.heart <= 0)
         {
             Debug.Log("게임종료");
-            SceneManager.LoadScene("GameoverScene");
+            buttonEvent.SceneLoad("GameoverScene");
         }
         else
         {
-            SceneManager.LoadScene("LoadingScene");
+            buttonEvent.SceneLoad("LoadingScene");
         }
     }
 
