@@ -116,8 +116,8 @@ public class PlayerController : MonoBehaviour
     public void Movement(int r)
     {
         _cnt = 0;
-        
         _maxCnt += r;
+        if(_maxCnt > 15) _maxCnt = 15;
         _isMove = true;
         _startPos = transform.position;
     }
