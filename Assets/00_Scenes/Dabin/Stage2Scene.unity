@@ -335,6 +335,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5947837221604525606, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
+      propertyPath: maxPlayTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947837221604525606, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
       propertyPath: currentPlayTime
       value: 5
       objectReference: {fileID: 0}
