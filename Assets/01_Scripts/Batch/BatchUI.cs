@@ -17,6 +17,11 @@ public class BatchUI : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointe
 
     public void OnDrag(PointerEventData eventData) //드래그중
     {
+        if (StageSystem.Instance.IsPlay)
+        {
+            BatchManager.Instance.PuzzleBatch();
+        }
+
         Vector2 mousePos = mainCam.ScreenToWorldPoint(eventData.position);
         BatchManager.Instance.PuzzleMove(mousePos);
     }
