@@ -8,6 +8,16 @@ public class ButtonEvent : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer blackImage;
 
+    private void Start()
+    {
+        blackImage.material.SetFloat("_Value", 0);
+        float u = blackImage.material.GetFloat("_Value");
+        DOTween.To(() => u, x => u = x, 1f, 1f).SetEase(Ease.OutCubic).OnUpdate(() =>
+        {
+            blackImage.material.SetFloat("_Value", u);
+        });
+    }
+
     public void EnableBtn(Behaviour behaviour, bool enable)
     {
         behaviour.enabled = enable;
@@ -18,7 +28,7 @@ public class ButtonEvent : MonoBehaviour
         obj.SetActive(active);
     }
 
-    public void SceneLoadBtn(string sceneName)
+    public void SceneLoad(string sceneName)
     {
 
         float u = blackImage.material.GetFloat("_Value");
