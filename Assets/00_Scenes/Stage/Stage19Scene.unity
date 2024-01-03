@@ -1396,6 +1396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Trap
       objectReference: {fileID: 0}
+    - target: {fileID: 5505827456102180561, guid: 97afdae22b52a1340adda0484c9f7525, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 8306329762516749415, guid: 97afdae22b52a1340adda0484c9f7525, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.38

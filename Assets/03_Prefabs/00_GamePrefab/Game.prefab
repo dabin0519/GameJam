@@ -441,7 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704e33a5a20d78c4cb40b3077cce04a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveDuration: 0.4
   _groundChecker: {fileID: 5227428683305429408}
   _groundCheckDistance: 0.08
   _whatIsGround:
@@ -451,7 +450,7 @@ MonoBehaviour:
   _wallCheckDistance: 0.3
   _groundTile: {fileID: 8925871232310966644}
   _timeDuration: 2
-  _moveSpeed: 1.5
+  _moveSpeed: 3
   _jumpForce: 2.5
   _slopeCheckDistance: 2
   _fullFriction: {fileID: 6200000, guid: 66636e35f61bd804fb12ac1e158c0003, type: 2}
