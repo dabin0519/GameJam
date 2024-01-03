@@ -443,15 +443,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a607fa3fe56961443a6c6b982f6fa8c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puzzleImages:
-  - {fileID: 7814999463026265675, guid: 04b79afec5c92b74995c945490772e4e, type: 3}
-  - {fileID: 7814999463026265675, guid: 391d9efef0bd0854e99da9f8f8fb33d1, type: 3}
-  - {fileID: 7814999463026265675, guid: 7d09071472e405043b2303a954554b3f, type: 3}
-  - {fileID: 7814999463026265675, guid: 6d14b8bed0942304aa3a3d9d168f58db, type: 3}
-  - {fileID: 7814999463026265675, guid: dec63afa6396d564ebf3cf10b5552f7b, type: 3}
   settingPanel: {fileID: 5979517970893827599}
   timeImage: {fileID: 3812809951130877586}
-  maxPlayTime: 0
+  maxPlayTime: 10
 --- !u!1 &6457477760196048574
 GameObject:
   m_ObjectHideFlags: 0
