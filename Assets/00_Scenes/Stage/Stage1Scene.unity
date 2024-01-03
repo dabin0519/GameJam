@@ -281,6 +281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatchPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 6457477760196048574, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8318876473676664475, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
       propertyPath: puzzleList.Array.data[0].puzzleObj
       value: 
@@ -1020,6 +1024,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5412561499374323070, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6543164301452985275, guid: c42081854649f0b40807c10327593643, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7095864700657573290, guid: c42081854649f0b40807c10327593643, type: 3}
