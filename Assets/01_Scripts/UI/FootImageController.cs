@@ -22,21 +22,36 @@ public class FootImageController : MonoBehaviour
 
     public void SetFootImage()
     {
-        int amount = (9 - _playerController.Count) - transform.childCount;
+        int amount = (_playerController.MaxCount - _playerController.Count) - transform.childCount;
         if(amount > 0)
         {
             for (int i = 0; i < amount; i++)
             {
                 GameObject go = Instantiate(_image, transform);
-                go.GetComponent<SpriteRenderer>().DOFade(1, 0.2f);
+                Sequence seq = DOTween.Sequence();
+
+                RectTransform rt = go.transform.GetChild(0).GetComponent<RectTransform>();
+                SpriteRenderer sr = go.transform.GetChild(0).GetComponent<SpriteRenderer>();
+                seq.Append(rt.DOAnchorPosY(0, 0.2f))
+                    .SetEase(Ease.OutQuad);
+                seq.Join(sr.DOFade(1, 0.2f))
+                    .SetEase(Ease.OutQuad);
             }
         }
         else if(amount < 0)
         {
             for (int i = 0; i < Mathf.Abs(amount); i++)
             {
-                GameObject go = transform.GetChild(0).gameObject;
-                Destroy(go);
+                GameObject go = transform.GetChild(transform.childCount - 1).gameObject;
+                Sequence seq = DOTween.Sequence();
+
+                RectTransform rt = go.transform.GetChild(0).GetComponent<RectTransform>();
+                SpriteRenderer sr = go.transform.GetChild(0).GetComponent<SpriteRenderer>();
+                seq.Append(rt.DOAnchorPosY(-15, 0.2f))
+                    .SetEase(Ease.OutQuad);
+                seq.Join(sr.DOFade(0, 0.2f))
+                    .SetEase(Ease.OutQuad);
+                seq.OnComplete(() => Destroy(go));
             }
         }
     }

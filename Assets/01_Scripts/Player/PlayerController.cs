@@ -140,7 +140,9 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _startPos;
     private int _cnt;
+    public int Count => _cnt;
     private int _maxCnt;
+    public int MaxCount => _maxCnt;
 
     private void EnergyMove()
     {
