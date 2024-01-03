@@ -157,6 +157,12 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
+
+    private IEnumerator WaitCoroutine()
+    {
+        yield return new WaitForSeconds(_timeDuration);
+        StageSystem.Instance.GameLose();
+    }
     #endregion
 
     #region EnergyLogic
@@ -182,15 +188,20 @@ public class PlayerController : MonoBehaviour
             if(_cnt >= _maxCnt)
             {
                 _isMove = false;
+                StartCoroutine(WaitCoroutine());
                 _maxCnt -= _cnt;
             }
         }
         else
         {
+            Debug.Log("?");
+
             _time += Time.deltaTime;
 
             if(_time >= _timeDuration)
             {
+                Debug.Log("???");
+
                 if(!_isStageOneCall)
                 {
                     _isStageOneCall = true;
