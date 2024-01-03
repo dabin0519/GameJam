@@ -32,9 +32,10 @@ public class BatchCheck : MonoBehaviour
     {
         if (batchClear) return;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 0f, LayerMask.GetMask("Puzzle"));
-        Debug.Log($"{BatchTile.Instance.IsBatchObj(transform.position)}, {hit.collider}");
-        if (BatchTile.Instance.IsBatchObj(transform.position) || hit.collider != null)//»¡°­
+        Collider2D hit = Physics2D.OverlapBox(transform.position, Vector2.one, 0, LayerMask.GetMask("Puzzle", "Player"));
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 0.5f, LayerMask.GetMask("Puzzle", "Player"));
+        //Debug.Log($"{BatchTile.Instance.IsBatchObj(transform.position)}, {hit.collider}");
+        if (BatchTile.Instance.IsBatchObj(transform.position) || hit != null)//»¡°­
         {
             batchAreaRenderer.color = new Color(1f, 0f, 0f, 0.7f);
             batchble = false;
