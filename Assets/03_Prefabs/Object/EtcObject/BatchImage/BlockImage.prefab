@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 546925844497240694, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: puzzle
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5373506063854203024, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_SizeDelta.x

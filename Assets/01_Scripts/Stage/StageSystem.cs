@@ -16,9 +16,9 @@ public class StageSystem : MonoBehaviour
 
     [HideInInspector] public bool IsPlay { get; set; }
 
-    [Header("����Ʈ")]
-    [SerializeField] private List<PuzzleImage> puzzleImages;
-    [SerializeField] private List<StageData> stageData;
+    //[Header("����Ʈ")]
+    //[SerializeField] private List<PuzzleImage> puzzleImages;
+    //[SerializeField] private List<StageData> stageData;
 
     [Header("�ܺ�����")]
     [SerializeField] private Transform settingPanel;
@@ -32,12 +32,14 @@ public class StageSystem : MonoBehaviour
     //private Button stageBtn;
     //private Button nextBtn;
 
-    [SerializeField] private float currentPlayTime;
+    [SerializeField] private float maxPlayTime;
+    private float currentPlayTime;
     private int currentStage;
 
     private PlayData playData;
 
     private EndFlag endFlag;
+    private PlayerHP playerHP;
 
     //private int clearAmount;
     //private int heart;
@@ -46,11 +48,14 @@ public class StageSystem : MonoBehaviour
     {
         Instance = this;
         playData = Resources.Load<PlayData>("PlayData");
-        
-        //LoadStage();
-        timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
+
         endFlag = FindObjectOfType<EndFlag>();
-        //endFlag.EndEvent += GameClear;
+        playerHP = FindObjectOfType<PlayerHP>();
+        endFlag.EndEvent += GameClear;
+        playerHP.DieEvent += GameLose;
+
+        timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
+        currentPlayTime = maxPlayTime;
     }
 
     private void Update()
@@ -59,14 +64,14 @@ public class StageSystem : MonoBehaviour
         {
             currentPlayTime -= Time.deltaTime;
             //timeText.text = currentPlayTime.ToString("##");
-            timeFillImage.fillAmount = currentPlayTime / stageData[currentStage].playTime;
+            timeFillImage.fillAmount = currentPlayTime / maxPlayTime;
         }
 
-        if(currentPlayTime / stageData[currentStage].playTime < 0.3f && !isShaking)// added
+        if(timeFillImage.fillAmount < 0.3f && !isShaking)// added
         {
             isShaking = true;
-            timeImage.DOShakePosition((stageData[currentStage].playTime - currentPlayTime) * 0.5f, 10, 15);
-            timeFillImage.DOColor(Color.red, stageData[currentStage].playTime - currentPlayTime);
+            timeImage.DOShakePosition((maxPlayTime - currentPlayTime) * 0.5f, 10, 15);
+            timeFillImage.DOColor(Color.red, maxPlayTime - currentPlayTime);
         }
 
         if (currentPlayTime <= 0)
@@ -79,25 +84,6 @@ public class StageSystem : MonoBehaviour
             isShaking=false;
             OnStartEvt?.Invoke();
         }
-    }
-
-    private void LoadStage()
-    {
-        currentPlayTime = stageData[currentStage].playTime;
-
-        Instantiate(stageData[currentStage].map); //�� ����
-
-        foreach (PuzzleData puzzleData in stageData[currentStage].puzzleDatas) //���� ����
-        {
-            //PuzzleImage settingPuzzle = puzzleImages.Find(p => p.puzzle == puzzleData.puzzleType);
-            PuzzleImage settingPuzzle = Instantiate(puzzleImages.Find(p => p.puzzle == puzzleData.puzzleType), settingPanel);
-            settingPuzzle.Cnt = puzzleData.puzzleCnt;
-        }
-
-        //timeText = clearPanel.Find("MainPanel").Find("TimeText").GetComponent<TextMeshProUGUI>();//���ʷ�
-        //starPanel = clearPanel.Find("MainPanel").Find("StarPanel").GetComponent<RectTransform>();//�� �޾Ƴ��� ��
-        //stageBtn = clearPanel.Find("MainPanel").Find("StageBtn").GetComponent<Button>();//�������� ���ư���
-        //nextBtn = clearPanel.Find("MainPanel").Find("NextBtn").GetComponent<Button>();//���� ��������
     }
 
     public void GameClear() //����Ŭ����
@@ -115,7 +101,15 @@ public class StageSystem : MonoBehaviour
         //textAsset.
         //gameData.heart--;
         playData.heart--;
-        SceneManager.LoadScene("LoadingScene");
+        if (playData.heart <= 0)
+        {
+            Debug.Log("게임종료");
+            SceneManager.LoadScene("GameoverScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("LoadingScene");
+        }
     }
 
     //private void GameClear() //OnClearEvt���������� ?.Invoke() ���ָ� �Ϸ�
