@@ -1153,6 +1153,10 @@ PrefabInstance:
       value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 3223161436457539680, guid: c42081854649f0b40807c10327593643, type: 3}
+      propertyPath: _timeDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3223161436457539680, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: _groundCheckDistance
       value: 0.08
       objectReference: {fileID: 0}

@@ -84,11 +84,11 @@ public class PlayerController : MonoBehaviour
         {
             _currentPos = transform.position;
 
-            if (IsStop() && !_isStop)
+            /*if (IsStop() && !_isStop)
             {
                 _isStop = true;
                 StartCoroutine(StopCoroutine());
-            }
+            }*/
 
             SlopeCheck();
             Flip();
@@ -152,25 +152,17 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
-
-    private IEnumerator StopCoroutine()
-    {
-        yield return new WaitForSeconds(3f);
-
-        if(IsStop())
-        {
-            StageSystem.Instance.GameLose();
-        }
-    }
     #endregion
 
     #region EnergyLogic
 
+    [SerializeField] private float _timeDuration;
     private Vector2 _startPos;
     private int _cnt;
     public int Count => _cnt;
     private int _maxCnt;
     public int MaxCount => _maxCnt;
+    private float _time;
 
     private void EnergyMove()
     {
@@ -186,11 +178,21 @@ public class PlayerController : MonoBehaviour
         {
             _startPos = transform.position;
             ++_cnt;
+            _time = 0;
 
             if(_cnt >= _maxCnt)
             {
                 _isMove = false;
                 _maxCnt -= _cnt;
+            }
+        }
+        else
+        {
+            _time += Time.deltaTime;
+
+            if(_time >= _timeDuration)
+            {
+                StageSystem.Instance.GameLose();
             }
         }
     }
