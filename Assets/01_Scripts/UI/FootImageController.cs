@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FootImageController : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class FootImageController : MonoBehaviour
                 Sequence seq = DOTween.Sequence();
 
                 RectTransform rt = go.transform.GetChild(0).GetComponent<RectTransform>();
-                SpriteRenderer sr = go.transform.GetChild(0).GetComponent<SpriteRenderer>();
+                Image sr = go.transform.GetChild(0).GetComponent<Image>();
                 seq.Append(rt.DOAnchorPosY(-15, 0.2f))
                     .SetEase(Ease.OutQuad);
                 seq.Join(sr.DOFade(0, 0.2f))
