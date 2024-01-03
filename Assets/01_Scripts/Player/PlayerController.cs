@@ -8,12 +8,11 @@ using UnityEngine.Tilemaps;
 public class PlayerController : MonoBehaviour
 {
     [Header("--Player Info--")]
-    [SerializeField] private float _moveDuration;
     [SerializeField] private Transform _groundChecker;
     [SerializeField] private float _groundCheckDistance;
     [SerializeField] private LayerMask _whatIsGround;
     [SerializeField] private Transform  _wallChecker;
-    [SerializeField] private float      _wallCheckDistance;
+    [SerializeField] private float _wallCheckDistance;
     [SerializeField] private Tilemap _groundTile;
     [SerializeField] private float _timeDuration;
 
