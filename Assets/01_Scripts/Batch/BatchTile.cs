@@ -17,8 +17,11 @@ public class BatchTile : MonoBehaviour
     public bool IsBatchObj(Vector2 position)
     {
         TileBase tileBase = null;
+        TileBase underBase = null;
         tileBase = _tilemap.GetTile(_tilemap.WorldToCell(position));
-        return tileBase;
+        underBase = _tilemap.GetTile(_tilemap.WorldToCell(position - new Vector2(0, 1f)));
+        Debug.Log(position - new Vector2(0, 1f));
+        return tileBase || !underBase;
     }
 
     public Vector2 Vector2IntPos(Vector2 position)

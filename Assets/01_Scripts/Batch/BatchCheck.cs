@@ -36,12 +36,12 @@ public class BatchCheck : MonoBehaviour
         Debug.Log($"{BatchTile.Instance.IsBatchObj(transform.position)}, {hit.collider}");
         if (BatchTile.Instance.IsBatchObj(transform.position) || hit.collider != null)//»¡°­
         {
-            batchAreaRenderer.color = new Color(0.5f, 0f, 0f, 0.5f);
+            batchAreaRenderer.color = new Color(0.5f, 0f, 0f, 0.7f);
             batchble = false;
         }
         else//¸ÖÂÄ
         {
-            batchAreaRenderer.color = new Color(0f, 0f, 0f, 0.5f);
+            batchAreaRenderer.color = new Color(0f, 0f, 0f, 0.7f);
             batchble = true;
         }
     }

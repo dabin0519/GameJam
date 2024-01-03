@@ -6,9 +6,10 @@ namespace EnumList
 {
     public enum Puzzle
     {
-        A,
-        B,
-        C,
-        D
+        Blue,
+        Green,
+        Orange,
+        Red,
+        Yellow
     }
 }

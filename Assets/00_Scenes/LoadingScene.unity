@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af2b180283a977541ad627f33a1c12a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cnt: 18
+  _cnt: 1
   _shuffleCnt: 1000
 --- !u!4 &199638267
 Transform:
