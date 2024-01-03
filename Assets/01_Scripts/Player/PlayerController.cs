@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _increaseScaleY;
     [SerializeField] private float _increaseDuration;
     [SerializeField] private float _deathJumpForce;
+    [SerializeField] private float _timeDuration;
 
     #region Property
 
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour
     public Vector3 MoveDir { get { return _moveDir; } set { _moveDir = value; } }
     public bool GoldKey = false;
     public bool SilverKey = false;
+    public int Count => _cnt;
+    public int MaxCount => _maxCnt;
 
     #endregion
 
@@ -47,9 +50,10 @@ public class PlayerController : MonoBehaviour
     private CircleCollider2D _circleCollider2D;
 
     private Vector3 _moveDir;
-    private Vector2 _slopeNormalPerp;
     private Vector3 _lastPos;
     private Vector3 _currentPos;
+    private Vector2 _slopeNormalPerp;
+    private Vector2 _startPos;
     private float _circleColiderRadius;
     private float _slopeDownAngle;
     private float _lastSlopeAngle;
@@ -57,7 +61,9 @@ public class PlayerController : MonoBehaviour
     private bool _isDie;
     private bool _isOneCall;
     private bool _isMove;
-    private bool _isStop;
+    private int _cnt;
+    private int _maxCnt;
+    private float _time;
 
     #endregion
 
@@ -84,11 +90,11 @@ public class PlayerController : MonoBehaviour
         {
             _currentPos = transform.position;
 
-            if (IsStop() && !_isStop)
+            /*if (IsStop() && !_isStop)
             {
                 _isStop = true;
                 StartCoroutine(StopCoroutine());
-            }
+            }*/
 
             SlopeCheck();
             Flip();
@@ -152,25 +158,10 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
-
-    private IEnumerator StopCoroutine()
-    {
-        yield return new WaitForSeconds(3f);
-
-        if(IsStop())
-        {
-            StageSystem.Instance.GameLose();
-        }
-    }
     #endregion
 
     #region EnergyLogic
 
-    private Vector2 _startPos;
-    private int _cnt;
-    public int Count => _cnt;
-    private int _maxCnt;
-    public int MaxCount => _maxCnt;
 
     private void EnergyMove()
     {
@@ -186,11 +177,21 @@ public class PlayerController : MonoBehaviour
         {
             _startPos = transform.position;
             ++_cnt;
+            _time = 0;
 
             if(_cnt >= _maxCnt)
             {
                 _isMove = false;
                 _maxCnt -= _cnt;
+            }
+        }
+        else
+        {
+            _time += Time.deltaTime;
+
+            if(_time >= _timeDuration)
+            {
+                StageSystem.Instance.GameLose();
             }
         }
     }
