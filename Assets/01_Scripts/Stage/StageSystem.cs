@@ -16,8 +16,8 @@ public class StageSystem : MonoBehaviour
 
     [HideInInspector] public bool IsPlay { get; set; }
 
-    [Header("����Ʈ")]
-    [SerializeField] private List<PuzzleImage> puzzleImages;
+    //[Header("����Ʈ")]
+    //[SerializeField] private List<PuzzleImage> puzzleImages;
     //[SerializeField] private List<StageData> stageData;
 
     [Header("�ܺ�����")]
