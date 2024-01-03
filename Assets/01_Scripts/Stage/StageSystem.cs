@@ -39,6 +39,7 @@ public class StageSystem : MonoBehaviour
     private PlayData playData;
 
     private EndFlag endFlag;
+    private PlayerHP playerHP;
 
     //private int clearAmount;
     //private int heart;
@@ -47,8 +48,12 @@ public class StageSystem : MonoBehaviour
     {
         Instance = this;
         playData = Resources.Load<PlayData>("PlayData");
-        
-        //LoadStage();
+
+        endFlag = FindObjectOfType<EndFlag>();
+        playerHP = FindObjectOfType<PlayerHP>();
+        endFlag.EndEvent += GameClear;
+        playerHP.DieEvent += GameLose;
+
         timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
         currentPlayTime = maxPlayTime;
     }
@@ -99,7 +104,7 @@ public class StageSystem : MonoBehaviour
         if (playData.heart <= 0)
         {
             Debug.Log("게임종료");
-            SceneManager.LoadScene("");
+            SceneManager.LoadScene("GameoverScene");
         }
         else
         {

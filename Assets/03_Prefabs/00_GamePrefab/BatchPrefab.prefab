@@ -51,25 +51,29 @@ MonoBehaviour:
     puzzleTile: {fileID: 0}
   - puzzleType: 1
     puzzleBatchType: 0
-    puzzleObj: {fileID: 525456302453247624, guid: 40d93031a8c4b5443b3ba664ef2497c3, type: 3}
+    puzzleObj: {fileID: 7288086210845647167, guid: 57590c8f40f8d3948a2c30ea4991cea5, type: 3}
     puzzleTile: {fileID: 0}
   - puzzleType: 2
     puzzleBatchType: 0
-    puzzleObj: {fileID: 7743103587511897123, guid: 7776d5fd7a262a9419b30edf7c5b749d, type: 3}
+    puzzleObj: {fileID: 525456302453247624, guid: 40d93031a8c4b5443b3ba664ef2497c3, type: 3}
     puzzleTile: {fileID: 0}
   - puzzleType: 3
     puzzleBatchType: 0
-    puzzleObj: {fileID: 535436164875887242, guid: b67771a61b43fbc4b93d2978caef0af7, type: 3}
+    puzzleObj: {fileID: 7743103587511897123, guid: 7776d5fd7a262a9419b30edf7c5b749d, type: 3}
     puzzleTile: {fileID: 0}
   - puzzleType: 4
     puzzleBatchType: 0
-    puzzleObj: {fileID: 4416701214577582573, guid: 903f662471717fe40860e8a268bd9926, type: 3}
+    puzzleObj: {fileID: 535436164875887242, guid: b67771a61b43fbc4b93d2978caef0af7, type: 3}
     puzzleTile: {fileID: 0}
   - puzzleType: 5
     puzzleBatchType: 0
-    puzzleObj: {fileID: 1338078816982101092, guid: 3b18364895be04a45bcd7c8238cc6f77, type: 3}
+    puzzleObj: {fileID: 4416701214577582573, guid: 903f662471717fe40860e8a268bd9926, type: 3}
     puzzleTile: {fileID: 0}
   - puzzleType: 6
+    puzzleBatchType: 0
+    puzzleObj: {fileID: 1338078816982101092, guid: 3b18364895be04a45bcd7c8238cc6f77, type: 3}
+    puzzleTile: {fileID: 0}
+  - puzzleType: 7
     puzzleBatchType: 1
     puzzleObj: {fileID: 1410826207039420008, guid: 6a4d35bb9b9641f44ac42ae19471619a, type: 3}
     puzzleTile: {fileID: 11400000, guid: 8fe58715a77103d41a39a5869b7c1292, type: 2}
@@ -445,21 +449,9 @@ MonoBehaviour:
   - {fileID: 7814999463026265675, guid: 7d09071472e405043b2303a954554b3f, type: 3}
   - {fileID: 7814999463026265675, guid: 6d14b8bed0942304aa3a3d9d168f58db, type: 3}
   - {fileID: 7814999463026265675, guid: dec63afa6396d564ebf3cf10b5552f7b, type: 3}
-  stageData:
-  - playTime: 15
-    map: {fileID: 176033042228144606, guid: cbe7d1fc513e11840b705509b22d59be, type: 3}
-    puzzleDatas:
-    - puzzleType: 0
-      puzzleCnt: 4
-    - puzzleType: 1
-      puzzleCnt: 3
-    - puzzleType: 2
-      puzzleCnt: 2
-    - puzzleType: 3
-      puzzleCnt: 1
   settingPanel: {fileID: 5979517970893827599}
   timeImage: {fileID: 3812809951130877586}
-  currentPlayTime: 15
+  maxPlayTime: 0
 --- !u!1 &6457477760196048574
 GameObject:
   m_ObjectHideFlags: 0
