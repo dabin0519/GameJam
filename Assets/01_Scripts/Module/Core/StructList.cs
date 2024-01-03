@@ -22,6 +22,7 @@ namespace StructList
     [System.Serializable]
     public struct StageData
     {
+        public int playTime;
         public GameObject map;
         public List<PuzzleData> puzzleDatas;
     }
