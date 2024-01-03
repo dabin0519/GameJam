@@ -10,12 +10,14 @@ public class PlayerHP : MonoBehaviour
 
     [SerializeField] private int _maxHP;
     [SerializeField] private GameObject _shield;
+    [SerializeField] private float _dontDieDuration;
 
     private PlayerController _playerController;
 
     private int _hp;
     private bool _isShield = false;
     private bool _isDead = false;
+    private bool _noDie;
 
     public int HP { get { return _hp; } set { _hp = value; } }
 
@@ -38,6 +40,9 @@ public class PlayerHP : MonoBehaviour
 
     public void Damage(int damage = 1)
     {
+        if (_noDie)
+            return;
+
         if (!_isShield)
             _hp -= damage;
         else
@@ -48,5 +53,17 @@ public class PlayerHP : MonoBehaviour
     {
         _isShield = value;
         _shield.SetActive(value);
+
+        if(value)
+        {
+            StartCoroutine(ShieldCoroutine());
+        }
+    }
+
+    private IEnumerator ShieldCoroutine()
+    {
+        _noDie = true;
+        yield return new WaitForSeconds(_dontDieDuration);
+        _noDie = false;
     }
 }
