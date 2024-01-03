@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 using UnityEngine.Tilemaps;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _moveDir;
     private Vector2 _slopeNormalPerp;
+    private Vector3 _lastPos;
+    private Vector3 _currentPos;
     private float _circleColiderRadius;
     private float _slopeDownAngle;
     private float _lastSlopeAngle;
@@ -62,12 +65,21 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         StageSystem.Instance.OnStartEvt += OnStart;
+        _lastPos = transform.position;
     }
 
     private void Update()
     {
-        if(Active)
+        if (Active)
         {
+            _currentPos = transform.position;
+
+            if (IsStop())
+            {
+                //_isStop = true;
+                StartCoroutine(StopCoroutine());
+            }
+
             SlopeCheck();
             Flip();
 
@@ -75,6 +87,7 @@ public class PlayerController : MonoBehaviour
             {
                 EnergyMove();
             }
+            _lastPos = _currentPos;
         }
         else if(!_isOneCall && _isDie)
         {
@@ -86,10 +99,6 @@ public class PlayerController : MonoBehaviour
         if(!Active)
             StopAllCoroutines();
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            OnStart();
-        }
     }
 
     public void OnStart()
@@ -116,8 +125,8 @@ public class PlayerController : MonoBehaviour
     public void Movement(int r)
     {
         _cnt = 0;
-        
         _maxCnt += r;
+        if(_maxCnt > 15) _maxCnt = 15;
         _isMove = true;
         _startPos = transform.position;
     }
@@ -134,6 +143,16 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
     }
+
+    private IEnumerator StopCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+
+        if(IsStop())
+        {
+            StageSystem.Instance.GameLose();
+        }
+    }
     #endregion
 
     #region EnergyLogic
@@ -148,8 +167,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 moveDir = _moveDir * _moveSpeed * Time.deltaTime;
 
-        if (CheckNextStep(_moveDir))
-            transform.position += moveDir;
+        if (IsCanNextTile(_moveDir))
+            transform.position += moveDir; // º®¿¡ ¸ØÃß¸é ¹º°¡ÇØÁÖ±â
 
         if(Vector2.Distance(_startPos, transform.position) >= 1f)
         {
@@ -182,8 +201,8 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     private bool IsGroundDected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
-
-    private bool CheckNextStep(Vector2 direction) => !_groundTile.HasTile(_groundTile.WorldToCell(transform.position + (Vector3)direction));
+    private bool IsCanNextTile(Vector2 direction) => !_groundTile.HasTile(_groundTile.WorldToCell(transform.position + (Vector3)direction));
+    private bool IsStop() => _currentPos == _lastPos;
 
     #region Slope
 
