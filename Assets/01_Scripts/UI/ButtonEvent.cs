@@ -9,6 +9,8 @@ public class ButtonEvent : MonoBehaviour
     [SerializeField] private SpriteRenderer blackImage;
     [SerializeField] private GameObject[] disActiveObjs;
 
+    [SerializeField] private bool isGameoverScene;
+
     private void Start()
     {
         blackImage.material.SetFloat("_Value", 0);
@@ -43,8 +45,15 @@ public class ButtonEvent : MonoBehaviour
             blackImage.material.SetFloat("_Value", u);
         }).OnComplete(() =>
         {
+            if(isGameoverScene && sceneName == "LoadingScene")
+                AudioManager.Instance.StartBgm(0);
             SceneManager.LoadScene(sceneName);
         });
+    }
+
+    public void PlayBgm(int idx)
+    {
+        AudioManager.Instance.StartBgm(idx);
     }
 
     public void OuitBtn()

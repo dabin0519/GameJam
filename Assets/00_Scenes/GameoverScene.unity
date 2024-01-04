@@ -1360,6 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab9b180dadf38b44a71e8023e241a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playData: {fileID: 0}
 --- !u!4 &881740232
 Transform:
   m_ObjectHideFlags: 0
@@ -2417,6 +2418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackImage: {fileID: 532817295}
   disActiveObjs: []
+  isGameoverScene: 1
 --- !u!4 &2126885194
 Transform:
   m_ObjectHideFlags: 0
