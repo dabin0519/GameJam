@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1663776872619233092}
   - component: {fileID: 5726945112985448623}
   - component: {fileID: 8357751228378104738}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SilverKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}

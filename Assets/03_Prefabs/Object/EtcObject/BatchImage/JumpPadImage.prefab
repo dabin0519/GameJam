@@ -20,21 +20,13 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b2e2ac2070ef6d1499661df46d740c5c, type: 3}
-    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_Color.b
-      value: 1
+    - target: {fileID: 2644996688975050862, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
       objectReference: {fileID: 0}
-    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 2644996688975050862, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 5009833635329473435, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: puzzle
@@ -173,10 +165,6 @@ PrefabInstance:
       value: JumpPadImage
       objectReference: {fileID: 0}
     - target: {fileID: 8871581295207750483, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a54b8b034a1c0dd49a7d03fe709e22f7, type: 3}
-    - target: {fileID: 8871581295207750483, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -186,10 +174,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871581295207750483, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8871581295207750483, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

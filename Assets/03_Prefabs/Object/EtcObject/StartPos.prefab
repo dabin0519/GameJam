@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3332765431760126642}
   - component: {fileID: 5859256170555690343}
   - component: {fileID: 3023081951845278874}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StartPos
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
