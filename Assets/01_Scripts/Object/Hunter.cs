@@ -64,7 +64,7 @@ public class Hunter : MonoBehaviour
     {
         ShootEvent?.Invoke();
 
-
+        _animator.SetTrigger("Fire");
         HunterBullet newBullet = Instantiate(_shootObj, transform.position, Quaternion.identity);
 
         newBullet.Dir = _shootDir;
