@@ -100,8 +100,13 @@ public class StageSystem : MonoBehaviour
 
     public void GameLose() //������
     {
-        Debug.Log("실패");
+        StartCoroutine(GameLoseCol());
+    }
+
+    private IEnumerator GameLoseCol()
+    {
         heartPanel.HeartUp(playData.heart);
+        yield return new WaitForSeconds(1.5f);
         playData.heart--;
         if (playData.heart <= 0)
         {
@@ -114,19 +119,19 @@ public class StageSystem : MonoBehaviour
         }
     }
 
-    //private void GameClear() //OnClearEvt���������� ?.Invoke() ���ָ� �Ϸ�
-    //{
-    //    OnStopEvt?.Invoke(); //�÷��̾� ���߰�
+        //private void GameClear() //OnClearEvt���������� ?.Invoke() ���ָ� �Ϸ�
+        //{
+        //    OnStopEvt?.Invoke(); //�÷��̾� ���߰�
 
-    //    string second = TimeSpan.FromSeconds(currentPlayTime).ToString("mm\\:ss");
-    //    var time = second.Split(":");
-    //    timeText.text = $"{time[0]}m {time[1]}s";
+        //    string second = TimeSpan.FromSeconds(currentPlayTime).ToString("mm\\:ss");
+        //    var time = second.Split(":");
+        //    timeText.text = $"{time[0]}m {time[1]}s";
 
-    //    //â�߱�(�ɸ��ð�, ���� ��, ������������ ��ư, �������� ���� ��ư)
-    //    clearPanel.DOMoveY(0, 0.5f).SetEase(Ease.InOutBounce)
-    //        .OnComplete(() => {
-    //            stageBtn.onClick.AddListener(() => { GameOut(); });
-    //            nextBtn.onClick.AddListener(() => { NextGame(-1);/*���ڷ� ���� �������� + 1 �ֱ�*/});
-    //        });
-    //}
-}
+        //    //â�߱�(�ɸ��ð�, ���� ��, ������������ ��ư, �������� ���� ��ư)
+        //    clearPanel.DOMoveY(0, 0.5f).SetEase(Ease.InOutBounce)
+        //        .OnComplete(() => {
+        //            stageBtn.onClick.AddListener(() => { GameOut(); });
+        //            nextBtn.onClick.AddListener(() => { NextGame(-1);/*���ڷ� ���� �������� + 1 �ֱ�*/});
+        //        });
+        //}
+    }
