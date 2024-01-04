@@ -30,7 +30,6 @@ public class AudioManager : MonoBehaviour
         _sfxSource.volume = value;
     }
 
-    // 이하 필요한 기능 만들어 생각하기 귀찮다
     public void StartBgm(int idx)
     {
         Debug.Log("SNOG");

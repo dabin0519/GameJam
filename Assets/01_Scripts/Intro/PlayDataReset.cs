@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class PlayDataReset : MonoBehaviour
 {
-    private PlayData playData;
+    public static PlayDataReset Instance;
 
-    void Start()
+    public PlayData playData;
+
+    void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(transform);
+        }
+
         playData = Resources.Load<PlayData>("PlayData");
         playData.clearAmount = 0;
         playData.heart = 3;
