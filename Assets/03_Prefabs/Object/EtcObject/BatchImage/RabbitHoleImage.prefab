@@ -12,17 +12,17 @@ PrefabInstance:
       propertyPath: puzzle
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 5373506063854203024, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373506063854203024, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373506063854203024, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1944105835, guid: 56f19223ed8330f4092d7c75cf8645d0, type: 3}
+    - target: {fileID: 2644996688975050862, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.6
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009833635329473435, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: puzzle
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_Pivot.x
@@ -49,16 +49,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
+      propertyPath: m_LocalScale.x
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -112,10 +108,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RabbitHoleImage
       objectReference: {fileID: 0}
-    - target: {fileID: 8871581295207750483, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 1944105835, guid: 56f19223ed8330f4092d7c75cf8645d0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

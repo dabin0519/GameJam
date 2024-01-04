@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: puzzle
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 03e73092829a88347b4e40fb269101fc, type: 3}
+    - target: {fileID: 5009833635329473435, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: puzzle
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5373506063854203024, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_SizeDelta.x
       value: 100
@@ -49,16 +57,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
+      propertyPath: m_LocalScale.x
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7084572525360550565, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -112,10 +116,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlockImage
       objectReference: {fileID: 0}
-    - target: {fileID: 8871581295207750483, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 03e73092829a88347b4e40fb269101fc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
