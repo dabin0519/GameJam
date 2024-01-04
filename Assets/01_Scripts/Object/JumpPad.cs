@@ -18,7 +18,7 @@ public class JumpPad : Carrot
 
     protected override void CarrotAbility()
     {
-        _player.JumpPad = true;
+        //_player.JumpPad = true;
         _anim.SetTrigger("Down");
         StartCoroutine(WaitCoroutine());
     }
@@ -28,7 +28,7 @@ public class JumpPad : Carrot
         yield return new WaitForSeconds(_upDuration);
         _anim.SetTrigger("Up");
         _player.Jump(_jumpForce);
-        _player.JumpPad = false;
+        //_player.JumpPad = false;
         yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
     }
