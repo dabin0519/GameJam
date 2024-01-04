@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
     public bool SilverKey = false;
     public int Count => _cnt;
     public int MaxCount => _maxCnt;
+    public bool JumpPad;
 
     #endregion
 
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
             SlopeCheck();
             Flip();
 
-            if(_isMove)
+            if(_isMove && !JumpPad)
             {
                 EnergyMove();
             }
