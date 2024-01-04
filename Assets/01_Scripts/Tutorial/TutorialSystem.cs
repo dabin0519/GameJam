@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class TutorialSystem : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private float _typingOneWordTime;
     [SerializeField] private float _textDuration;
 
+    [SerializeField]     private CinemachineVirtualCamera _camera;
     private TextMeshProUGUI _descriptionTMP;
     private Image _talkBalloon;
     private int _idx;
@@ -21,6 +23,13 @@ public class TutorialSystem : MonoBehaviour
     {
         _descriptionTMP = _uiContainerTrm.Find("Description").GetComponent<TextMeshProUGUI>();
         _talkBalloon = _uiContainerTrm.Find("TalkBalloon").GetComponent<Image>();
+    }
+
+    private void Start()
+    {
+        StartText();
+        _camera.transform.position = new Vector3(-6.45f, 1.35f, -10);
+        _camera.m_Lens.OrthographicSize = 4f;
     }
 
     public void StartText()
@@ -41,7 +50,7 @@ public class TutorialSystem : MonoBehaviour
     {
         _descriptionTMP.text = "";
 
-        if(_idx < tutorialList.Count)
+        if(_idx < tutorialList.Count - 1)
         {
             _idx++;
             ShowDescription();
@@ -50,6 +59,8 @@ public class TutorialSystem : MonoBehaviour
         {
             // end
             _talkBalloon.enabled = false;
+            _camera.gameObject.SetActive(false);
+            StageSystem.Instance.StartBatch();
         }
     }
 

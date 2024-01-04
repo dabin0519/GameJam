@@ -32,7 +32,14 @@ public class AudioManager : MonoBehaviour
 
     public void StartBgm(int idx)
     {
+        Debug.Log("SNOG");
         _bgmSource.clip = _bgmClips[idx];
         _bgmSource.Play();
+    }
+
+    public void PlaySfx(int idx)
+    {
+        _sfxSource.clip = _sfxClips[idx];
+        _sfxSource.Play();
     }
 }

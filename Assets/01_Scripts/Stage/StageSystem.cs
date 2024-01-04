@@ -29,6 +29,7 @@ public class StageSystem : MonoBehaviour
     private bool isShaking = false;
 
     [SerializeField] private float maxPlayTime;
+    [SerializeField] private bool _isTutorial;
     private float currentPlayTime;
     private int currentStage;
 
@@ -55,6 +56,12 @@ public class StageSystem : MonoBehaviour
         timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
         currentPlayTime = maxPlayTime;
 
+        if(!_isTutorial)
+            StartBatch();
+    }
+
+    public void StartBatch()
+    {
         settingPanel.DOMoveY(0, 0.5f);
     }
 
@@ -83,6 +90,7 @@ public class StageSystem : MonoBehaviour
     public void StartGame()
     {
         IsPlay = true;
+        timeImage.GetComponent<Button>().interactable = false;
         currentPlayTime = 999;
         //timeText.gameObject.SetActive(false);
         DOTween.Kill(timeImage);
@@ -94,14 +102,21 @@ public class StageSystem : MonoBehaviour
 
     public void GameClear() //����Ŭ����
     {
+        //AudioManager.Instance.PlaySfx(1);
         playData.clearAmount++;
         buttonEvent.SceneLoad("LoadingScene");
     }
 
     public void GameLose() //������
     {
-        Debug.Log("실패");
+        StartCoroutine(GameLoseCol());
+    }
+
+    private IEnumerator GameLoseCol()
+    {
+        AudioManager.Instance.PlaySfx(0);
         heartPanel.HeartUp(playData.heart);
+        yield return new WaitForSeconds(1.5f);
         playData.heart--;
         if (playData.heart <= 0)
         {
@@ -114,19 +129,19 @@ public class StageSystem : MonoBehaviour
         }
     }
 
-    //private void GameClear() //OnClearEvt���������� ?.Invoke() ���ָ� �Ϸ�
-    //{
-    //    OnStopEvt?.Invoke(); //�÷��̾� ���߰�
+        //private void GameClear() //OnClearEvt���������� ?.Invoke() ���ָ� �Ϸ�
+        //{
+        //    OnStopEvt?.Invoke(); //�÷��̾� ���߰�
 
-    //    string second = TimeSpan.FromSeconds(currentPlayTime).ToString("mm\\:ss");
-    //    var time = second.Split(":");
-    //    timeText.text = $"{time[0]}m {time[1]}s";
+        //    string second = TimeSpan.FromSeconds(currentPlayTime).ToString("mm\\:ss");
+        //    var time = second.Split(":");
+        //    timeText.text = $"{time[0]}m {time[1]}s";
 
-    //    //â�߱�(�ɸ��ð�, ���� ��, ������������ ��ư, �������� ���� ��ư)
-    //    clearPanel.DOMoveY(0, 0.5f).SetEase(Ease.InOutBounce)
-    //        .OnComplete(() => {
-    //            stageBtn.onClick.AddListener(() => { GameOut(); });
-    //            nextBtn.onClick.AddListener(() => { NextGame(-1);/*���ڷ� ���� �������� + 1 �ֱ�*/});
-    //        });
-    //}
-}
+        //    //â�߱�(�ɸ��ð�, ���� ��, ������������ ��ư, �������� ���� ��ư)
+        //    clearPanel.DOMoveY(0, 0.5f).SetEase(Ease.InOutBounce)
+        //        .OnComplete(() => {
+        //            stageBtn.onClick.AddListener(() => { GameOut(); });
+        //            nextBtn.onClick.AddListener(() => { NextGame(-1);/*���ڷ� ���� �������� + 1 �ֱ�*/});
+        //        });
+        //}
+    }

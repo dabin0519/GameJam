@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 4627851877617948183}
   m_Layer: 6
   m_Name: GroundTile
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1999,6 +1999,10 @@ PrefabInstance:
     - target: {fileID: 1412084574394251702, guid: a83066e338b68f04f81f498e0f22c808, type: 3}
       propertyPath: m_Name
       value: FootImageCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412084574394251702, guid: a83066e338b68f04f81f498e0f22c808, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3714640547471345568, guid: a83066e338b68f04f81f498e0f22c808, type: 3}
       propertyPath: _image

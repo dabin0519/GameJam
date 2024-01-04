@@ -13,9 +13,10 @@ public class Hunter : MonoBehaviour
 
     public UnityEvent ShootEvent;
 
-    public bool Active { get; set; } = true;
+    public bool Active { get; set; } = false;
 
     private LineRenderer _lineRenderer;
+    private Animator _animator;
 
     private Vector2 _shootDir;
     private float _time;
@@ -23,10 +24,18 @@ public class Hunter : MonoBehaviour
     private void Awake()
     {
         _lineRenderer = transform.Find("Line").GetComponent<LineRenderer>();
+        _animator = transform.Find("Visual").GetComponent<Animator>();
 
         _shootDir = _isRight ? Vector2.right : -Vector2.right;
         _lineRenderer.SetPosition(0, transform.position);
         _lineRenderer.SetPosition(1, new Vector3(transform.position.x + _shootDir.x * _shootDistance, transform.position.y));
+    }
+
+    private void Start()
+    {
+        StageSystem.Instance.OnStartEvt += () => Active = true;
+
+        transform.Find("Visual").GetComponent<SpriteRenderer>().flipX = !_isRight;
     }
 
     private void Update()
@@ -55,6 +64,7 @@ public class Hunter : MonoBehaviour
     {
         ShootEvent?.Invoke();
 
+        _animator.SetTrigger("Fire");
         HunterBullet newBullet = Instantiate(_shootObj, transform.position, Quaternion.identity);
 
         newBullet.Dir = _shootDir;

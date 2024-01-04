@@ -17,4 +17,9 @@ public class GameoverUI : MonoBehaviour
         playData.clearAmount = 0;
         playData.heart = 3;
     }
+
+    private void Start()
+    {
+        AudioManager.Instance.StartBgm(4);
+    }
 }
