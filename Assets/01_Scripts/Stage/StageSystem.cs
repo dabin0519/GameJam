@@ -83,6 +83,7 @@ public class StageSystem : MonoBehaviour
     public void StartGame()
     {
         IsPlay = true;
+        timeImage.GetComponent<Button>().interactable = false;
         currentPlayTime = 999;
         //timeText.gameObject.SetActive(false);
         DOTween.Kill(timeImage);
