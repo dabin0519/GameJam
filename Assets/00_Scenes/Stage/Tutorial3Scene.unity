@@ -242,6 +242,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 698642462891708056, guid: 4dab73122fb9f5d41a3b6ef1bb283a04, type: 3}
   m_PrefabInstance: {fileID: 351077501}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &486255036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 486255038}
+  - component: {fileID: 486255037}
+  m_Layer: 0
+  m_Name: TutoSceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &486255037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486255036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebf3bcb067ad1e4b8701cbac024bc6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &486255038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486255036}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.6870823, y: 1.0064493, z: 0.07038258}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629883240
 GameObject:
   m_ObjectHideFlags: 3
@@ -788,6 +832,21 @@ MonoBehaviour:
     \uACF3\uC744 \uAC00\uBCF4\uC790"
   - "\uC810\uD504\uB300\uB294 \uB2FF\uC73C\uBA74 \uB192\uC740 \uACF3\uAE4C\uC9C0
     \uC810\uD504\uB97C \uC2DC\uCF1C\uC904\uAEBC"
+  endEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 486255037}
+        m_TargetAssemblyTypeName: TutorialSceneLoader, Assembly-CSharp
+        m_MethodName: Load
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Tutorial4Scene
+          m_BoolArgument: 0
+        m_CallState: 2
   _uiContainerTrm: {fileID: 1423553031}
   _typingOneWordTime: 0.1
   _textDuration: 1
@@ -2000,3 +2059,4 @@ SceneRoots:
   - {fileID: 1410684121}
   - {fileID: 2114569406}
   - {fileID: 1606999142}
+  - {fileID: 486255038}
