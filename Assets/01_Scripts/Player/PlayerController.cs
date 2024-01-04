@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _wallCheckDistance;
     [SerializeField] private Tilemap _groundTile;
     [SerializeField] private float _timeDuration;
+    [SerializeField] private float _fallCheckDistance;
 
     [Header("--Enrgy Info")]
     [SerializeField] private float _moveSpeed;
@@ -86,21 +87,14 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {
-        Debug.Log(IsWallDected());
-
+    { 
         if (Active)
         {
             _currentPos = transform.position;
 
-            /*if (IsStop() && !_isStop)
-            {
-                _isStop = true;
-                StartCoroutine(StopCoroutine());
-            }*/
-
             SlopeCheck();
             Flip();
+            FallCheck();
 
             if(_isMove && !JumpPad)
             {
@@ -126,6 +120,13 @@ public class PlayerController : MonoBehaviour
         Active = true;
     }
     
+    private void FallCheck()
+    {
+        if(transform.position.y <= _fallCheckDistance)
+        {
+            StageSystem.Instance.GameLose();
+        }
+    }
 
     private void Flip()
     {
