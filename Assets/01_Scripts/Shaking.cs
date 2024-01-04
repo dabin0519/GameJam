@@ -11,12 +11,12 @@ public class Shaking : MonoBehaviour
 
     [SerializeField] GameObject gm;
     [SerializeField] GameObject gm1;
-    [SerializeField] GameObject foot1;
-    [SerializeField] GameObject foot2;
+    [SerializeField] GameObject carrot;
     private void Start()
     {
         StartCoroutine(ShakingPos());
         StartCoroutine(ShakingPos2());
+        StartCoroutine(ShakingPos3());
     }
     IEnumerator ShakingPos()
     {
@@ -32,6 +32,15 @@ public class Shaking : MonoBehaviour
         gm1.transform.DOShakePosition(0.5f, 1, 10);
 
         yield return new WaitForSeconds(1f);
+
+    }
+    IEnumerator ShakingPos3()
+    {
+        yield return new WaitForSeconds(1.7f);
+        carrot.transform.DOMoveX(3.3f, 1).SetEase(Ease.InExpo);
+        yield return new WaitForSeconds(1f);
+        carrot.transform.DOShakeRotation(2.5f,45,5);
+        yield return new WaitForSeconds(1.5f);
         EndEvent?.Invoke();
     }
 }
