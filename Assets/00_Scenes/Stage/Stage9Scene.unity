@@ -224,11 +224,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec63afa6396d564ebf3cf10b5552f7b, type: 3}
---- !u!224 &103271483 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 698642462891708056, guid: dec63afa6396d564ebf3cf10b5552f7b, type: 3}
-  m_PrefabInstance: {fileID: 103271482}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &711345617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1287,11 +1282,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d09071472e405043b2303a954554b3f, type: 3}
---- !u!224 &1752150792 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 698642462891708056, guid: 7d09071472e405043b2303a954554b3f, type: 3}
-  m_PrefabInstance: {fileID: 1752150791}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1924790886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1395,12 +1385,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3215375739740776851, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1752150792}
-    - targetCorrespondingSourceObject: {fileID: 3215375739740776851, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 103271483}
     - targetCorrespondingSourceObject: {fileID: 2367479794480800693, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1929853944}
@@ -1446,14 +1430,6 @@ PrefabInstance:
     - target: {fileID: 698642462891708056, guid: 42d537b6efd7824468d5140e0e71d2cf, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 698642462891708056, guid: 42d537b6efd7824468d5140e0e71d2cf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 698642462891708056, guid: 42d537b6efd7824468d5140e0e71d2cf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 698642462891708056, guid: 42d537b6efd7824468d5140e0e71d2cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1524,3 +1500,5 @@ SceneRoots:
   - {fileID: 1924790886}
   - {fileID: 1026390532}
   - {fileID: 711345617}
+  - {fileID: 103271482}
+  - {fileID: 1752150791}
