@@ -450,7 +450,7 @@ MonoBehaviour:
   _wallCheckDistance: 0.3
   _groundTile: {fileID: 8925871232310966644}
   _timeDuration: 2
-  _fallCheckDistance: 9
+  _fallCheckDistance: -9
   _moveSpeed: 3
   _jumpForce: 2.5
   _slopeCheckDistance: 2
