@@ -19,6 +19,9 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private float _textDuration;
 
     [SerializeField]     private CinemachineVirtualCamera _camera;
+
+    public bool TextLogic;
+
     private TextMeshProUGUI _descriptionTMP;
     private Image _talkBalloon;
     private int _idx;
@@ -37,7 +40,9 @@ public class TutorialSystem : MonoBehaviour
 
     private void Start()
     {
+        _descriptionTMP.text = "";
         StartText();
+        TextLogic = true;
         blackOutTrm.position = new Vector3(-6.45f, 1.35f, 0);
         _camera.transform.position = new Vector3(-6.45f, 1.35f, -10);
         _camera.m_Lens.OrthographicSize = 4f;
@@ -74,6 +79,7 @@ public class TutorialSystem : MonoBehaviour
         else
         {
             // end
+            TextLogic = false;
             _talkBalloon.enabled = false;
             _camera.gameObject.SetActive(false);
             blackOutTrm.position = Vector3.zero;
