@@ -40,8 +40,9 @@ public class PlayerHP : MonoBehaviour
 
     public void Damage(int damage = 1)
     {
-        if (_noDie)
-            return;
+        Debug.Log($"Damaged : {damage}");
+        /*if (_noDie)
+            return;*/
 
         if (!_isShield)
             _hp -= damage;
@@ -52,6 +53,7 @@ public class PlayerHP : MonoBehaviour
     public void Shield(bool value)
     {
         _isShield = value;
+        Debug.Log("shield");
         _shield.SetActive(value);
 
         if(value)

@@ -153,6 +153,10 @@ MonoBehaviour:
     puzzleBatchType: 1
     puzzleObj: {fileID: 1410826207039420008, guid: 6a4d35bb9b9641f44ac42ae19471619a, type: 3}
     puzzleTile: {fileID: 11400000, guid: 9354a9d9b5b65b843a5336f049f7a5b9, type: 2}
+  - puzzleType: 8
+    puzzleBatchType: 0
+    puzzleObj: {fileID: 7060051090253839958, guid: eb1c4d44dd3796a40ba4524a8e4d9cf1, type: 3}
+    puzzleTile: {fileID: 0}
 --- !u!1 &2254445542903765004
 GameObject:
   m_ObjectHideFlags: 0
