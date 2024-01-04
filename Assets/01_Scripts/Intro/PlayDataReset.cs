@@ -9,7 +9,6 @@ public class PlayDataReset : MonoBehaviour
     void Start()
     {
         playData = Resources.Load<PlayData>("PlayData");
-
         playData.clearAmount = 0;
         playData.heart = 3;
     }
