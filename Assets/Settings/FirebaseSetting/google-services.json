@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1074605155760",
+    "firebase_url": "https://osaham-54907-default-rtdb.firebaseio.com",
+    "project_id": "osaham-54907",
+    "storage_bucket": "osaham-54907.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1074605155760:android:994e607926ba2c7a9ae275",
+        "android_client_info": {
+          "package_name": "com.flowering.osaham"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGybYUhT1mpec5Ec1o5-AjL5qv1Mv9hE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

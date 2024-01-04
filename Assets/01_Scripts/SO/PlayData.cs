@@ -7,4 +7,5 @@ public class PlayData : ScriptableObject
 {
     public int clearAmount;
     public int heart;
+    public string userName;
 }
