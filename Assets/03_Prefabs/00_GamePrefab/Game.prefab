@@ -441,7 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704e33a5a20d78c4cb40b3077cce04a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveDuration: 0.4
   _groundChecker: {fileID: 5227428683305429408}
   _groundCheckDistance: 0.08
   _whatIsGround:
@@ -1685,6 +1684,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef88afec119bff42ac44f42792daef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hillsTile:
+  - {fileID: 21300000, guid: c9adfd2f2ac4bbf41a73d9b3a5a494a9, type: 3}
+  - {fileID: 21300000, guid: e22af9d07ed6a904fb6bfca0f0065a6d, type: 3}
 --- !u!1 &5985903376840682841
 GameObject:
   m_ObjectHideFlags: 0
