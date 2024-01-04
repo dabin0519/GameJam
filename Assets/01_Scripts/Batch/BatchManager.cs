@@ -29,6 +29,12 @@ public class BatchManager : MonoBehaviour
         puzzleType = puzzleList.Find(p => p.puzzleType == puzzleEnum);
         dragPuzzle = Instantiate(puzzleType.puzzleObj);
         dragImage = puzzleImage;
+
+        if(puzzleEnum == Puzzle.RabbitHole)
+        {
+            // find rabbit hole
+        }
+
         PuzzleMove(batchPos);
     }
 

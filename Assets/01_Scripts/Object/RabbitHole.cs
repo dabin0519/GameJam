@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RabbitHole : Carrot
 {
-    [SerializeField] private RabbitHole _targetRabbitHole;
+    public RabbitHole targetRabbitHole;
     [SerializeField] private float _duration;
 
     public bool IsIn;
@@ -22,8 +22,8 @@ public class RabbitHole : Carrot
             StartCoroutine(WaitCoroutine());
             return;
         }
-        _player.transform.position = _targetRabbitHole.transform.position;
-        _targetRabbitHole.IsIn = true;
+        _player.transform.position = targetRabbitHole.transform.position;
+        targetRabbitHole.IsIn = true;
     }
 
     private IEnumerator WaitCoroutine()
