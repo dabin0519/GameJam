@@ -20,14 +20,13 @@ public class JumpPad : Carrot
     {
         //_player.JumpPad = true;
         _anim.SetTrigger("Down");
+        _player.Jump(_jumpForce);
         StartCoroutine(WaitCoroutine());
     }
 
     private IEnumerator WaitCoroutine()
     {
-        yield return new WaitForSeconds(_upDuration);
         _anim.SetTrigger("Up");
-        _player.Jump(_jumpForce);
         //_player.JumpPad = false;
         yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
