@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource _bgmSource;
     [SerializeField] private AudioSource _sfxSource;
+    public AudioSource BgmSource => _bgmSource;
+    public AudioSource SfxSource => _sfxSource;
 
     [SerializeField] private AudioClip[] _bgmClips;
     [SerializeField] private AudioClip[] _sfxClips;
@@ -22,11 +24,17 @@ public class AudioManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(transform);
         }
+
+        StartBgm(0);
     }
 
-    public void SetVolume(float value)
+    public void SetBgm(float value)
     {
         _bgmSource.volume = value;
+    }
+
+    public void SetSfx(float value)
+    {
         _sfxSource.volume = value;
     }
 
