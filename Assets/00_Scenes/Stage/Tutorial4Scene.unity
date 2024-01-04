@@ -621,6 +621,21 @@ MonoBehaviour:
   - "\uB178\uB791\uC0C9 \uB2F9\uADFC\uC740 \uBCF4\uD638\uB9C9\uC774 \uC0DD\uC131\uB418\uC11C
     \uC7A5\uC560\uBB3C\uC744 \uB6AB\uACE0 \uC9C0\uB098\uAC08 \uC218 \uC788\uC5B4"
   - "\uB178\uB791 \uB2F9\uADFC\uC744 \uC774\uC6A9\uD574\uBCF4\uC790"
+  endEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1939574865}
+        m_TargetAssemblyTypeName: TutorialLastText, Assembly-CSharp
+        m_MethodName: StartText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _uiContainerTrm: {fileID: 1423553031}
   _typingOneWordTime: 0.1
   _textDuration: 1
@@ -748,6 +763,10 @@ PrefabInstance:
     - target: {fileID: 5256650718889469557, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5947837221604525606, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
+      propertyPath: IsTuto
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5947837221604525606, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
       propertyPath: _isTutorial
@@ -1760,6 +1779,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1939574864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1939574866}
+  - component: {fileID: 1939574865}
+  m_Layer: 0
+  m_Name: LastText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1939574865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939574864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db21689735e13644d9d8b25431d14a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _uiContainerTrm: {fileID: 1423553031}
+  _typingOneWordTime: 0.1
+  _textDuration: 1
+  _text: "\uC798\uD588\uC5B4! \uC774\uC820 \uB098\uB97C \uC798 \uC778\uB3C4\uD574
+    \uC904 \uC218 \uC788\uC9C0? \uC55E\uC73C\uB85C \uB098\uC624\uB294 \uC7A5\uC18C\uB4E4\uB3C4
+    \uC798 \uC774\uACA8\uB0B4\uAC8C \uD574\uC8FC\uAE38 \uBC14\uB784\uAC8C!"
+--- !u!4 &1939574866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939574864}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.6870823, y: 1.0064493, z: 0.07038258}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2114569404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,3 +1912,4 @@ SceneRoots:
   - {fileID: 2114569406}
   - {fileID: 1606999142}
   - {fileID: 544616923}
+  - {fileID: 1939574866}

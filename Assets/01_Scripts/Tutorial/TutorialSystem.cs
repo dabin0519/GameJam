@@ -8,6 +8,8 @@ using UnityEngine.Events;
 
 public class TutorialSystem : MonoBehaviour
 {
+    public static TutorialSystem Instance;
+
     public List<string> tutorialList;
     public UnityEvent endEvent;
 
@@ -23,6 +25,11 @@ public class TutorialSystem : MonoBehaviour
 
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+
         _descriptionTMP = _uiContainerTrm.Find("Description").GetComponent<TextMeshProUGUI>();
         _talkBalloon = _uiContainerTrm.Find("TalkBalloon").GetComponent<Image>();
     }
@@ -34,7 +41,7 @@ public class TutorialSystem : MonoBehaviour
         _camera.m_Lens.OrthographicSize = 4f;
     }
 
-    private void End()
+    public void End()
     {
         endEvent?.Invoke();
     }
