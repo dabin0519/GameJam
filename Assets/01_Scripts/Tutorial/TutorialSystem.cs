@@ -8,9 +8,12 @@ using UnityEngine.Events;
 
 public class TutorialSystem : MonoBehaviour
 {
+    public static TutorialSystem Instance;
+
     public List<string> tutorialList;
     public UnityEvent endEvent;
 
+    [SerializeField] private Transform blackOutTrm;
     [SerializeField] private Transform _uiContainerTrm;
     [SerializeField] private float _typingOneWordTime;
     [SerializeField] private float _textDuration;
@@ -23,6 +26,11 @@ public class TutorialSystem : MonoBehaviour
 
     private void Awake()
     {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+
         _descriptionTMP = _uiContainerTrm.Find("Description").GetComponent<TextMeshProUGUI>();
         _talkBalloon = _uiContainerTrm.Find("TalkBalloon").GetComponent<Image>();
     }
@@ -30,11 +38,12 @@ public class TutorialSystem : MonoBehaviour
     private void Start()
     {
         StartText();
+        blackOutTrm.position = new Vector3(-6.45f, 1.35f, 0);
         _camera.transform.position = new Vector3(-6.45f, 1.35f, -10);
         _camera.m_Lens.OrthographicSize = 4f;
     }
 
-    private void End()
+    public void End()
     {
         endEvent?.Invoke();
     }
@@ -67,6 +76,7 @@ public class TutorialSystem : MonoBehaviour
             // end
             _talkBalloon.enabled = false;
             _camera.gameObject.SetActive(false);
+            blackOutTrm.position = Vector3.zero;
             StageSystem.Instance.StartBatch();
         }
     }

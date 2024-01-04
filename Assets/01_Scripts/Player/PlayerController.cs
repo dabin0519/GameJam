@@ -179,12 +179,9 @@ public class PlayerController : MonoBehaviour
 
     private void EnergyMove()
     {
-        Vector3 moveDir = _moveDir * _moveSpeed * Time.deltaTime;
-
-        //if (IsCanNextTile(_moveDir))
         if(!IsWallDected())
         {
-            transform.position += moveDir; // ∫Æø° ∏ÿ√ﬂ∏È π∫∞°«ÿ¡÷±‚
+            transform.position += _moveSpeed * Time.deltaTime * _moveDir; ; // ∫Æø° ∏ÿ√ﬂ∏È π∫∞°«ÿ¡÷±‚
             _lastPos = transform.position;
         }
 
@@ -222,7 +219,9 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(float jumpVelocity)
     {
-        _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, jumpVelocity);
+        if(jumpVelocity == _jumpForce && _rigidbody2D.velocity == new Vector2(0, 7))
+            return;
+        _rigidbody2D.velocity = new Vector2(0, jumpVelocity);
         JumpEvent?.Invoke();
     }
 

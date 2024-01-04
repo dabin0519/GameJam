@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
 
+    [SerializeField] private AudioMixer audioMixer;
+
     [SerializeField] private AudioSource _bgmSource;
     [SerializeField] private AudioSource _sfxSource;
+    public AudioSource BgmSource => _bgmSource;
+    public AudioSource SfxSource => _sfxSource;
 
     [SerializeField] private AudioClip[] _bgmClips;
     [SerializeField] private AudioClip[] _sfxClips;
 
-    [Header("³Ê°¡ Æ²°í ½ÍÀº À½¾Ç ¹øÈ£")]
+    [Header("ï¿½Ê°ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£")]
     [SerializeField] private int _bgmIdx;
 
     private void Awake()
@@ -22,11 +27,17 @@ public class AudioManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(transform);
         }
+
+        StartBgm(0);
     }
 
     public void SetVolume(float value)
     {
         _bgmSource.volume = value;
+    }
+
+    public void SetSfx(float value)
+    {
         _sfxSource.volume = value;
     }
 
