@@ -45,7 +45,7 @@ public class ButtonEvent : MonoBehaviour
             blackImage.material.SetFloat("_Value", u);
         }).OnComplete(() =>
         {
-            if(isGameoverScene && sceneName == "LoadingScene")
+            if(isGameoverScene)
                 AudioManager.Instance.StartBgm(0);
             SceneManager.LoadScene(sceneName);
         });
