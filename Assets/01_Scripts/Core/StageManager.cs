@@ -8,8 +8,7 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private int _cnt;
     [SerializeField] private int _shuffleCnt;
-
-    private List<int> _stageList;
+    [SerializeField] private List<int> _stageList;
     private Queue<int> _queue;
 
     private void Awake()
@@ -29,8 +28,8 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("?");
         LoadStage();
-        Debug.Log("???");
     }
 
     private void ListSettUp()
