@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+
+    [SerializeField] private AudioMixer audioMixer;
 
     [SerializeField] private AudioSource _bgmSource;
     [SerializeField] private AudioSource _sfxSource;
@@ -21,6 +24,36 @@ public class AudioManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(transform);
+        }
+    }
+
+    public void SetBgm()
+    {
+        float value;
+        audioMixer.GetFloat("BGM", out value);
+
+        if (value == 0)
+        {
+            audioMixer.SetFloat("BGM", -80);
+        }
+        else
+        {
+            audioMixer.SetFloat("BGM", 0);
+        }
+    }
+
+    public void SetSfx()
+    {
+        float value;
+        audioMixer.GetFloat("SFX", out value);
+
+        if (value == 0)
+        {
+            audioMixer.SetFloat("SFX", -80);
+        }
+        else
+        {
+            audioMixer.SetFloat("SFX", 0);
         }
     }
 
