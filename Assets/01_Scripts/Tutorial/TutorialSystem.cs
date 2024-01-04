@@ -4,10 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using UnityEngine.Events;
 
 public class TutorialSystem : MonoBehaviour
 {
     public List<string> tutorialList;
+    public UnityEvent endEvent;
 
     [SerializeField] private Transform _uiContainerTrm;
     [SerializeField] private float _typingOneWordTime;
@@ -30,6 +32,11 @@ public class TutorialSystem : MonoBehaviour
         StartText();
         _camera.transform.position = new Vector3(-6.45f, 1.35f, -10);
         _camera.m_Lens.OrthographicSize = 4f;
+    }
+
+    private void End()
+    {
+        endEvent?.Invoke();
     }
 
     public void StartText()
