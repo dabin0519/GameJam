@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayData
   m_EditorClassIdentifier: 
   clearAmount: 0
-  heart: 3
+  heart: 10
