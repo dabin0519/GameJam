@@ -29,5 +29,7 @@ public class JumpPad : Carrot
         _anim.SetTrigger("Up");
         _player.Jump(_jumpForce);
         _player.JumpPad = false;
+        yield return new WaitForSeconds(0.2f);
+        Destroy(gameObject);
     }
 }
