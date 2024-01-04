@@ -29,6 +29,7 @@ public class StageSystem : MonoBehaviour
     private bool isShaking = false;
 
     [SerializeField] private float maxPlayTime;
+    [SerializeField] private bool _isTutorial;
     private float currentPlayTime;
     private int currentStage;
 
@@ -55,6 +56,12 @@ public class StageSystem : MonoBehaviour
         timeFillImage = timeImage.Find("Fill").GetComponent<Image>();
         currentPlayTime = maxPlayTime;
 
+        if(!_isTutorial)
+            StartBatch();
+    }
+
+    public void StartBatch()
+    {
         settingPanel.DOMoveY(0, 0.5f);
     }
 
