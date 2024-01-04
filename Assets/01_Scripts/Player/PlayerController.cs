@@ -203,14 +203,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("?");
-
             _time += Time.deltaTime;
 
             if(_time >= _timeDuration)
             {
-                Debug.Log("???");
-
                 if(!_isStageOneCall)
                 {
                     _isStageOneCall = true;
