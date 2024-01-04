@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
             _lastPos = transform.position;
         }
 
-        if(Vector2.Distance(_startPos, transform.position) >= 1f)
+        if(Mathf.Abs(_startPos.x - transform.position.x) >= 1f)
         {
             _startPos = transform.position;
             ++_cnt;
