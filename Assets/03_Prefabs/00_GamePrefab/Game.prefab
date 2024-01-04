@@ -2000,6 +2000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FootImageCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1412084574394251702, guid: a83066e338b68f04f81f498e0f22c808, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3714640547471345568, guid: a83066e338b68f04f81f498e0f22c808, type: 3}
       propertyPath: _image
       value: 

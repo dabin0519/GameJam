@@ -33,7 +33,14 @@ public class AudioManager : MonoBehaviour
     // 이하 필요한 기능 만들어 생각하기 귀찮다
     public void StartBgm(int idx)
     {
+        Debug.Log("SNOG");
         _bgmSource.clip = _bgmClips[idx];
         _bgmSource.Play();
+    }
+
+    public void PlaySfx(int idx)
+    {
+        _sfxSource.clip = _sfxClips[idx];
+        _sfxSource.Play();
     }
 }
