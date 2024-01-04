@@ -13,6 +13,7 @@ public class TutorialSystem : MonoBehaviour
     public List<string> tutorialList;
     public UnityEvent endEvent;
 
+    [SerializeField] private Transform blackOutTrm;
     [SerializeField] private Transform _uiContainerTrm;
     [SerializeField] private float _typingOneWordTime;
     [SerializeField] private float _textDuration;
@@ -37,6 +38,7 @@ public class TutorialSystem : MonoBehaviour
     private void Start()
     {
         StartText();
+        blackOutTrm.position = new Vector3(-6.45f, 1.35f, 0);
         _camera.transform.position = new Vector3(-6.45f, 1.35f, -10);
         _camera.m_Lens.OrthographicSize = 4f;
     }
@@ -74,6 +76,7 @@ public class TutorialSystem : MonoBehaviour
             // end
             _talkBalloon.enabled = false;
             _camera.gameObject.SetActive(false);
+            blackOutTrm.position = Vector3.zero;
             StageSystem.Instance.StartBatch();
         }
     }
