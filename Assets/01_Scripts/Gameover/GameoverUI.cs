@@ -14,4 +14,9 @@ public class GameoverUI : MonoBehaviour
         playData = Resources.Load<PlayData>("PlayData");
         scoreText.text = $"Stage Clear\n{playData.clearAmount}";
     }
+
+    private void Start()
+    {
+        AudioManager.Instance.StartBgm(4);
+    }
 }

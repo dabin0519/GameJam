@@ -13,6 +13,15 @@ public class HunterBullet : Carrot
         transform.position += Dir * _moveSpeed * Time.deltaTime;
     }
 
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        base.OnTriggerEnter2D(collision);
+
+        if(collision.gameObject.CompareTag("Ground") || 
+           collision.gameObject.CompareTag("Block"))
+            Destroy(gameObject);
+    }
+
     protected override void CarrotAbility()
     {
         _playerHP.Damage();
