@@ -102,7 +102,7 @@ public class StageSystem : MonoBehaviour
 
     public void GameClear() //����Ŭ����
     {
-        AudioManager.Instance.PlaySfx(1);
+        //AudioManager.Instance.PlaySfx(1);
         playData.clearAmount++;
         buttonEvent.SceneLoad("LoadingScene");
     }

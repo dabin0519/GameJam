@@ -477,7 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -771,11 +771,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialList:
-  - "\uC798\uD588\uC5B4! \uC774\uBC88\uC5D4 \uAC00\uB294 \uAE38\uC5D0 \uAC00\uC2DC\uAC00
-    \uC788\uB124?"
-  - "\uB178\uB791\uC0C9 \uB2F9\uADFC\uC740 \uBCF4\uD638\uB9C9\uC774 \uC0DD\uC131\uB418\uC11C
-    \uC7A5\uC560\uBB3C\uC744 \uB6AB\uACE0 \uC9C0\uB098\uAC08 \uC218 \uC788\uC5B4"
-  - "\uB178\uB791 \uB2F9\uADFC\uC744 \uC774\uC6A9\uD574\uBCF4\uC790"
+  - "\uC798\uD588\uC5B4! \uC774\uC81C\uB294 \uC880 \uB192\uC740 \uACF3\uC744 \uC62C\uB77C\uAC00\uBCFC\uAE4C?"
+  - "\uB3CC\uACFC \uC810\uD504\uB300\uB97C \uC774\uC6A9\uD574\uC11C \uB192\uC740
+    \uACF3\uC744 \uAC00\uBCF4\uC790"
+  - "\uC810\uD504\uB300\uB294 \uB2FF\uC73C\uBA74 \uB192\uC740 \uACF3\uAE4C\uC9C0
+    \uC810\uD504\uB97C \uC2DC\uCF1C\uC904\uAEBC"
   _uiContainerTrm: {fileID: 1423553031}
   _typingOneWordTime: 0.1
   _textDuration: 1
