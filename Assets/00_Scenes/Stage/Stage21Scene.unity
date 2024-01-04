@@ -419,10 +419,10 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2367479794480800693, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1384100547}
+      addedObject: {fileID: 641686251}
     - targetCorrespondingSourceObject: {fileID: 2367479794480800693, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 641686251}
+      addedObject: {fileID: 1384100547}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
 --- !u!224 &1034967720 stripped
@@ -468,11 +468,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 698642462891708056, guid: 04b79afec5c92b74995c945490772e4e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 698642462891708056, guid: 04b79afec5c92b74995c945490772e4e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 698642462891708056, guid: 04b79afec5c92b74995c945490772e4e, type: 3}
       propertyPath: m_LocalPosition.x
