@@ -11,7 +11,10 @@ public class GameoverUI : MonoBehaviour
 
     private void Awake()
     {
-        playData = Resources.Load<PlayData>("PlayData");
+        playData = PlayDataReset.Instance.playData;
         scoreText.text = $"Stage Clear\n{playData.clearAmount}";
+
+        playData.clearAmount = 0;
+        playData.heart = 3;
     }
 }

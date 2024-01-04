@@ -43,7 +43,7 @@ public class StageSystem : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        playData = Resources.Load<PlayData>("PlayData");
+        //playData = PlayDataReset.Instance.playData;
 
         //이벤트
         endFlag = FindObjectOfType<EndFlag>();
