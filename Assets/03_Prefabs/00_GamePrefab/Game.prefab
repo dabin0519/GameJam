@@ -449,7 +449,8 @@ MonoBehaviour:
   _wallChecker: {fileID: 6765158704861511544}
   _wallCheckDistance: 0.3
   _groundTile: {fileID: 8925871232310966644}
-  _timeDuration: 2
+  _timeDuration: 3
+  _fallCheckDistance: -9
   _moveSpeed: 3
   _jumpForce: 2.5
   _slopeCheckDistance: 2
@@ -476,6 +477,7 @@ MonoBehaviour:
         m_CallState: 2
   GoldKey: 0
   SilverKey: 0
+  JumpPad: 0
 --- !u!114 &6825561562576662482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,7 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHP: 1
   _shield: {fileID: 6443864110403893444}
-  _dontDieDuration: 0
+  _dontDieDuration: 0.2
 --- !u!1 &3381640015132387227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,6 +1686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef88afec119bff42ac44f42792daef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hillsTile:
+  - {fileID: 21300000, guid: c9adfd2f2ac4bbf41a73d9b3a5a494a9, type: 3}
+  - {fileID: 21300000, guid: e22af9d07ed6a904fb6bfca0f0065a6d, type: 3}
 --- !u!1 &5985903376840682841
 GameObject:
   m_ObjectHideFlags: 0

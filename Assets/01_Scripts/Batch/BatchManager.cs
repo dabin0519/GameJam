@@ -47,6 +47,10 @@ public class BatchManager : MonoBehaviour
         {
             if (puzzleType.puzzleBatchType == BatchType.Obj)
             {
+                if (BatchTile.Instance.IsHill(dragPuzzle.transform.position))
+                {
+                    dragPuzzle.transform.position -= new Vector3(0, 0.5f, 0);
+                }
                 BatchCheck batchCheck = dragPuzzle.GetComponent<BatchCheck>();
                 batchCheck.BatchClear();
             }

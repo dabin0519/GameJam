@@ -13,7 +13,8 @@ namespace EnumList
         Red,
         Yellow,
         RabbitHole,
-        block
+        Block,
+        JumpPad
     }
 
     public enum BatchType

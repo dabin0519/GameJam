@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _wallCheckDistance;
     [SerializeField] private Tilemap _groundTile;
     [SerializeField] private float _timeDuration;
+    [SerializeField] private float _fallCheckDistance;
 
     [Header("--Enrgy Info")]
     [SerializeField] private float _moveSpeed;
@@ -86,21 +87,14 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {
-        Debug.Log(IsWallDected());
-
+    { 
         if (Active)
         {
             _currentPos = transform.position;
 
-            /*if (IsStop() && !_isStop)
-            {
-                _isStop = true;
-                StartCoroutine(StopCoroutine());
-            }*/
-
             SlopeCheck();
             Flip();
+            FallCheck();
 
             if(_isMove && !JumpPad)
             {
@@ -125,7 +119,17 @@ public class PlayerController : MonoBehaviour
         Movement(9);
         Active = true;
     }
+
+    private bool _isFallOneCall;
     
+    private void FallCheck()
+    {
+        if(transform.position.y <= _fallCheckDistance && !_isFallOneCall)
+        {
+            _isFallOneCall = true;
+            StageSystem.Instance.GameLose();
+        }
+    }
 
     private void Flip()
     {
@@ -184,7 +188,7 @@ public class PlayerController : MonoBehaviour
             _lastPos = transform.position;
         }
 
-        if(Vector2.Distance(_startPos, transform.position) >= 1f)
+        if(Mathf.Abs(_startPos.x - transform.position.x) >= 1f)
         {
             _startPos = transform.position;
             ++_cnt;
@@ -199,14 +203,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("?");
-
             _time += Time.deltaTime;
 
             if(_time >= _timeDuration)
             {
-                Debug.Log("???");
-
                 if(!_isStageOneCall)
                 {
                     _isStageOneCall = true;

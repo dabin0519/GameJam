@@ -248,6 +248,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: RabbitHole
       objectReference: {fileID: 0}
+    - target: {fileID: 1714680450238070717, guid: 3b18364895be04a45bcd7c8238cc6f77, type: 3}
+      propertyPath: m_Size.y
+      value: 2.2608147
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714680450238070717, guid: 3b18364895be04a45bcd7c8238cc6f77, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.14959264
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714680450238070717, guid: 3b18364895be04a45bcd7c8238cc6f77, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785768879719728351, guid: 3b18364895be04a45bcd7c8238cc6f77, type: 3}
+      propertyPath: _targetRabbitHole
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5021874464714401373, guid: 3b18364895be04a45bcd7c8238cc6f77, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.13
@@ -1361,6 +1377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef88afec119bff42ac44f42792daef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hillsTile:
+  - {fileID: 21300000, guid: c9adfd2f2ac4bbf41a73d9b3a5a494a9, type: 3}
+  - {fileID: 21300000, guid: e22af9d07ed6a904fb6bfca0f0065a6d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

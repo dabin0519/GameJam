@@ -11,8 +11,10 @@ public class SceneLoader : MonoBehaviour
 
     [SerializeField] private Transform _containerTrm;
     [SerializeField] private TipListSO _tipSO;
-    [SerializeField] private float _minLoadingDuration;
+    [Header("--ÃÑ ·Îµù½Ã°£ = _scaleDuration x 3 x _repeatCount--")]
+    [SerializeField] private float _scaleDuration;
     [SerializeField] private int _repeatCount;
+    [SerializeField] private bool _isOneTip;
 
     private TextMeshProUGUI _tipText;
     private Image[] _loadingImage;
@@ -34,21 +36,20 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator LoadSceneCoroutine(string level)
     {
 
-        //float radomTime = Random.Range(_minLoadingDuration - 1f, _minLoadingDuration + 2f);
-        float radomTime = _minLoadingDuration;
-
-        for(int i = 0; i < _repeatCount + 2; i++)
+        for (int i = 0; i < _repeatCount + 2; i++)
         {
             int radomValue = Random.Range(0, _tipSO.tipList.Count);
 
-            _tipText.text = _tipSO.tipList[radomValue];
+            if(!_isOneTip)
+                _tipText.text = _tipSO.tipList[radomValue];
+            else if(_isOneTip && i == 0)
+                _tipText.text = _tipSO.tipList[radomValue];
 
             foreach(var image in _loadingImage)
             {
-                float time = radomTime / 6;
-                image.transform.DOScale(1.5f, time);
-                yield return new WaitForSeconds(time);
-                image.transform.DOScale(0.8f, time);
+                image.transform.DOScale(1.5f, _scaleDuration);
+                yield return new WaitForSeconds(_scaleDuration);
+                image.transform.DOScale(0.8f, _scaleDuration);
             }
 
             if(i == _repeatCount - 1)

@@ -8,8 +8,7 @@ public class StageManager : MonoBehaviour
 
     [SerializeField] private int _cnt;
     [SerializeField] private int _shuffleCnt;
-
-    private List<int> _stageList;
+    [SerializeField] private List<int> _stageList;
     private Queue<int> _queue;
 
     private void Awake()
@@ -18,20 +17,13 @@ public class StageManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(transform);
+            _queue = new Queue<int>();
+            _stageList = new List<int>();
+
+            ListSettUp();
+            Shuffle();
+            EnQueue();
         }
-
-        _queue = new Queue<int>();
-        _stageList = new List<int>();
-
-        ListSettUp();
-        Shuffle();
-        EnQueue();
-    }
-
-    private void Start()
-    {
-        LoadStage();
-        Debug.Log("???");
     }
 
     private void ListSettUp()
@@ -62,7 +54,7 @@ public class StageManager : MonoBehaviour
         Debug.Log("??");
     }
 
-    private void LoadStage()
+    public void LoadStage()
     {
         string level = $"Stage{_queue.Dequeue()}Scene";
         SceneLoader.Instance.LoadScene(level);

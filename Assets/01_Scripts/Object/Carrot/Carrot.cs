@@ -10,6 +10,7 @@ public abstract class Carrot : MonoBehaviour
     protected Collider2D _collider;
 
     protected bool _isNotDestroy = false;
+    private bool _isOneCall;
 
     protected virtual void Awake()
     {
@@ -37,11 +38,12 @@ public abstract class Carrot : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && !_isOneCall)
         {
-            CarrotAbility();
             if(!_isNotDestroy)
                 Destroy(gameObject);
+            CarrotAbility();
+            _isOneCall = true;
         }
     }
 }
