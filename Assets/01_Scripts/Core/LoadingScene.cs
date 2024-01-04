@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class LoadingScene : MonoBehaviour
 {
+    [SerializeField] private int _bgmIdx;
+    [SerializeField] private bool _d;
+
     private void Start()
     {
-        StageManager.Instance.LoadStage();
+        if(_d)
+            StageManager.Instance.LoadStage();
+        else
+            AudioManager.Instance.StartBgm(_bgmIdx);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -56,7 +57,14 @@ public class StageManager : MonoBehaviour
 
     public void LoadStage()
     {
-        string level = $"Stage{_queue.Dequeue()}Scene";
-        SceneLoader.Instance.LoadScene(level);
+        if(_queue.Count > 0)
+        {
+            string level = $"Stage{_queue.Dequeue()}Scene";
+            SceneLoader.Instance.LoadScene(level);
+        }
+        else
+        {
+            SceneManager.LoadScene("GameoverScene");
+        }
     }
 }
