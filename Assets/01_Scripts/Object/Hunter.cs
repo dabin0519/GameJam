@@ -34,6 +34,8 @@ public class Hunter : MonoBehaviour
     private void Start()
     {
         StageSystem.Instance.OnStartEvt += () => Active = true;
+
+        transform.Find("Visual").GetComponent<SpriteRenderer>().flipX = !_isRight;
     }
 
     private void Update()
@@ -61,6 +63,7 @@ public class Hunter : MonoBehaviour
     private void Shoot()
     {
         ShootEvent?.Invoke();
+
 
         HunterBullet newBullet = Instantiate(_shootObj, transform.position, Quaternion.identity);
 
