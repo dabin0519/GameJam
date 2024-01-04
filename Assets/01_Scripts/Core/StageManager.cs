@@ -26,12 +26,6 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Debug.Log("?");
-        LoadStage();
-    }
-
     private void ListSettUp()
     {
         for(int i = 1; i <= _cnt; i++)
@@ -60,7 +54,7 @@ public class StageManager : MonoBehaviour
         Debug.Log("??");
     }
 
-    private void LoadStage()
+    public void LoadStage()
     {
         string level = $"Stage{_queue.Dequeue()}Scene";
         SceneLoader.Instance.LoadScene(level);
