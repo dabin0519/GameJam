@@ -450,6 +450,7 @@ MonoBehaviour:
   _wallCheckDistance: 0.3
   _groundTile: {fileID: 8925871232310966644}
   _timeDuration: 2
+  _fallCheckDistance: 9
   _moveSpeed: 3
   _jumpForce: 2.5
   _slopeCheckDistance: 2
@@ -476,6 +477,7 @@ MonoBehaviour:
         m_CallState: 2
   GoldKey: 0
   SilverKey: 0
+  JumpPad: 0
 --- !u!114 &6825561562576662482
 MonoBehaviour:
   m_ObjectHideFlags: 0
