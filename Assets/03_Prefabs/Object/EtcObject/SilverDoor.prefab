@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6120405529889406357}
   - component: {fileID: 6689762348267477209}
   - component: {fileID: 2631150618023977179}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SilverDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1785768879719728351}
   - component: {fileID: 6180717164877326395}
   - component: {fileID: 6766824900645188499}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RabbitHole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
