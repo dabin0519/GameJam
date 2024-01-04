@@ -10,6 +10,12 @@ public class JumpPad : Carrot
     {
         base.Awake();
 
+        _isNotDestroy = true;
         _anim = GetComponent<Animator>();
+    }
+
+    protected override void CarrotAbility()
+    { 
+
     }
 }
