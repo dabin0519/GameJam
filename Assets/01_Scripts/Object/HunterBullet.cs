@@ -16,7 +16,10 @@ public class HunterBullet : Carrot
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        Destroy(gameObject);
+
+        if(collision.gameObject.CompareTag("Ground") || 
+           collision.gameObject.CompareTag("Block"))
+            Destroy(gameObject);
     }
 
     protected override void CarrotAbility()
