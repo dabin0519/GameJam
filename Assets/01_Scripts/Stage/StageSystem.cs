@@ -89,6 +89,8 @@ public class StageSystem : MonoBehaviour
 
     public void StartGame()
     {
+        if (_isTutorial && TutorialSystem.Instance.TextLogic)
+            return;
         IsPlay = true;
         timeImage.GetComponent<Button>().interactable = false;
         currentPlayTime = 999;
@@ -121,18 +123,26 @@ public class StageSystem : MonoBehaviour
 
     private IEnumerator GameLoseCol()
     {
-        AudioManager.Instance.PlaySfx(0);
-        heartPanel.HeartUp(playData.heart);
-        yield return new WaitForSeconds(1.5f);
-        playData.heart--;
-        if (playData.heart <= 0)
+        if(_isTutorial)
         {
-            Debug.Log("게임종료");
-            buttonEvent.SceneLoad("GameoverScene");
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
         }
         else
         {
-            buttonEvent.SceneLoad("LoadingScene");
+            AudioManager.Instance.PlaySfx(0);
+            heartPanel.HeartUp(playData.heart);
+            yield return new WaitForSeconds(1.5f);
+            playData.heart--;
+            if (playData.heart <= 0)
+            {
+                Debug.Log("게임종료");
+                buttonEvent.SceneLoad("GameoverScene");
+            }
+            else
+            {
+                buttonEvent.SceneLoad("LoadingScene");
+            }
         }
     }
 
