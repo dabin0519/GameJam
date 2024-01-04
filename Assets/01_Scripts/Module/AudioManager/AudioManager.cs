@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+
+    [SerializeField] private AudioMixer audioMixer;
 
     [SerializeField] private AudioSource _bgmSource;
     [SerializeField] private AudioSource _sfxSource;
@@ -14,7 +17,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip[] _bgmClips;
     [SerializeField] private AudioClip[] _sfxClips;
 
-    [Header("³Ê°¡ Æ²°í ½ÍÀº À½¾Ç ¹øÈ£")]
+    [Header("ï¿½Ê°ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£")]
     [SerializeField] private int _bgmIdx;
 
     private void Awake()
@@ -28,7 +31,37 @@ public class AudioManager : MonoBehaviour
         StartBgm(0);
     }
 
-    public void SetBgm(float value)
+    public void SetBgm()
+    {
+        float value;
+        audioMixer.GetFloat("BGM", out value);
+
+        if (value == 0)
+        {
+            audioMixer.SetFloat("BGM", -80);
+        }
+        else
+        {
+            audioMixer.SetFloat("BGM", 0);
+        }
+    }
+
+    public void SetSfx()
+    {
+        float value;
+        audioMixer.GetFloat("SFX", out value);
+
+        if (value == 0)
+        {
+            audioMixer.SetFloat("SFX", -80);
+        }
+        else
+        {
+            audioMixer.SetFloat("SFX", 0);
+        }
+    }
+
+    public void SetVolume(float value)
     {
         _bgmSource.volume = value;
     }
