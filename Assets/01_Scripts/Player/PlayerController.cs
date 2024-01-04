@@ -119,11 +119,14 @@ public class PlayerController : MonoBehaviour
         Movement(9);
         Active = true;
     }
+
+    private bool _isFallOneCall;
     
     private void FallCheck()
     {
-        if(transform.position.y <= _fallCheckDistance)
+        if(transform.position.y <= _fallCheckDistance && !_isFallOneCall)
         {
+            _isFallOneCall = true;
             StageSystem.Instance.GameLose();
         }
     }

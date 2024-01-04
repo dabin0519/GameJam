@@ -18,14 +18,13 @@ public class StageManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(transform);
+            _queue = new Queue<int>();
+            _stageList = new List<int>();
+
+            ListSettUp();
+            Shuffle();
+            EnQueue();
         }
-
-        _queue = new Queue<int>();
-        _stageList = new List<int>();
-
-        ListSettUp();
-        Shuffle();
-        EnQueue();
     }
 
     private void Start()
