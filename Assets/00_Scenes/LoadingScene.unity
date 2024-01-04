@@ -328,8 +328,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _containerTrm: {fileID: 1848510757}
   _tipSO: {fileID: 11400000, guid: c2735257ccfc96d4ead504548d770a63, type: 2}
-  _minLoadingDuration: 6
+  _scaleDuration: 0.5
   _repeatCount: 2
+  _isOneTip: 1
 --- !u!1 &1286530831
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +366,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -246}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1500, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286530833
 MonoBehaviour:
@@ -387,7 +388,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Loading...
+  m_text: "\uD301 \uD14D\uC2A4\uD2B8\uAC00 \uC774\uB7F0\uC2DD\uC73C\uB85C \uB2E8\uB77D\uC744
+    \uB098\uB204\uAC8C \uD558\uB294\uAC83\uC774 \uC88B\uC9C0 \uC544\uB2C8\uD558\uC9C0\uC544\uB2C8\uD558\uC9C0
+    \uC54A\uC744\uAE4C?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40fb9fb1b67b49748b206ddf324d1364, type: 2}
   m_sharedMaterial: {fileID: -9058679147474358169, guid: 40fb9fb1b67b49748b206ddf324d1364, type: 2}
@@ -430,7 +433,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
