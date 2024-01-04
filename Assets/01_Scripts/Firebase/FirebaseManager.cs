@@ -94,23 +94,6 @@ public class FirebaseManager : MonoBehaviour
                 var childrenList = snapshot.Children.ToList();
 
                 OnLeaderboardSetting.Invoke(childrenList);
-/*                for (int i = childrenList.Count - 1; i >= 0; i--)
-                {
-                    string userId = childrenList[i].Key;
-                    int score = int.Parse(childrenList[i].Value.ToString());
-
-                    Debug.Log($"UserID: {userId}, Score: {score}");
-
-                    Transform content = Instantiate(_rankCell, _contentTrm).transform;
-                    if (childrenList.Count - i <= 3)
-                        content.Find("RankingImage").GetComponent<Image>().sprite = _medal[childrenList.Count - i - 1];
-                    else
-                        content.Find("RankingImage").GetComponent<Image>().color = Color.clear;
-                    content.Find("RankingImage/RankingText").GetComponent<TextMeshProUGUI>().text
-                        = (childrenList.Count - i).ToString();
-                    content.Find("UserName").GetComponent<TextMeshProUGUI>().text = userId;
-                    content.Find("Score").GetComponent<TextMeshProUGUI>().text = score.ToString();
-                }*/
 
                 Debug.Log("Leaderboard read successful");
             }
