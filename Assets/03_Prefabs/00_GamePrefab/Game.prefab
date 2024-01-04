@@ -492,7 +492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHP: 1
   _shield: {fileID: 6443864110403893444}
-  _dontDieDuration: 0
+  _dontDieDuration: 0.5
 --- !u!1 &3381640015132387227
 GameObject:
   m_ObjectHideFlags: 0
