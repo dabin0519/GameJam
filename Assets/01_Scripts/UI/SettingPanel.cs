@@ -38,11 +38,11 @@ public class SettingPanel : MonoBehaviour
     {
         if (AudioManager.Instance.BgmSource.volume < 0.5f)
         {
-            AudioManager.Instance.SetBgm(1);
+            AudioManager.Instance.SetVolume(1);
         }
         else
         {
-            AudioManager.Instance.SetBgm(0);
+            AudioManager.Instance.SetVolume(0);
         }
         SetImages();
     }

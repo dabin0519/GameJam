@@ -31,36 +31,6 @@ public class AudioManager : MonoBehaviour
         StartBgm(0);
     }
 
-    public void SetBgm()
-    {
-        float value;
-        audioMixer.GetFloat("BGM", out value);
-
-        if (value == 0)
-        {
-            audioMixer.SetFloat("BGM", -80);
-        }
-        else
-        {
-            audioMixer.SetFloat("BGM", 0);
-        }
-    }
-
-    public void SetSfx()
-    {
-        float value;
-        audioMixer.GetFloat("SFX", out value);
-
-        if (value == 0)
-        {
-            audioMixer.SetFloat("SFX", -80);
-        }
-        else
-        {
-            audioMixer.SetFloat("SFX", 0);
-        }
-    }
-
     public void SetVolume(float value)
     {
         _bgmSource.volume = value;
