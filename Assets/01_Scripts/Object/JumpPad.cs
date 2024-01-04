@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class JumpPad : Carrot
 {
+    [SerializeField] private float _upDuration;
+    [SerializeField] private float _jumpForce;
     private Animator _anim;
 
     protected override void Awake()
@@ -15,7 +17,17 @@ public class JumpPad : Carrot
     }
 
     protected override void CarrotAbility()
-    { 
+    {
+        _player.JumpPad = true;
+        _anim.SetTrigger("Down");
+        StartCoroutine(WaitCoroutine());
+    }
 
+    private IEnumerator WaitCoroutine()
+    {
+        yield return new WaitForSeconds(_upDuration);
+        _anim.SetTrigger("Up");
+        _player.Jump(_jumpForce);
+        _player.JumpPad = false;
     }
 }
