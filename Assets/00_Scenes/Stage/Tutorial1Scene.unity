@@ -678,6 +678,21 @@ MonoBehaviour:
   - "\uB9CC\uC57D \uB098\uB97C \uC704\uD55C \uAE38\uC744 \uB2E4 \uB9CC\uB4E4\uC5C8\uB2E4\uBA74
     \uC2DC\uACC4\uB97C \uD55C\uBC88 \uB354 \uB204\uB974\uBA74 \uBC14\uB85C \uC2DC\uC791\uC774\uB2C8\uAE4C
     \uC78A\uC9C0 \uB9C8!"
+  endEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1609224057}
+        m_TargetAssemblyTypeName: TutorialSceneLoader, Assembly-CSharp
+        m_MethodName: Load
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Tutorial2Scene
+          m_BoolArgument: 0
+        m_CallState: 2
   _uiContainerTrm: {fileID: 1423553031}
   _typingOneWordTime: 0.1
   _textDuration: 1
@@ -1505,6 +1520,50 @@ Transform:
   - {fileID: 1873745134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1609224056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1609224058}
+  - component: {fileID: 1609224057}
+  m_Layer: 0
+  m_Name: TutoSceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1609224057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609224056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ebf3bcb067ad1e4b8701cbac024bc6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1609224058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609224056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.6870823, y: 1.0064493, z: 0.07038258}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1658622732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1853,3 +1912,4 @@ SceneRoots:
   - {fileID: 1410684121}
   - {fileID: 2114569406}
   - {fileID: 1606999142}
+  - {fileID: 1609224058}
