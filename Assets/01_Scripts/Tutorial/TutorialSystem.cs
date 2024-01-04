@@ -1,108 +1,68 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum TutorialType
-{
-    BtnClick,
-    Batch,
-    Normal
-}
-
-[System.Serializable]
-public struct TutorialInfo
-{
-    public string Description;
-    public TutorialType Type;
-    public Transform BtnSpawnTrm;
-    public TutorialButton BtnObj;
-    public Transform BatchTrm;
-    public Carrot BatchObj;
-}
-
 public class TutorialSystem : MonoBehaviour
 {
-    public List<TutorialInfo> tutorialList = new List<TutorialInfo>();
+    public List<string> tutorialList;
 
     [SerializeField] private Transform _uiContainerTrm;
+    [SerializeField] private float _typingOneWordTime;
+    [SerializeField] private float _textDuration;
 
-    private TextMeshProUGUI _description;
-    private TutorialInfo _currentTuto;
+    private TextMeshProUGUI _descriptionTMP;
+    private Image _talkBalloon;
     private int _idx;
+    private string _description;
 
     private void Awake()
     {
-        _description = _uiContainerTrm.Find("Description").GetComponent<TextMeshProUGUI>();
+        _descriptionTMP = _uiContainerTrm.Find("Description").GetComponent<TextMeshProUGUI>();
+        _talkBalloon = _uiContainerTrm.Find("TalkBalloon").GetComponent<Image>();
     }
 
-    private void TutorialLogic()
+    public void StartText()
     {
         ShowDescription();
-        CheckType();
+        _idx = 0;
+        _talkBalloon.enabled = true;
     }
 
     #region TutorialLogic
     private void ShowDescription()
     {
-        _description.text = tutorialList[_idx].Description;
-        _description.enabled = true;
-    }
-
-    private void CheckType()
-    {
-        if(tutorialList[_idx].Type == TutorialType.BtnClick)
-        {
-            // 버튼 클릭해야 넘어가게
-            BtnClickLogic();
-        }
-        else if(tutorialList[_idx].Type == TutorialType.Batch)
-        {
-            // 오브젝트를 배치할 수 있게
-            BatchLogic();
-        }
-        else if(tutorialList [_idx].Type == TutorialType.Normal)
-        {
-            // skip 가능하게
-            NormalLogic();
-        }
+        _description = tutorialList[_idx];
+        StartCoroutine(Typing());
     }
     
     private void NextText()
     {
+        _descriptionTMP.text = "";
 
+        if(_idx < tutorialList.Count)
+        {
+            _idx++;
+            ShowDescription();
+        }
+        else
+        {
+            // end
+            _talkBalloon.enabled = false;
+        }
     }
 
     #endregion
 
-    #region btnLogic
-    private void BtnClickLogic()
+    private IEnumerator Typing()
     {
-        //TutorialButton button = Instantiate(tuto.BtnObj, tuto.BtnSpawnTrm.position, Quaternion.identity);
-        //StartCoroutine(BtnClickWaitCoroutine(button));
-    }
-
-    private IEnumerator BtnClickWaitCoroutine(TutorialButton button)
-    {
-        yield return new WaitUntil(() => button.IsClick = true);
+        for (int i = 0; i < _description.Length; i++)
+        {
+            _descriptionTMP.text += _description[i];
+            yield return new WaitForSeconds(_typingOneWordTime);
+        }
+        yield return new WaitForSeconds(_textDuration);
         NextText();
-    }
-    #endregion
-
-    private void BatchLogic()
-    {
-
-    }
-
-    /*private IEnumerator CheckBatchCoroutine()
-    {
-        //yield return new WaitUntil(() => );
-    }*/
-
-    private void NormalLogic()
-    {
-
     }
 }
