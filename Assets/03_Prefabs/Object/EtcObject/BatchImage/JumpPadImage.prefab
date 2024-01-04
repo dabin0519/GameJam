@@ -16,6 +16,26 @@ PrefabInstance:
       propertyPath: puzzle
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611608481518349709, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009833635329473435, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: puzzle
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5373506063854203024, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_SizeDelta.x
       value: 120
@@ -162,6 +182,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8871581295207750483, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871581295207750483, guid: 39a10b25dfff1944c96fe4e5ad6ac2d7, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
