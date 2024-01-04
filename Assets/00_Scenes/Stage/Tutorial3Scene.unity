@@ -892,7 +892,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 400
+  m_SortingOrder: 150
   m_TargetDisplay: 0
 --- !u!1 &1238965752
 GameObject:
@@ -999,11 +999,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialList:
-  - "\uC798\uD588\uC5B4! \uC774\uC81C\uB294 \uC880 \uB192\uC740 \uACF3\uC744 \uC62C\uB77C\uAC00\uBCFC\uAE4C?"
-  - "\uB3CC\uACFC \uC810\uD504\uB300\uB97C \uC774\uC6A9\uD574\uC11C \uB192\uC740
-    \uACF3\uC744 \uAC00\uBCF4\uC790"
-  - "\uC810\uD504\uB300\uB294 \uB2FF\uC73C\uBA74 \uB192\uC740 \uACF3\uAE4C\uC9C0
-    \uC810\uD504\uB97C \uC2DC\uCF1C\uC904\uAEBC"
+  - "\uC798\uD588\uC5B4! \uC774\uC81C\uB294 \uC880 \uB192\uC740 \uACF3\uC744 \uC62C\uB77C\uAC00\uBCFC\uAE4C? "
+  - "\uB098\uB294 \uC544\uC9C1 \uC5B4\uB9B0\uD1A0\uB07C\uB77C\uC11C \uC544\uC27D\uAC8C\uB3C4
+    \uB192\uAC8C \uC810\uD504\uB97C \uD560 \uC218 \uC5C6\uC5B4..."
+  - "\uC810\uD504\uB300\uB97C \uC774\uC6A9\uD558\uBA74 \uB0B4 \uC810\uD504\uB825\uC744
+    \uBCF4\uC644\uD574 \uC904 \uC218 \uC788\uC5B4"
+  - "\uD760....."
+  - "\uD558\uC9C0\uB9CC \uC0DD\uAC01\uBCF4\uB2E4 \uBCBD\uC774 \uB192\uB124 \uC810\uD504\uB300\uB97C
+    \uB354 \uB192\uAC8C \uC124\uCE58\uD560 \uBC29\uBC95\uC740 \uC5C6\uC744\uAE4C?"
   endEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2244,7 +2247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -49.99994, y: -50.00003}
+  m_AnchoredPosition: {x: -49.99994, y: -150}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2134304326

@@ -497,7 +497,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 400
+  m_SortingOrder: 150
   m_TargetDisplay: 0
 --- !u!1001 &754561306
 PrefabInstance:
@@ -806,12 +806,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialList:
-  - "\uC798\uD588\uC5B4! \uC557 \uADF8\uB7F0\uB370 \uC774\uBC88\uC5D4 \uAE43\uBC1C\uC774
-    \uB4A4\uC5D0\uC788\uB124?"
-  - "\uD30C\uB791\uC0C9 \uB2F9\uADFC\uC740 \uB0B4\uAC00 \uC774\uB3D9\uD558\uB294
-    \uBC18\uB300 \uBC29\uD5A5\uC73C\uB85C \uC6C0\uC9C1\uC77C \uC218 \uC788\uAC8C
-    \uD574\uC918"
-  - "\uD30C\uB791 \uB2F9\uADFC\uC744 \uC774\uC6A9\uD574\uBCF4\uC790!"
+  - "\uC798\uD588\uC5B4! \uC6B0\uB9AC \uBB54\uAC00 \uC88B\uC740 \uD30C\uD2B8\uB108\uAC00
+    \uB420 \uC218 \uC788\uC744 \uAC83 \uAC19\uC740\uB370"
+  - "\uADF8\uB7F0\uB370 \uC774\uBC88\uC5D4 \uAE43\uBC1C\uC774 \uB4A4\uC5D0 \uC788\uB124?"
+  - "\uC5B4\uB978\uB4E4\uD55C\uD14C \uB4E4\uC5C8\uB294\uB370 \uD478\uB978\uB2F9\uADFC\uC744
+    \uBA39\uC73C\uBA74 \uBAB8\uC774 \uBC18\uB300\uB85C \uC6C0\uC9C1\uC778\uB370 \uB418\uAC8C
+    \uC2E0\uAE30\uD558\uC9C0?"
   endEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1540,7 +1540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -49.99994, y: -50.00003}
+  m_AnchoredPosition: {x: -49.99994, y: -150}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1581611097
