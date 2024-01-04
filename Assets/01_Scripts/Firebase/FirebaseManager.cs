@@ -36,7 +36,8 @@ public class FirebaseManager : MonoBehaviour
 
     public void AddScore(string userName, int score)
     {
-        _databaseReference.Child("leaderboard").Child(userName).SetValueAsync(score);
+        if (_databaseReference.Child("leaderboard").Child(userName).GetValueAsync() < score)
+            _databaseReference.Child("leaderboard").Child(userName).SetValueAsync(score);
     }
 
     private void AddUser(string userName)
@@ -57,7 +58,7 @@ public class FirebaseManager : MonoBehaviour
             {
                 DataSnapshot snapshot = task.Result;
 
-                if(userName.Length >= 11 || userName.Length <= 2)
+                if (userName.Length >= 11 || userName.Length <= 2)
                 {
                     Debug.Log("Too long username");
                     OnLongUserName.Invoke();
