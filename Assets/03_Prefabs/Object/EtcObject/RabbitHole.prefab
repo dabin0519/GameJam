@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec78bfa0fa965ea44b2dd6f139f780ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetRabbitHole: {fileID: 0}
+  targetRabbitHole: {fileID: 0}
   _duration: 0.2
   IsIn: 0
 --- !u!61 &6180717164877326395

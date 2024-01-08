@@ -29,7 +29,8 @@ public class ButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        OnClick?.Invoke();
+        if(_button.interactable)
+            OnClick?.Invoke();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

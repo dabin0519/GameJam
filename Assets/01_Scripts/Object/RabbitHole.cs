@@ -9,10 +9,25 @@ public class RabbitHole : Carrot
 
     public bool IsIn;
 
+    private RabbitHole[] _rabbitHoles;
+
     protected override void Awake()
     {
         base.Awake();
         _isNotDestroy = true;
+
+        if(_batchCheck != null)
+        {
+            _rabbitHoles = FindObjectsOfType<RabbitHole>();
+            foreach(var r in _rabbitHoles)
+            {
+                if(this != r)
+                {
+                    targetRabbitHole = r;
+                    r.targetRabbitHole = this;
+                }
+            }
+        }
     }
 
     protected override void CarrotAbility()
