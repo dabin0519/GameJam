@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -919,6 +919,18 @@ MonoBehaviour:
           m_StringArgument: Intro
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 904131389}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Intro
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1112818946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3315543703987947571, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
@@ -987,6 +999,7 @@ MonoBehaviour:
   _typingOneWordTime: 0.1
   _textDuration: 1
   _camera: {fileID: 2114569405}
+  TextLogic: 0
 --- !u!4 &1410684121
 Transform:
   m_ObjectHideFlags: 0

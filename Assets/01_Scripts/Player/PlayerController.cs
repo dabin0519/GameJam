@@ -217,10 +217,11 @@ public class PlayerController : MonoBehaviour
 
     #region publicMethod
 
-    public void Jump(float jumpVelocity)
+    public void Jump(float jumpVelocity, float playerSpeed = -1)
     {
         if(jumpVelocity == _jumpForce && _rigidbody2D.velocity == new Vector2(0, 7))
             return;
+
         _rigidbody2D.velocity = new Vector2(0, jumpVelocity);
         JumpEvent?.Invoke();
     }
