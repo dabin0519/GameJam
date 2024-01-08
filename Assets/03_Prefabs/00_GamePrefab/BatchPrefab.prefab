@@ -204,6 +204,7 @@ MonoBehaviour:
   blackImage: {fileID: 4206884453812164199}
   disActiveObjs:
   - {fileID: 645046188039773928}
+  isGameoverScene: 0
 --- !u!1 &2487100085378382204
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,6 +587,7 @@ MonoBehaviour:
   settingPanel: {fileID: 2367479794480800693}
   timeImage: {fileID: 3812809951130877586}
   maxPlayTime: 10
+  _isTutorial: 0
 --- !u!1 &6457477760196048574
 GameObject:
   m_ObjectHideFlags: 0

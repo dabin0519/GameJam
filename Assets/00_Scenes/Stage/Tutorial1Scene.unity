@@ -1135,6 +1135,10 @@ PrefabInstance:
       propertyPath: puzzleList.Array.data[0].puzzleObj
       value: 
       objectReference: {fileID: 2366238225732124411, guid: 3c866c63c737038459a67b8a7f993ed3, type: 3}
+    - target: {fileID: 8763570916103144669, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1658622734}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

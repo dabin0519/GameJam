@@ -64,6 +64,7 @@ public class StageManager : MonoBehaviour
         }
         else
         {
+            EnQueue();
             SceneManager.LoadScene("GameoverScene");
         }
     }
