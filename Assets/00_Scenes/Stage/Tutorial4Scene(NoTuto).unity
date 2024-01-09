@@ -873,7 +873,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5645052122d7b8847a79ef17d07e63aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tutorialList: []
+  tutorialList:
+  - 
   endEvent:
     m_PersistentCalls:
       m_Calls:
