@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Carrot : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public abstract class Carrot : MonoBehaviour
 
     protected bool _isNotDestroy = false;
     private bool _isOneCall;
+
+    public UnityEvent ItemEvent;
 
     protected virtual void Awake()
     {
@@ -33,6 +36,7 @@ public abstract class Carrot : MonoBehaviour
 
     protected virtual void CarrotAbility()
     {
+        ItemEvent?.Invoke();
         _player.Movement(9);
     }
 
