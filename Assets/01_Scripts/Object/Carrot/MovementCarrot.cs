@@ -8,6 +8,7 @@ public class MovementCarrot : Carrot
 
     protected override void CarrotAbility()
     {
+        ItemEvent?.Invoke();
         _player.Movement(_moveCount);
     }
 }

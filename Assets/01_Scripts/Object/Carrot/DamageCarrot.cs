@@ -8,7 +8,7 @@ public class DamageCarrot : Carrot
 
     protected override void CarrotAbility()
     {
-        Debug.Log("This is carrot abil");
+        ItemEvent?.Invoke();
         _playerHP.Damage();
     }
 
