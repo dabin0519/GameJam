@@ -125,7 +125,7 @@ public class StageSystem : MonoBehaviour
     {
         if(_isTutorial)
         {
-            string currentSceneName = SceneManager.GetActiveScene().name;
+            string currentSceneName = SceneManager.GetActiveScene().name + "(NoTuto)";
             SceneManager.LoadScene(currentSceneName);
         }
         else
