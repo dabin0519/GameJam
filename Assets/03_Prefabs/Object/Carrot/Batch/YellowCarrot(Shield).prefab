@@ -1,5 +1,79 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3800709936559601297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69072951140508058}
+  - component: {fileID: 7926848993369303622}
+  - component: {fileID: 7927955192320827605}
+  - component: {fileID: 7641237526167505791}
+  m_Layer: 0
+  m_Name: Feedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &69072951140508058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800709936559601297}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9081464330775922745}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7926848993369303622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800709936559601297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ad708dca28f2e4d9da1c8abbd9787b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7927955192320827605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800709936559601297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39f89c1c51d06e4f8f9df3bedf19299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnObj: {fileID: 1166824890578842597, guid: 894ed90052c1c64438babf847d718840, type: 3}
+  _duration: 0.4
+--- !u!114 &7641237526167505791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3800709936559601297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39f89c1c51d06e4f8f9df3bedf19299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnObj: {fileID: 3293198494664718486, guid: 0057a431bd030424c84731d9ba068820, type: 3}
+  _duration: 0.4
 --- !u!1 &4416701214577582573
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,7 +107,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 69072951140508058}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1430290344302482274
@@ -172,6 +247,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dc8242feaf0bf74eb3c1c2a1668ee77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7926848993369303622}
+        m_TargetAssemblyTypeName: FeedbackPlayer, Assembly-CSharp
+        m_MethodName: PlayFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3349272287010666454
 MonoBehaviour:
   m_ObjectHideFlags: 0
