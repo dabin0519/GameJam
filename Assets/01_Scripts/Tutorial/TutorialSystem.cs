@@ -60,7 +60,28 @@ public class TutorialSystem : MonoBehaviour
         _talkBalloon.enabled = true;
     }
 
+    private bool _isOneCall;
+
+    public void Skip()
+    {
+        if(!_isOneCall)
+        {
+            _isOneCall = true;
+            StopAllCoroutines();
+            StartCoroutine(SkipCoroutine());
+        }
+    }
+
+    private IEnumerator SkipCoroutine()
+    {
+        _descriptionTMP.text = _description;
+        yield return new WaitForSeconds(_textDuration);
+        _isOneCall = false;
+        NextText();
+    }
+
     #region TutorialLogic
+
     private void ShowDescription()
     {
         _description = tutorialList[_idx];
@@ -87,8 +108,6 @@ public class TutorialSystem : MonoBehaviour
         }
     }
 
-    #endregion
-
     private IEnumerator Typing()
     {
         for (int i = 0; i < _description.Length; i++)
@@ -99,4 +118,6 @@ public class TutorialSystem : MonoBehaviour
         yield return new WaitForSeconds(_textDuration);
         NextText();
     }
+
+    #endregion
 }
