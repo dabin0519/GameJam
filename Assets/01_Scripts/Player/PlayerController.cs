@@ -52,8 +52,6 @@ public class PlayerController : MonoBehaviour
     private CircleCollider2D _circleCollider2D;
 
     private Vector3 _moveDir;
-    private Vector3 _lastPos;
-    private Vector3 _currentPos;
     private Vector2 _slopeNormalPerp;
     private Vector2 _startPos;
     private float _circleColiderRadius;
@@ -90,8 +88,6 @@ public class PlayerController : MonoBehaviour
     { 
         if (Active)
         {
-            _currentPos = transform.position;
-
             SlopeCheck();
             Flip();
             FallCheck();
@@ -182,7 +178,6 @@ public class PlayerController : MonoBehaviour
         if(!IsWallDected())
         {
             transform.position += _moveSpeed * Time.deltaTime * _moveDir; ; // º®¿¡ ¸ØÃß¸é ¹º°¡ÇØÁÖ±â
-            _lastPos = transform.position;
         }
 
         if(Mathf.Abs(_startPos.x - transform.position.x) >= 1f)
