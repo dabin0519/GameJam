@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [Header("--Enrgy Info")]
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _jumpForce;
+    [SerializeField] private float _airMoveSpeed;
 
     [Header("--Slope Info--")]
     [SerializeField] private float _slopeCheckDistance;
@@ -177,7 +178,9 @@ public class PlayerController : MonoBehaviour
     {
         if(!IsWallDected())
         {
-            transform.position += _moveSpeed * Time.deltaTime * _moveDir; ; // º®¿¡ ¸ØÃß¸é ¹º°¡ÇØÁÖ±â
+            float moveSpeed = _isJump ? _airMoveSpeed : _moveSpeed;
+
+            transform.position += moveSpeed * Time.deltaTime * _moveDir; // º®¿¡ ¸ØÃß¸é ¹º°¡ÇØÁÖ±â
         }
 
         if(Mathf.Abs(_startPos.x - transform.position.x) >= 1f)
@@ -212,10 +215,14 @@ public class PlayerController : MonoBehaviour
 
     #region publicMethod
 
-    public void Jump(float jumpVelocity, float playerSpeed = -1)
+    private bool _isJump;
+
+    public void Jump(float jumpVelocity, bool isJump = false)
     {
         if(jumpVelocity == _jumpForce && _rigidbody2D.velocity == new Vector2(0, 7))
             return;
+
+        _isJump = isJump;
 
         _rigidbody2D.velocity = new Vector2(0, jumpVelocity);
         JumpEvent?.Invoke();
@@ -226,20 +233,12 @@ public class PlayerController : MonoBehaviour
         _isDie = true;
         Active = false;
     }
+
     #endregion
 
     #region boolMethod
 
     private bool IsGroundDected() => Physics2D.Raycast(_groundChecker.position, Vector2.down, _groundCheckDistance, _whatIsGround);
-
-    /*private bool IsCanNextTile(Vector2 direction)
-    {
-        Vector3Int cellPos = _groundTile.WorldToCell(transform.position + (Vector3)direction);
-
-        Physics2D.Raycast(transform.position, direction, Vector2.Distance(transform.position, direction));
-
-        return !_groundTile.HasTile(cellPos);
-    }*/
 
     private bool IsWallDected() => Physics2D.Raycast(_wallChecker.position, _moveDir, _wallCheckDistance, _whatIsGround);
 

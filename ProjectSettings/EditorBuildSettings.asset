@@ -33,6 +33,18 @@ EditorBuildSettings:
     path: Assets/00_Scenes/Stage/Tutorial4Scene.unity
     guid: 3f127eded6a60244ab78ea5a58039892
   - enabled: 1
+    path: Assets/00_Scenes/Stage/Tutorial1Scene(NoTuto).unity
+    guid: a5812b35b6bf9664f9db9bae6af1a61f
+  - enabled: 1
+    path: Assets/00_Scenes/Stage/Tutorial2Scene(NoTuto).unity
+    guid: 52877d7e2cc447a44beaddf7ba36c2ec
+  - enabled: 1
+    path: Assets/00_Scenes/Stage/Tutorial3Scene(NoTuto).unity
+    guid: a4eb8377d21f13d40b24627fe85961d3
+  - enabled: 1
+    path: Assets/00_Scenes/Stage/Tutorial4Scene(NoTuto).unity
+    guid: b8526d33f53c0d74abe073c10ffd2353
+  - enabled: 1
     path: Assets/00_Scenes/Stage/Stage1Scene.unity
     guid: 887851b0d3d3ab54eacfc41a5185b0cb
   - enabled: 1
