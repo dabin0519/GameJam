@@ -21,28 +21,28 @@ EditorBuildSettings:
     path: Assets/00_Scenes/GameoverScene.unity
     guid: cf68b2d498db4bf43aaa25a99d42041b
   - enabled: 1
-    path: Assets/00_Scenes/Stage/Tutorial1Scene.unity
+    path: Assets/00_Scenes/Tutorial/Tutorial1Scene.unity
     guid: 7c715ee917acdf8449fe988667e1fcdc
   - enabled: 1
-    path: Assets/00_Scenes/Stage/Tutorial2Scene.unity
+    path: Assets/00_Scenes/Tutorial/Tutorial2Scene.unity
     guid: 2a62e62254efd914496da7585a897558
   - enabled: 1
-    path: Assets/00_Scenes/Stage/Tutorial3Scene.unity
+    path: Assets/00_Scenes/Tutorial/Tutorial3Scene.unity
     guid: afd71890ab739274f8d8cc20a07ed842
   - enabled: 1
-    path: Assets/00_Scenes/Stage/Tutorial4Scene.unity
+    path: Assets/00_Scenes/Tutorial/Tutorial4Scene.unity
     guid: 3f127eded6a60244ab78ea5a58039892
   - enabled: 1
-    path: Assets/00_Scenes/Stage/Tutorial1Scene(NoTuto).unity
+    path: Assets/00_Scenes/Tutorial/Tutorial1Scene(NoTuto).unity
     guid: a5812b35b6bf9664f9db9bae6af1a61f
   - enabled: 1
-    path: Assets/00_Scenes/Stage/Tutorial2Scene(NoTuto).unity
+    path: Assets/00_Scenes/Tutorial/Tutorial2Scene(NoTuto).unity
     guid: 52877d7e2cc447a44beaddf7ba36c2ec
   - enabled: 1
-    path: Assets/00_Scenes/Stage/Tutorial3Scene(NoTuto).unity
+    path: Assets/00_Scenes/Tutorial/Tutorial3Scene(NoTuto).unity
     guid: a4eb8377d21f13d40b24627fe85961d3
   - enabled: 1
-    path: Assets/00_Scenes/Stage/Tutorial4Scene(NoTuto).unity
+    path: Assets/00_Scenes/Tutorial/Tutorial4Scene(NoTuto).unity
     guid: b8526d33f53c0d74abe073c10ffd2353
   - enabled: 1
     path: Assets/00_Scenes/Stage/Stage1Scene.unity

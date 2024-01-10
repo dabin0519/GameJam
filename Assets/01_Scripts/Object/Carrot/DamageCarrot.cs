@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageCarrot : Carrot
 {
-    private bool _isOneCall;
+    private bool _isDamageOneCall;
 
     protected override void CarrotAbility()
     {
@@ -14,10 +14,10 @@ public class DamageCarrot : Carrot
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !_isOneCall)
+        if (collision.gameObject.CompareTag("Player") && !_isDamageOneCall)
         {
             CarrotAbility();
-            _isOneCall = true;
+            _isDamageOneCall = true;
             Destroy(gameObject);
         }
     }

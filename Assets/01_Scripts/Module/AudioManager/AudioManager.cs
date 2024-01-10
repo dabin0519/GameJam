@@ -43,7 +43,6 @@ public class AudioManager : MonoBehaviour
 
     public void StartBgm(int idx)
     {
-        Debug.Log("SNOG");
         _bgmSource.clip = _bgmClips[idx];
         _bgmSource.Play();
     }
