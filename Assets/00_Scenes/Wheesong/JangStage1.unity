@@ -5891,10 +5891,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2367479794480800693, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3215375739740776851, guid: 14a2bb0c20d5dd04a929a49c2599d31f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
