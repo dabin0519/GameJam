@@ -573,7 +573,6 @@ GameObject:
   - component: {fileID: 795956178}
   - component: {fileID: 795956177}
   - component: {fileID: 795956180}
-  - component: {fileID: 795956181}
   m_Layer: 5
   m_Name: TalkBalloon
   m_TagString: Untagged
@@ -592,7 +591,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 851033925}
   m_Father: {fileID: 1423553031}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -681,21 +681,6 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 795956177}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &795956181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 795956175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a185154540df9754b947ddcef521eff6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnClick:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1410684120}
         m_TargetAssemblyTypeName: TutorialSystem, Assembly-CSharp
@@ -736,10 +721,10 @@ RectTransform:
   m_GameObject: {fileID: 851033924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1423553031}
+  m_Father: {fileID: 795956176}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1119,7 +1104,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 795956176}
-  - {fileID: 851033925}
   m_Father: {fileID: 714405799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

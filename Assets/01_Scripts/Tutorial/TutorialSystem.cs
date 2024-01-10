@@ -34,8 +34,8 @@ public class TutorialSystem : MonoBehaviour
             Instance = this;
         }
 
-        _descriptionTMP = _uiContainerTrm.Find("Description").GetComponent<TextMeshProUGUI>();
         _talkBalloon = _uiContainerTrm.Find("TalkBalloon").GetComponent<Image>();
+        _descriptionTMP = _talkBalloon.transform.Find("Description").GetComponent<TextMeshProUGUI>();
     }
 
     private void Start()
