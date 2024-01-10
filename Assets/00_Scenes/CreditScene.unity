@@ -539,6 +539,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4800230754926545930, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4800230754926545930, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
       propertyPath: m_Volume
       value: 0.7
       objectReference: {fileID: 0}
@@ -591,6 +595,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1419937993}
     - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 6f6fe66781b8a5a40b13e20b682d5944, type: 2}
+    - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
       propertyPath: _bgmClips.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -599,9 +607,25 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
+      propertyPath: _bgmClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: dc07850b31371904abbc49349e678b47, type: 3}
+    - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
+      propertyPath: _bgmClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: cb5a80ddc8a93fb40a41965fa0f2f7b9, type: 3}
+    - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
+      propertyPath: _bgmClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: c7c717dcf3bb7e9449d8ce3e6553d664, type: 3}
+    - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
+      propertyPath: _bgmClips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: e864c491aead0474b9ad86d721efbbc3, type: 3}
+    - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
       propertyPath: _bgmClips.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: dd6d72231e694184aa57a855f3228595, type: 3}
+      objectReference: {fileID: 8300000, guid: 0dfed74956a546345b365f0448bb3ac4, type: 3}
     - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
       propertyPath: _sfxClips.Array.data[0]
       value: 
@@ -609,11 +633,11 @@ PrefabInstance:
     - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
       propertyPath: _sfxClips.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: 020486978020e6440a46c1106f2467f3, type: 3}
+      objectReference: {fileID: 8300000, guid: 5dab07f170687ca42be9ff3bf2293f8c, type: 3}
     - target: {fileID: 8336996519777316071, guid: 09837b3f35351c645b8a5226c5ffc174, type: 3}
       propertyPath: _sfxClips.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 5dab07f170687ca42be9ff3bf2293f8c, type: 3}
+      objectReference: {fileID: 8300000, guid: 020486978020e6440a46c1106f2467f3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
