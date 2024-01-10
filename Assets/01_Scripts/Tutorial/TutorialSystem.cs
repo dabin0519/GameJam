@@ -17,8 +17,8 @@ public class TutorialSystem : MonoBehaviour
     [SerializeField] private Transform _uiContainerTrm;
     [SerializeField] private float _typingOneWordTime;
     [SerializeField] private float _textDuration;
-
-    [SerializeField]     private CinemachineVirtualCamera _camera;
+    [SerializeField] private Transform _camera;
+    [SerializeField] private Animator _playerAnimator;
 
     public bool TextLogic;
 
@@ -43,9 +43,7 @@ public class TutorialSystem : MonoBehaviour
         _descriptionTMP.text = "";
         StartText();
         TextLogic = true;
-        blackOutTrm.position = new Vector3(-6.45f, 1.35f, 0);
-        _camera.transform.position = new Vector3(-6.45f, 1.35f, -10);
-        _camera.m_Lens.OrthographicSize = 4f;
+        blackOutTrm.position = new Vector3(_camera.position.x, _camera.position.y);
     }
 
     public void End()
@@ -58,12 +56,14 @@ public class TutorialSystem : MonoBehaviour
         ShowDescription();
         _idx = 0;
         _talkBalloon.enabled = true;
+        _playerAnimator.SetBool("IsFront", true);
     }
 
     private bool _isOneCall;
 
     public void Skip()
     {
+        Debug.Log("???");
         if(!_isOneCall)
         {
             _isOneCall = true;
@@ -74,6 +74,7 @@ public class TutorialSystem : MonoBehaviour
 
     private IEnumerator SkipCoroutine()
     {
+        Debug.Log("skipCor");
         _descriptionTMP.text = _description;
         yield return new WaitForSeconds(_textDuration);
         _isOneCall = false;
@@ -100,6 +101,7 @@ public class TutorialSystem : MonoBehaviour
         else
         {
             // end
+            _playerAnimator.SetBool("IsFront", false);
             TextLogic = false;
             _talkBalloon.enabled = false;
             _camera.gameObject.SetActive(false);

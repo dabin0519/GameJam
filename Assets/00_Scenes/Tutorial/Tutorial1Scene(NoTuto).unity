@@ -986,7 +986,8 @@ MonoBehaviour:
   _uiContainerTrm: {fileID: 1423553031}
   _typingOneWordTime: 0.1
   _textDuration: 1
-  _camera: {fileID: 2114569405}
+  _camera: {fileID: 2114569406}
+  _playerAnimator: {fileID: 1658622735}
   TextLogic: 0
 --- !u!4 &1410684121
 Transform:
@@ -1880,7 +1881,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2235426083653651690, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: orthographic size
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3223161436457539680, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: _groundTile
@@ -1956,11 +1957,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6700484483785001911, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.45
       objectReference: {fileID: 0}
     - target: {fileID: 6700484483785001911, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 6700484483785001911, guid: c42081854649f0b40807c10327593643, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2005,6 +2006,11 @@ Transform:
 --- !u!20 &1658622734 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2235426083653651690, guid: c42081854649f0b40807c10327593643, type: 3}
+  m_PrefabInstance: {fileID: 1658622732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1658622735 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 716840280903994266, guid: c42081854649f0b40807c10327593643, type: 3}
   m_PrefabInstance: {fileID: 1658622732}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1743849548 stripped
@@ -2180,7 +2186,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -2206,7 +2212,7 @@ Transform:
   m_GameObject: {fileID: 2114569404}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -6.45, y: 1.35, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
